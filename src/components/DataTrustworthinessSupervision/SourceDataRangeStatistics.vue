@@ -465,7 +465,7 @@
                 <div class="containerDiv">
                     <div class="handle-box" style="padding-right: 2.5%">
                         <label style="margin-right: 5px;margin-left: 5px" class="fr">
-                            <el-button type="primary" @click="doSearch" icon="el-icon-search" style="background-color: #05A696">查询</el-button>
+                            <el-button type="primary" @click="getList" icon="el-icon-search" style="background-color: #05A696">查询</el-button>
                         </label>
                         <label style="margin-right: 5px;margin-left: 5px" class="fr">
                             <el-select
@@ -528,9 +528,9 @@
                     </div>
                     <div class="handle-table">
                         <el-table class="tb-edit"
-                                  :data="tables"
-                                  :header-cell-style="{background:'#f0f0f0'}"
-                                  :cell-style="{fontSize:'12px'}"
+                                  :data="tableData"
+                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
+                                  :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                                   border
                                   :height="this.tableHeight"
                                   id="rebateSetTable"
@@ -593,8 +593,6 @@
                 tableData: [],
                 cols:[],
 
-                select_word: '',
-                examineTime: [],
                 type: "",
                 typeOptions: typeOptions,
 
@@ -625,35 +623,17 @@
 
             //查询
             getList() {
-                /*    this.openFullScreen();*/
                 let that = this;
-                let startTime, endTime;
-                if (this.examineTime === null) {
-                    startTime = 0;
-                    endTime = 0;
-
-                } else if (this.examineTime.length > 0) {
-
-                    startTime = this.examineTime[0];
-                    endTime = this.examineTime[1];
-                } else {
-                    startTime = 0;
-                    endTime = 0;
-                }
-
                 const getListData = async () => {
                     const result = await industryCarbonReport({
-                        "startTime":  startTime,
-                        "endTime": endTime,
+                        "startTime": 0,
+                        "endTime":0,
                         "type": this.type
                     })
                     that.cols = result.data.data.cols;
                     that.tableData = result.data.data.data;
                 }
                 getListData();
-                /*   setTimeout(()=>{
-                       this.closeFullScreen();
-                   },1000)*/
 
             },
 
