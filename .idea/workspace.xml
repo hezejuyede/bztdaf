@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics.vue" afterDir="false" />
     </list>
@@ -23,10 +26,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img/dw" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,7 +46,7 @@
       <updated>1660092345250</updated>
       <workItem from="1660092348600" duration="37000" />
       <workItem from="1660115574949" duration="859000" />
-      <workItem from="1660116489970" duration="630000" />
+      <workItem from="1660116489970" duration="4114000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -61,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660115897707</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="15点41分">
+      <created>1660117287170</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660117287170</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,6 +84,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="11" />
-    <option name="LAST_COMMIT_MESSAGE" value="11" />
+    <MESSAGE value="15点41分" />
+    <option name="LAST_COMMIT_MESSAGE" value="15点41分" />
   </component>
 </project>

@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="templateDivTopTBottom">
-                    <div id="chart_map" style="width:100%;height:400px;"></div>
+                    <div id="chart_map" style="width:100%;height:450px;"></div>
                 </div>
             </div>
             <div class="templateDivTopT">
@@ -104,7 +104,316 @@
 
                 </div>
                 <div class="templateDivTopTList">
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
 
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="ListT">
+                        <div class="ListTL">
+                            <div class="ListTLIcon">
+                                <img src="../../assets/img/dw/1.png" alt="">
+                            </div>
+                            <div class="ListTLText" style="margin-left: 5px">
+                                市中街道
+                            </div>
+
+                        </div>
+                        <div class="ListTR">
+                            <div class="ListTR1">
+                                <div class="ListTR1T" >
+                                    <el-skeleton-item variant="text" style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"  />
+                                    <el-skeleton-item variant="text" style="width: 27.5%;background-color: #EBE27C;float: left" />
+                                </div>
+
+                            </div>
+                            <div class="ListTR2">
+                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
+                                    200
+                                </div>
+                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
+                                    20
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <div class="templateDivTopT">
@@ -346,7 +655,7 @@
 
 
         .templateDivTop{
-            height: 500px;
+            height: 550px;
             width: 98%;
             margin: 0 auto;
             background-color: #EDF4F4;
@@ -354,6 +663,7 @@
             align-items: center;
             justify-content: center;
             .templateDivTopT{
+                margin-top:20px;
                 flex: 1;
                 height: 100%;
                 margin-right: 10px;
@@ -494,6 +804,41 @@
                     font-weight: bold;
 
                 }
+            }
+        }
+
+        .ListT{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            margin-bottom: 10px;
+            .ListTL{
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .ListTR{
+             flex: 2;
+                .ListTR1{
+                    height:20px ;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .ListTR1T{
+                        width: 90%;
+                    }
+
+
+                }
+                .ListTR2{
+                    height:20px ;
+                    width: 90%;
+                    margin: 0 auto;
+
+                }
+
             }
         }
 
