@@ -1,6 +1,6 @@
 <template>
     <div class="templateDiv">
-        <div class="templateDivTop">
+        <div class="templateDivTop clearfix">
             <div class="templateDivTopT">
                 <div class="templateDivTopTTop">
                     <div class="templateDivTopTTopL fl">
@@ -452,7 +452,111 @@
 
 
         </div>
-        <div class="templateDivBottom">
+        <div class="templateDivBottom clearfix">
+            <div class="crumbs">
+                <div class="crumbsLeft fl">
+                   详情
+                </div>
+                <div class="crumbsRight fr">
+                更多
+                </div>
+            </div>
+            <div class="container">
+                <div class="containerDiv">
+                    <div class="handle-box" style="padding-right: 2.5%">
+                        <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                            <el-button type="primary" @click="doSearch" icon="el-icon-search" style="background-color: #05A696">查询</el-button>
+                        </label>
+                        <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                            <el-select
+                                style="width:250px"
+                                v-model="type"
+                                clearable
+                                filterable
+                                allow-create
+                                multiple
+                                collapse-tags
+                                default-first-option
+                                placeholder="请选择地区">
+                                <el-option
+                                    v-for="item in typeOptions"
+                                    :key="item.id"
+                                    :label="item.name"
+                                    :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </label>
+                        <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                            <el-select
+                                style="width:250px"
+                                v-model="type"
+                                clearable
+                                filterable
+                                allow-create
+                                multiple
+                                collapse-tags
+                                default-first-option
+                                placeholder="请选择街道">
+                                <el-option
+                                    v-for="item in typeOptions"
+                                    :key="item.id"
+                                    :label="item.name"
+                                    :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </label>
+                        <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                            <el-select
+                                style="width:250px"
+                                v-model="type"
+                                clearable
+                                filterable
+                                allow-create
+                                multiple
+                                collapse-tags
+                                default-first-option
+                                placeholder="请选择社区">
+                                <el-option
+                                    v-for="item in typeOptions"
+                                    :key="item.id"
+                                    :label="item.name"
+                                    :value="item.id">
+                                </el-option>
+                            </el-select>
+                        </label>
+
+                    </div>
+                    <div class="handle-table">
+                        <el-table class="tb-edit"
+                                  :data="tables"
+                                  :header-cell-style="{background:'#f0f0f0'}"
+                                  :cell-style="{fontSize:'12px'}"
+                                  border
+                                  :height="this.tableHeight"
+                                  id="rebateSetTable"
+                                  ref="moviesTable"
+                                  highlight-current-row
+                                  :row-class-name="tableRowClassName"
+                                  style="width: 98%;margin: auto">
+                            <template v-for="(col ,index) in cols" >
+                                <el-table-column  align="center"  v-if="col.prop==='industry'" :label="col.label" :prop="col.prop">
+                                    <template slot-scope="scope">
+                                        <span v-if="scope.row.industry==='01'">电力</span>
+                                        <span v-if="scope.row.industry==='02'">钢铁</span>
+                                        <span v-if="scope.row.industry==='03'">交通</span>
+                                        <span v-if="scope.row.industry==='04'">建筑</span>
+                                        <span v-if="scope.row.industry==='05'">建材</span>
+                                        <span v-if="scope.row.industry==='06'">化工</span>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column  align="center"  v-if="col.prop!=='industry'" :label="col.label" :prop="col.prop"  >
+                                </el-table-column>
+                            </template>
+                        </el-table>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
@@ -462,15 +566,7 @@
 <script type="text/ecmascript-6">
     import shadinLayer from '../../common/shadinLayer'
     import {regionOptions,typeOptions} from "../../utils/options";
-    import {industryCarbonReport,
-        enterpriseOverDischargeWarning,
-        industryCarbonBar,
-        industryCarbonLine,
-        regionalCarbonLine,
-        regionalCarbonBar,
-        enterprisePie,
-        regionalCarbonReport,
-    } from "../../api/dataManagement";
+    import {industryCarbonReport} from "../../api/dataManagement";
 
 
     import FileSaver from 'file-saver'
@@ -491,7 +587,16 @@
                     {"name": "惠民县", "value": "39.9"},
                     {"name": "博兴县", "value": "19.9"},
                     {"name": "邹平市", "value": "29.9"},
-                ]
+                ],
+
+
+                tableData: [],
+                cols:[],
+
+                select_word: '',
+                examineTime: [],
+                type: "",
+                typeOptions: typeOptions,
 
 
             }
@@ -513,8 +618,52 @@
 
             //查詢
             doSearch() {
-                this.shandongMap()
+                this.setTableHeight();
+                this.shandongMap();
+                this.getList();
             },
+
+            //查询
+            getList() {
+                /*    this.openFullScreen();*/
+                let that = this;
+                let startTime, endTime;
+                if (this.examineTime === null) {
+                    startTime = 0;
+                    endTime = 0;
+
+                } else if (this.examineTime.length > 0) {
+
+                    startTime = this.examineTime[0];
+                    endTime = this.examineTime[1];
+                } else {
+                    startTime = 0;
+                    endTime = 0;
+                }
+
+                const getListData = async () => {
+                    const result = await industryCarbonReport({
+                        "startTime":  startTime,
+                        "endTime": endTime,
+                        "type": this.type
+                    })
+                    that.cols = result.data.data.cols;
+                    that.tableData = result.data.data.data;
+                }
+                getListData();
+                /*   setTimeout(()=>{
+                       this.closeFullScreen();
+                   },1000)*/
+
+            },
+
+            //重置
+            doReset(){
+                this.examineTime=[];
+                this.type="";
+            },
+
+
 
             //导出打印
             importPrinting() {
@@ -549,6 +698,26 @@
                     if (typeof console !== 'undefined')
                         console.log(e, wbout3)
                 }
+            },
+
+
+            //根据屏幕设置Table高度
+            setTableHeight() {
+                if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                    var H = window.screen.height;
+                    this.tableHeight = H - 280 + "px";
+                } else {
+                    var h = document.body.clientHeight;
+                    var w = document.body.clientWidth;
+
+                    if (w < 1170) {
+                        this.tableHeight = h - 400 + "px";
+                    } else {
+
+                        this.tableHeight = h - 280 + "px";
+                    }
+                }
+
             },
 
 
@@ -701,146 +870,223 @@
                 }
 
             }
-        }
 
-        .regionTitle {
-            height: 80px;
+            .regionTitle {
+                height: 80px;
 
-            .regionTitleTB {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .regionTitleT {
-                width: 50%;
-                height: 100%;
-            }
-        }
-
-        .regionContent {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 300px;
-            position: relative;
-
-            .templateDivTopTTopLImgText {
-                position: absolute;
-                top: 80px;
-                left: 130px;
-                font-size: 42px;
-                color: #35C4AE;
-                z-index: 9999;
-            }
-        }
-
-        .regionNumber {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .regionNumberText {
-                width: 100px;
-                height: 40px;
-                color: #17928D;
-                font-size: 16px;
-                font-weight: bold;
-                border: 2px solid #61d2f7;
-                border-bottom-color: #39A29E;
-                border-top-color: #E0F0F0;
-                border-left: none;
-                border-right: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
-        .templateDivTopTCommunity1 {
-            width: 100%;
-            height: 100px;
-            border-color: #61d2f7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .templateDivTopTCommunity2 {
-            width: 100%;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center
-
-        }
-
-        .templateDivTopTCommunity3 {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
-            border-color: #0000ff;
-            position: relative;
-            .Community3Div{
-                width: 150px;
-                height: 100px;
-                position: absolute;
-                top:20%;
-                left:27%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                div:first-child{
-                    font-size: 20px;
-                    color: #3FA5A1;
-                }
-                div:last-child{
-                    font-size: 32px;
-                    color: #2C3E50;
-                    margin-top: 5px;
-                    font-weight: bold;
-
-                }
-            }
-        }
-
-        .ListT{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 40px;
-            margin-bottom: 10px;
-            .ListTL{
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .ListTR{
-             flex: 2;
-                .ListTR1{
-                    height:20px ;
+                .regionTitleTB {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    .ListTR1T{
-                        width: 90%;
-                    }
-
-
                 }
-                .ListTR2{
-                    height:20px ;
-                    width: 90%;
-                    margin: 0 auto;
 
+                .regionTitleT {
+                    width: 50%;
+                    height: 100%;
                 }
+            }
+
+            .regionContent {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 300px;
+                position: relative;
+
+                .templateDivTopTTopLImgText {
+                    position: absolute;
+                    top: 80px;
+                    left: 130px;
+                    font-size: 42px;
+                    color: #35C4AE;
+                    z-index: 9999;
+                }
+            }
+
+            .regionNumber {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .regionNumberText {
+                    width: 100px;
+                    height: 40px;
+                    color: #17928D;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border: 2px solid #61d2f7;
+                    border-bottom-color: #39A29E;
+                    border-top-color: #E0F0F0;
+                    border-left: none;
+                    border-right: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .templateDivTopTCommunity1 {
+                width: 100%;
+                height: 100px;
+                border-color: #61d2f7;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .templateDivTopTCommunity2 {
+                width: 100%;
+                height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center
 
             }
+
+            .templateDivTopTCommunity3 {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 200px;
+                border-color: #0000ff;
+                position: relative;
+                .Community3Div{
+                    width: 150px;
+                    height: 100px;
+                    position: absolute;
+                    top:20%;
+                    left:27%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    div:first-child{
+                        font-size: 20px;
+                        color: #3FA5A1;
+                    }
+                    div:last-child{
+                        font-size: 32px;
+                        color: #2C3E50;
+                        margin-top: 5px;
+                        font-weight: bold;
+
+                    }
+                }
+            }
+
+            .ListT{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                margin-bottom: 10px;
+                .ListTL{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .ListTR{
+                    flex: 2;
+                    .ListTR1{
+                        height:20px ;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .ListTR1T{
+                            width: 90%;
+                        }
+
+
+                    }
+                    .ListTR2{
+                        height:20px ;
+                        width: 90%;
+                        margin: 0 auto;
+
+                    }
+
+                }
+            }
         }
+
+        .templateDivBottom{
+
+            .crumbs {
+                width: 98%;
+                height: 80px;
+                line-height: 80px;
+                background-color: #FFFFFF;
+                margin: 20px  auto 0 auto;
+                padding-left: 20px;
+                padding-right: 20px;
+                .crumbsLeft {
+                   display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .crumbsRight {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                background-color: @color-F0;
+
+                .containerDiv {
+                    width: 98%;
+                    margin: 0 auto;
+                    border-radius: 10px;
+                    background-color: @color-white;
+                    overflow: auto;
+
+                    .handle-box {
+                        width: 100%;
+                        height: 80px;
+                        line-height: 80px;
+                        padding-left: 20px;
+
+                        .el-button {
+                            width: 110px;
+                            height: 35px;
+                        }
+                    }
+
+                    .handle-title {
+                        width: 100%;
+                        height: 50px;
+                        background-color: rgba(230, 242, 254, 1);
+                        line-height: 50px;
+                        padding-left: 50px;
+
+                        div {
+                            margin-right: 40px;
+                            font-size: @font-size-small;
+                        }
+
+                        div:first-child {
+                            margin-right: 10px;
+                        }
+
+                        .icon-dengpaolightbulb3 {
+                            font-size: 150%;
+                            color: @color-bg-red;
+                        }
+                    }
+
+                    .handle-table {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
 
 
     }
