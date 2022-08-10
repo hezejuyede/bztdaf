@@ -120,20 +120,21 @@
                 </div>
                 <div class="templateDivTopTCommunity">
                     <div class="templateDivTopTCommunity1">
-                        <div
-                            style="width: 80px;height: 80px;border-radius: 50%;border:1px solid ;border-color: #e6a23c;display: flex;align-items: center;justify-content: center">
-                            <div
-                                style="width: 70px;height:70px;border-radius: 50%;border-color: darkblue;display: flex;align-items: center;justify-content: center">
+                        <div style="width: 100px;height: 100px;border-radius: 50%;border:5px solid ;border-color:#3ED0B7;display: flex;align-items: center;justify-content: center">
+                            <div style="width: 80px;height:80px;border-radius: 50%;border:2px solid;border-color: #52B7AF;display: flex;align-items: center;justify-content: center">
                                 郭集
                             </div>
                         </div>
+
                     </div>
                     <div class="templateDivTopTCommunity2">
+                        <div style="height: 100px;width: 2px;background-color: #1A938E"></div>
 
                     </div>
                     <div class="templateDivTopTCommunity3">
-                        <div class="">
-
+                        <div class="Community3Div">
+                            <div class="">终端设备数量</div>
+                            <div class="">3</div>
                         </div>
                         <img src="../../assets/img/dw/di.png" alt="" class="">
                     </div>
@@ -457,8 +458,11 @@
 
         .templateDivTopTCommunity2 {
             width: 100%;
-            height: 100px;
-            border-color: #5daf34;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+
         }
 
         .templateDivTopTCommunity3 {
@@ -468,6 +472,29 @@
             justify-content: center;
             height: 200px;
             border-color: #0000ff;
+            position: relative;
+            .Community3Div{
+                width: 150px;
+                height: 100px;
+                position: absolute;
+                top:20%;
+                left:27%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                div:first-child{
+                    font-size: 20px;
+                    color: #3FA5A1;
+                }
+                div:last-child{
+                    font-size: 32px;
+                    color: #2C3E50;
+                    margin-top: 5px;
+                    font-weight: bold;
+
+                }
+            }
         }
 
 
