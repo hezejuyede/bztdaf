@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#324157"
+        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#20313B"
                  text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
@@ -68,10 +68,29 @@
                         ]
                     },
                     {
-                        icon: 'iconfont el-icon-s-platform',
-                        index: '/LargeDataScreen',
-                        title: '数据大屏'
+                        icon: 'iconfont el-icon-s-marketing',
+                        index: '4',
+                        title: '数据可信监控',
+                        subs: [
+                            {
+                                index: 'SourceDataRangeStatistics',
+                                title: '源数据范围统计'
+                            },
+                          {
+                            index: '',
+                            title: '数据可信监管'
+                          },
+                          {
+                            index: '',
+                            title: '数据可信验证'
+                          }
+                        ]
                     },
+                  {
+                    icon: 'iconfont el-icon-s-platform',
+                    index: '/LargeDataScreen',
+                    title: '数据大屏'
+                  },
                 ]
             }
         },
