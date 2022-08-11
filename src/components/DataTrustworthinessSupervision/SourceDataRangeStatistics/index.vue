@@ -38,6 +38,7 @@
                             filterable
                             allow-create
                             default-first-option
+                            @changeSelect="changeSelect"
                             placeholder="请选择区域">
                             <el-option
                                 v-for="item in regionOptions"
@@ -59,7 +60,7 @@
                             </div>
                             <div class="regionTitleTB">
                                 <span
-                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">36</span>
+                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{selectData.area}}</span>
                                 <img src="../../../assets/img/dw/sheng.png" alt="">
                             </div>
 
@@ -73,20 +74,20 @@
                             </div>
                             <div class="regionTitleTB">
                                 <span
-                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">874</span>
+                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{selectData.range}}</span>
                                 <img src="../../../assets/img/dw/jiang.png" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="regionContent">
                         <div class="templateDivTopTTopLImgText">
-                            52%
+                            {{selectData.percentage}}%
                         </div>
                         <img src="../../../assets/img/dw/tj-yuan.png" alt="">
                     </div>
                     <div class="regionNumber">
                         <div class="regionNumberText">
-                            滨城区
+                            {{selectData.region}}
                         </div>
 
                     </div>
@@ -479,7 +480,7 @@
                     <div class="templateDivTopTCommunity3">
                         <div class="Community3Div">
                             <div class="">终端设备数量</div>
-                            <div class="">3</div>
+                            <div class="">{{selectData.number}}</div>
                         </div>
                         <img src="../../../assets/img/dw/di.png" alt="" class="">
                     </div>
@@ -508,16 +509,16 @@
                         <label style="margin-right: 5px;margin-left: 5px" class="fr">
                             <el-select
                                 style="width:250px"
-                                v-model="type"
+                                v-model="community"
                                 clearable
                                 filterable
                                 allow-create
                                 multiple
                                 collapse-tags
                                 default-first-option
-                                placeholder="请选择街道">
+                                placeholder="请选择社区">
                                 <el-option
-                                    v-for="item in typeOptions"
+                                    v-for="item in communityOptions"
                                     :key="item.id"
                                     :label="item.name"
                                     :value="item.id">
@@ -527,7 +528,7 @@
                         <label style="margin-right: 5px;margin-left: 5px" class="fr">
                             <el-select
                                 style="width:250px"
-                                v-model="type"
+                                v-model="street"
                                 clearable
                                 filterable
                                 allow-create
@@ -536,7 +537,7 @@
                                 default-first-option
                                 placeholder="请选择街道">
                                 <el-option
-                                    v-for="item in typeOptions"
+                                    v-for="item in streetOptions"
                                     :key="item.id"
                                     :label="item.name"
                                     :value="item.id">
@@ -546,7 +547,7 @@
                         <label style="margin-right: 5px;margin-left: 5px" class="fr">
                             <el-select
                                 style="width:250px"
-                                v-model="type"
+                                v-model="regionS"
                                 clearable
                                 filterable
                                 allow-create
@@ -555,7 +556,7 @@
                                 default-first-option
                                 placeholder="请选择地区">
                                 <el-option
-                                    v-for="item in typeOptions"
+                                    v-for="item in regionOptions"
                                     :key="item.id"
                                     :label="item.name"
                                     :value="item.id">
@@ -613,8 +614,8 @@ import abnormalIndicators from './components/abnormalIndicators'
 import terminalEquipmentManufacturer from './components/terminalEquipmentManufacturer'
 import terminalEquipmentType from './components/terminalEquipmentType'
 
-import {regionOptions, typeOptions} from "../../../utils/options";
-import {industryCarbonReport} from "../../../api/dataManagement";
+import {regionOptions, streetOptions,communityOptions} from "../../../utils/options";
+import { RegionalData,DetailsList,RegionSelectionData} from "../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
 
 
 import FileSaver from 'file-saver'
@@ -625,7 +626,7 @@ export default {
     data() {
         return {
             radio1: "区域",
-            region: "01",
+            region: "1",
             regionOptions: regionOptions,
             countyOptions: [
                 {"name": "无棣县", "value": "88"},
@@ -638,8 +639,15 @@ export default {
             ],
             tableData: [],
             cols: [],
-            type: "",
-            typeOptions: typeOptions,
+
+            selectData:{},
+
+            street:"",
+            streetOptions: streetOptions,
+            community:"",
+            communityOptions: communityOptions,
+            regionS:"",
+
             equipmentVisible: false,
             abnormalIndicators:false,
             terminalEquipmentManufacturer:false,
@@ -662,26 +670,13 @@ export default {
 
         //查詢
         doSearch() {
-            this.setTableHeight();
-            this.shandongMap();
+            this.getRegion();
+            this.getSelectData();
             this.getList();
-        },
-
-        //查询
-        getList() {
-            let that = this;
-            const getListData = async () => {
-                const result = await industryCarbonReport({
-                    "startTime": 0,
-                    "endTime": 0,
-                    "type": this.type
-                })
-                that.cols = result.data.data.cols;
-                that.tableData = result.data.data.data;
-            }
-            getListData();
 
         },
+
+
 
         //重置
         doReset() {
@@ -858,6 +853,127 @@ export default {
             } else if (type === 'terminalEquipmentType') {
                 this.terminalEquipmentType = false;
             }
+        },
+
+        //滨州区域数据
+        getRegion(){
+            const getListData = async () => {
+                const result = await RegionalData({})
+                var data = result.data.data.data;
+                var myChart = this.$echarts.init(document.getElementById('chart_map'));
+                myChart.setOption({
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}',
+                        itemSize: '14px'
+                    },
+                    dataRange: {
+                        x: 'left',
+                        y: 'center',
+                        top: '100',
+                        splitList: [
+                            {start: 81, end: 100, label: '', color: '#329F9A'},
+                            {start: 71, end: 80, label: '', color: '#66B7B4'},
+                            {start: 51, end: 70, label: '', color: '#83C5C2'},
+                            {start: 41, end: 50, label: '', color: '#B4DCDA'},
+                            {start: 31, end: 40, label: '', color: '#9CD1CF'},
+                            {start: 21, end: 30, label: '', color: '#C6E4E3'},
+                            {start: 0, end: 20, label: '', color: '#DFF0EF'},
+                        ],
+                        textStyle: {
+                            color: '#3899FF' // 值域文字颜色
+                        },
+                        show: false,
+                        selectedMode: false,
+                        color: ['#E0022B', '#E09107', '#A3E00B']
+                    },
+                    series: [
+                        {
+                            name: '县域乡村振兴全景展示',
+                            type: 'map',
+                            map: '山东',
+                            mapType: '山东',
+                            mapLocation: {
+                                x: 'left'
+                            },
+                            zoom: 1.2,
+                            roam: true,
+                            show: true,
+                            itemStyle: {
+                                normal: {
+                                    borderColor: "#fff",
+                                    type: 'dashed',
+                                    borderWidth: 1,
+                                    label: {show: true}
+                                },
+                                emphasis: {
+                                    areaColor: '#389BB7',
+                                    borderWidth: 0
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    textStyle: {color: "#FFFFFF", fontSize: 10,}
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                            },
+                            showEffectOn: 'render',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            data: data
+                        }],
+                });
+
+                window.addEventListener("resize", function () {
+                    myChart.resize();
+                });
+            }
+            getListData();
+        },
+
+
+        changeSelect(){
+            this.getSelectData();
+
+        },
+
+        //区域选择数据
+        getSelectData(){
+            let that = this;
+            const getListData = async () => {
+                const result = await RegionSelectionData({
+                    "region": this.region
+                })
+                that.selectData =result.data.data.data;
+            }
+            getListData();
+        },
+
+
+        //详情列表
+        getList(){
+           /* let that = this;
+            const getListData = async () => {
+                const result = await DetailsList({
+                    "regionS": this.regionS,
+                    "street": this.street,
+                    "community": this.community
+                })
+                that.cols = result.data.data.cols;
+                that.tableData = result.data.data.data;
+            }
+            getListData();*/
         }
 
 
