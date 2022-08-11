@@ -128,7 +128,7 @@ export default {
         doSearch() {
             setTimeout(() => {
                 this.setRegionLine();
-            }, 1000)
+            }, 3000)
 
             this.getList();
         },

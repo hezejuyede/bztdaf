@@ -587,12 +587,19 @@
 
         </div>
         <equipment :equipmentVisible="equipmentVisible"></equipment>
+        <abnormalIndicators :abnormalIndicators="abnormalIndicators"></abnormalIndicators>
+        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer"></terminalEquipmentManufacturer>
+        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType"></terminalEquipmentType>
         <shadinLayer></shadinLayer>
     </div>
 </template>
 <script type="text/ecmascript-6">
 import shadinLayer from '../../../common/shadinLayer'
 import equipment from './components/equipment'
+import abnormalIndicators from './components/abnormalIndicators'
+import terminalEquipmentManufacturer from './components/terminalEquipmentManufacturer'
+import terminalEquipmentType from './components/terminalEquipmentType'
+
 import {regionOptions, typeOptions} from "../../../utils/options";
 import {industryCarbonReport} from "../../../api/dataManagement";
 
@@ -621,11 +628,14 @@ export default {
             type: "",
             typeOptions: typeOptions,
             equipmentVisible: false,
+            abnormalIndicators:false,
+            terminalEquipmentManufacturer:false,
+            terminalEquipmentType:false
         }
     },
 
 
-    components: {shadinLayer, equipment},
+    components: {shadinLayer, equipment,abnormalIndicators,terminalEquipmentManufacturer,terminalEquipmentType},
 
     mounted() {
         this.doSearch();
@@ -813,7 +823,6 @@ export default {
 
         //选择类型
         changeRadio(type) {
-            console.log(type)
             if (type === '设备') {
                 this.equipmentVisible = true;
             }
