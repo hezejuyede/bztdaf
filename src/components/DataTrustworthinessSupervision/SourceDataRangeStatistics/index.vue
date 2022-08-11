@@ -104,6 +104,19 @@
                     <div class="templateDivTopTTopR fl"></div>
 
                 </div>
+                <div class="templateDivTopTitle">
+                    <div class="templateDivTopTitleL"></div>
+                    <div class="templateDivTopTitleR">
+                        <div class="fl" style="color: #B1B3B3;font-size: 14px;margin-left: 10px">
+                            区域(个)
+                        </div>
+                        <div class="fr" style="color: #B1B3B3;font-size: 14px;margin-right: 10px">
+                            设备(台)
+                        </div>
+
+                    </div>
+
+                </div>
                 <div class="templateDivTopTList">
                     <div class="ListT">
                         <div class="ListTL">
@@ -1008,7 +1021,7 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 40px;
+            height: 35px;
             margin-bottom: 10px;
 
             .ListTL {
@@ -1041,6 +1054,20 @@ export default {
 
                 }
 
+            }
+        }
+
+        .templateDivTopTitle{
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .templateDivTopTitleL{
+                flex: 1;
+
+            }
+            .templateDivTopTitleR{
+                flex: 2;
             }
         }
     }
