@@ -20,7 +20,7 @@ import LargeDataScreen from '../components/LargeDataScreen/index'
 
 
 //源数据范围统计
-import SourceDataRangeStatistics from '../components/DataTrustworthinessSupervision/SourceDataRangeStatistics'
+import SourceDataRangeStatistics from '../components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index'
 
 Vue.use(Router);
 
