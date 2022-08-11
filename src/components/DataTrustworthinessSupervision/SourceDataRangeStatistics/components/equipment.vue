@@ -1,6 +1,6 @@
 <template>
     <el-dialog :visible.sync="equipmentVisible" width=60% :center="true" :close-on-click-modal="false"
-               :show-close="true">
+               :show-close="true" :close-on-press-escape="false" @close="closeVisible">
         <div class="equipment">
             <div class="equipmentL fl">
                 <el-table class="tb-edit" :data="tables"
@@ -234,6 +234,11 @@ export default {
                 ]
             });
 
+        },
+
+        //关闭对话框
+        closeVisible(){
+            this.$emit('closeVisible','equipmentVisible')
         },
 
 

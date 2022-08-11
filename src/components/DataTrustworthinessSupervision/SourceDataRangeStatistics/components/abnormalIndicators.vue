@@ -1,6 +1,6 @@
 <template>
     <el-dialog title="异常指标" :visible.sync="abnormalIndicators" width=60% :close-on-click-modal="false"
-               :show-close="true">
+               :show-close="true"  :close-on-press-escape="false" @close="closeVisible">
         <div class="visibleDiv">
             <div class="visibleDivSelect">
                 <label style="margin-right: 50px;margin-left: 5px" class="fr">
@@ -85,6 +85,12 @@ export default {
                    that.tableData = result.data.data.data;
                }
                getListData();*/
+
+        },
+
+
+        //关闭对话框
+        closeVisible(){
 
         },
 

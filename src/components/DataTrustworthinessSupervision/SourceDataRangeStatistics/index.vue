@@ -599,10 +599,10 @@
             </div>
 
         </div>
-        <equipment :equipmentVisible="equipmentVisible"></equipment>
-        <abnormalIndicators :abnormalIndicators="abnormalIndicators"></abnormalIndicators>
-        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer"></terminalEquipmentManufacturer>
-        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType"></terminalEquipmentType>
+        <equipment :equipmentVisible="equipmentVisible" @closeVisible="closeVisible"></equipment>
+        <abnormalIndicators :abnormalIndicators="abnormalIndicators" @closeVisible="closeVisible"></abnormalIndicators>
+        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" @closeVisible="closeVisible"></terminalEquipmentManufacturer>
+        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType" @closeVisible="closeVisible"></terminalEquipmentType>
         <shadinLayer></shadinLayer>
     </div>
 </template>
@@ -843,6 +843,21 @@ export default {
                 this.equipmentVisible = false;
             }
 
+        },
+
+
+        //关闭弹出框
+        closeVisible(type) {
+            if (type === 'equipmentVisible') {
+                this.equipmentVisible = false;
+                this.radio1 = "区域";
+            } else if (type === 'abnormalIndicators') {
+                this.abnormalIndicators = false;
+            } else if (type === 'terminalEquipmentManufacturer') {
+                this.terminalEquipmentManufacturer = false;
+            } else if (type === 'terminalEquipmentType') {
+                this.terminalEquipmentType = false;
+            }
         }
 
 
