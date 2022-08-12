@@ -27,6 +27,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="BottomCenter">
+                        <img src="../../../assets/img/dw/DataTrustworthinessSupervision/bz.png" alt="">
+                    </div>
+                    <div class="BottomTable">
+                        <el-table class="tb-edit" :data="tableData"
+                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'10px',fontWeight: 'bold'}"
+                                  :cell-style="{fontSize:'10px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                                  border
+                                  :height="160"
+                                  id="rebateSetTable"
+                                  ref="moviesTable"
+                                  highlight-current-row style="width: 98%;margin: auto">
+                            <el-table-column label="地区" prop="name" align="center"></el-table-column>
+                            <el-table-column label="总数/个" prop="ascription" align="center"></el-table-column>
+                            <el-table-column label="10KV/个" prop="ascription" align="center"></el-table-column>
+                            <el-table-column label="0.4KV/个" prop="ascription" align="center"></el-table-column>
+                        </el-table>
+                    </div>
                 </div>
                 <div class="BottomR fl">
                     <div class="BottomTitle">
@@ -134,84 +152,46 @@ export default {
             let myChart = this.$echarts.init(document.getElementById('enterpriseBar'));
             // 绘制图表
             myChart.setOption({
-                title: {
-                    text: '',
-                    subtext: '',
-                    left: 'center',
-                    textStyle: {
-                        //⽂字颜⾊
-                        color: '#ffffff',
-                        //字体风格,'normal','italic','oblique'
-                        fontStyle: 'normal',
-                        //字体粗细 'normal','bold','bolder','lighter',100 | 200 | 300 | 400...
-                        fontWeight: 'bold',
-                        //字体系列
-                        fontFamily: 'sans-serif',
-                        //字体⼤⼩
-                        fontSize: 18
-                    }
-                },
-                grid:{
-                    left:'8%',
-                    right:'0',
-                    bottom:'1%',
-                    containLabel:true
-                },
                 tooltip: {
-                    trigger: 'item',
-                    textStyle: {
-                        color: '#ffffff'
-                    },
+                    trigger: 'item'
                 },
                 legend: {
-                    orient: 'vertical',
+                    top: '80%',
                     left: 'center',
-                    top:'bottom',
-                    padding:[30,0,30,0],
-                    textStyle: {
-                        fontSize: 12,//字体大小
-                        color: '#4A4A4A'//字体颜色
-                    },
+
                 },
                 series: [
                     {
-                        name: '碳排放',
+                        name: '',
                         type: 'pie',
                         radius: ['40%', '70%'],
-                        data: [
-                            {
-                                value: 1048, name: '800-1200吨', label: {
-                                    color: '#ffffff'
-                                }
-                            },
-                            {
-                                value: 735, name: '500-800吨', label: {
-                                    color: '#ffffff'
-                                }
-                            },
-                            {
-                                value: 580, name: '1200-1500吨', label: {
-                                    color: '#ffffff'
-                                }
-                            },
-                            {
-                                value: 244, name: '1500吨以上', label: {
-                                    color: '#ffffff'
-                                }
-                            },
-                            {
-                                value: 300, name: '500吨以下', label: {
-                                    color: '#ffffff'
-                                }
-                            }
-                        ],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
                         emphasis: {
-                            itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: '#ffffff'
+                            label: {
+                                show: true,
+                                fontSize: '40',
+                                fontWeight: 'bold'
                             }
-                        }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 1048, name: '郭集' },
+                            { value: 735, name: '沾化' },
+                            { value: 580, name: '滨城区' },
+                            { value: 484, name: '惠民县' },
+                            { value: 300, name: '邹平市' }
+                        ]
                     }
                 ]
             });
@@ -271,6 +251,19 @@ export default {
         .BottomL {
             width: 50%;
             height: 450px;
+            .BottomCenter{
+                height: 200px;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                img{
+                    height: 100%;
+
+                }
+            }
+            .BottomTable{
+                height: 350px;
+            }
 
 
         }
@@ -307,6 +300,13 @@ export default {
                     font-weight: bold;
                 }
             }
+        }
+    }
+
+    .el-table {
+        /deep/ .el-table__header-wrapper {
+            padding: 0;
+
         }
     }
 

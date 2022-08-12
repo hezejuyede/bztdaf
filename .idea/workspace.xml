@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/DataTrustworthinessSupervision/bz.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index.vue" afterDir="false" />
     </list>
@@ -31,13 +32,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img/dw/DataTrustworthinessSupervision" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw\DataTrustworthinessSupervision" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -56,7 +58,7 @@
       <workItem from="1660115574949" duration="859000" />
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
-      <workItem from="1660290844589" duration="5177000" />
+      <workItem from="1660290844589" duration="9524000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -177,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660290054210</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="17点25分">
+      <created>1660296316490</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1660296316490</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +203,7 @@
     <MESSAGE value="11点27分" />
     <MESSAGE value="15点44分" />
     <MESSAGE value="16点40分" />
-    <option name="LAST_COMMIT_MESSAGE" value="16点40分" />
+    <MESSAGE value="17点25分" />
+    <option name="LAST_COMMIT_MESSAGE" value="17点25分" />
   </component>
 </project>
