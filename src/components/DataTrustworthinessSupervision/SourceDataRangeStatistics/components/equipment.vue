@@ -1,6 +1,6 @@
 <template>
     <el-dialog :visible.sync="equipmentVisible" width=60% :center="true" :close-on-click-modal="false"
-               :show-close="true" :close-on-press-escape="false" @close="closeVisible">
+               :show-close="true" :close-on-press-escape="false" @close="closeVisible"  @open="OpenDialog">
         <div class="equipment">
             <div class="equipmentL fl">
                 <el-table class="tb-edit" :data="tableData"
@@ -117,19 +117,19 @@ export default {
         }
     },
     mounted() {
-        this.doSearch();
+
 
     },
     created() {
-
     },
     methods: {
 
+
         //查詢
-        doSearch() {
+        OpenDialog() {
             setTimeout(() => {
                 this.setRegionLine();
-            }, 3000)
+            }, 1000)
 
             this.getList();
         },

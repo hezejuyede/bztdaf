@@ -1,6 +1,6 @@
 <template>
     <el-dialog title="终端设备类型" :visible.sync="terminalEquipmentType" width=60% :close-on-click-modal="false"
-               :show-close="true"  :close-on-press-escape="false" @close="closeVisible">
+               :show-close="true"  :close-on-press-escape="false" @close="closeVisible"  @open="getList">
         <div class="visibleDiv">
             <div class="visibleDivSelect">
                 <label style="margin-right: 50px;margin-left: 5px" class="fr">
@@ -60,7 +60,7 @@ export default {
         }
     },
     mounted() {
-        this.doSearch();
+      
 
     },
     created() {

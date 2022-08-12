@@ -54,7 +54,7 @@
       <updated>1660092345250</updated>
       <workItem from="1660092348600" duration="37000" />
       <workItem from="1660115574949" duration="859000" />
-      <workItem from="1660116489970" duration="39900000" />
+      <workItem from="1660116489970" duration="40783000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660272773006</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="11点11分">
+      <created>1660273922567</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660273922567</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +167,7 @@
     <MESSAGE value="17点20分" />
     <MESSAGE value="15点19分" />
     <MESSAGE value="10点52分" />
-    <option name="LAST_COMMIT_MESSAGE" value="10点52分" />
+    <MESSAGE value="11点11分" />
+    <option name="LAST_COMMIT_MESSAGE" value="11点11分" />
   </component>
 </project>
