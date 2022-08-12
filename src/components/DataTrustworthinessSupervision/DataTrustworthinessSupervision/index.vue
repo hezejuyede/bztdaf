@@ -134,19 +134,23 @@ import {
 export default {
     name: "index",
     data() {
-        return {}
+        return {
+            tableData:[],
+        }
     },
 
 
     components: {areaDetails,sataLinkDetails,trustedStateStatistics},
 
     mounted() {
+
         this.setPie()
     },
     created() {
 
     },
     methods: {
+
 
         setPie(){
             let myChart = this.$echarts.init(document.getElementById('enterpriseBar'));
