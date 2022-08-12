@@ -3,7 +3,7 @@
                :show-close="true" :close-on-press-escape="false" @close="closeVisible">
         <div class="equipment">
             <div class="equipmentL fl">
-                <el-table class="tb-edit" :data="tables"
+                <el-table class="tb-edit" :data="tableData"
                           :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
@@ -12,10 +12,9 @@
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
                     <el-table-column type="index" label="序号" align="center" width="100"></el-table-column>
-                    <el-table-column label="监测指标" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="数据类型" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="采集频度" prop="provinceName" align="center">
-                    </el-table-column>
+                    <el-table-column label="监测指标" prop="jczb" align="center"></el-table-column>
+                    <el-table-column label="数据类型" prop="type" align="center"></el-table-column>
+                    <el-table-column label="采集频度" prop="cjed" align="center"></el-table-column>
                 </el-table>
 
             </div>
@@ -108,12 +107,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {industryCarbonReport, regionalCarbonLine} from "../../../../api/dataManagement";
+import {EquipmentList,EquipmentLine} from "../../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
 
 export default {
     name: 'modal',
     data() {
-        return {}
+        return {
+            tableData:[],
+        }
     },
     mounted() {
         this.doSearch();
@@ -135,105 +136,91 @@ export default {
 
         //查询
         getList() {
-            /*   let that = this;
+               let that = this;
                const getListData = async () => {
-                   const result = await industryCarbonReport({
-                       "startTime": 0,
-                       "endTime":0,
-                       "type": ""
-                   })
-                   that.cols = result.data.data.cols;
+                   const result = await EquipmentList({})
                    that.tableData = result.data.data.data;
                }
-               getListData();*/
+               getListData();
 
         },
 
 
         //设置区域线形图
         setRegionLine(startTime, endTime, region) {
-            /* let that = this;
              const setRegionLine = async () => {
-                 const result = await regionalCarbonLine({
-                     "startTime": 0,
-                     "endTime": 0,
-                     "region": "",
-                 })
-                 that.regionLine = result.data.data.line;
-                 that.regionData = result.data.data.data;
+                 const result = await EquipmentLine({})
+                 let data =  result.data.data.data;
+                 // 基于准备好的dom，初始化echarts实例
+                 var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
+                 myChart.clear();
+                 myChart.setOption({
+                     tooltip: {
+                         trigger: 'axis',
+                         position: function (point, params, dom, rect, size) {
+                             //  size为当前窗口大小
+                             if ((size.viewSize[0] / 2) >= point[0]) {
+                                 //其中point为当前鼠标的位置
+                                 return [point[0] + 50, '10%'];
+                             } else {
+                                 //其中point为当前鼠标的位置
+                                 return [point[0] - 200, '10%'];
+                             }
+                         }
+                     },
+                     grid: {
+                         top: '10%',
+                         left: '5%',
+                         right: '5%',
+                         bottom: '5%',
+                         containLabel: true
+                     },
+                     xAxis: {
+                         type: 'category',
+                         data: data,
+                         axisTick: { //X轴刻度线
+                             show: false,
+                         },
+                         splitLine: {
+                             show: true
+                         },
+                     },
+                     yAxis: {
+                         type: 'value',
+                         axisTick: { //y轴刻度线
+                             show: false,
+                         },
+                         splitLine: {
+                             show: true
+                         },
+                     },
+                     lineStyle: {
+                         color: '#7AC952'
+                     },
+
+                     series: [
+                         {
+                             data:  data,
+                             type: 'line',
+                             smooth: true,
+                             symbol: 'circle',
+                             symbolSize: 8,
+                             itemStyle: {
+                                 normal: {
+                                     color: '#67C23A',
+                                     label: {
+                                         show: true,
+                                         color: '#FFF',
+                                         position: 'bottom',
+                                     }
+                                 }
+                             },
+                         }
+                     ]
+                 });
 
              }
-             setRegionLine();*/
-
-
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
-            myChart.clear();
-            myChart.setOption({
-                tooltip: {
-                    trigger: 'axis',
-                    position: function (point, params, dom, rect, size) {
-                        //  size为当前窗口大小
-                        if ((size.viewSize[0] / 2) >= point[0]) {
-                            //其中point为当前鼠标的位置
-                            return [point[0] + 50, '10%'];
-                        } else {
-                            //其中point为当前鼠标的位置
-                            return [point[0] - 200, '10%'];
-                        }
-                    }
-                },
-                grid: {
-                    top: '10%',
-                    left: '5%',
-                    right: '5%',
-                    bottom: '5%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: ['1', '2', '3', '5', '6', '7', '8', '9', '10', '11', '12'],
-                    axisTick: { //X轴刻度线
-                        show: false,
-                    },
-                    splitLine: {
-                        show: true
-                    },
-                },
-                yAxis: {
-                    type: 'value',
-                    axisTick: { //y轴刻度线
-                        show: false,
-                    },
-                    splitLine: {
-                        show: true
-                    },
-                },
-                lineStyle: {
-                    color: '#7AC952'
-                },
-
-                series: [
-                    {
-                        data: [20300, 34000, 15000, 11500, 10800, 26000, 23000, 19000, 27000, 35000, 31000, 18000],
-                        type: 'line',
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8,
-                        itemStyle: {
-                            normal: {
-                                color: '#67C23A',
-                                label: {
-                                    show: true,
-                                    color: '#FFF',
-                                    position: 'bottom',
-                                }
-                            }
-                        },
-                    }
-                ]
-            });
-
+             setRegionLine();
         },
 
         //关闭对话框

@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/abnormalIndicators.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/abnormalIndicators.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/terminalEquipmentManufacturer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/terminalEquipmentManufacturer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/terminalEquipmentType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/terminalEquipmentType.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/equipment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/components/equipment.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,7 @@
       <updated>1660092345250</updated>
       <workItem from="1660092348600" duration="37000" />
       <workItem from="1660115574949" duration="859000" />
-      <workItem from="1660116489970" duration="38629000" />
+      <workItem from="1660116489970" duration="39900000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -143,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660209856981</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="10点52分">
+      <created>1660272773006</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660272773006</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +159,7 @@
     <MESSAGE value="16点37分" />
     <MESSAGE value="17点20分" />
     <MESSAGE value="15点19分" />
-    <option name="LAST_COMMIT_MESSAGE" value="15点19分" />
+    <MESSAGE value="10点52分" />
+    <option name="LAST_COMMIT_MESSAGE" value="10点52分" />
   </component>
 </project>
