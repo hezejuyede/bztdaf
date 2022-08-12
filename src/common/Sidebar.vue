@@ -77,7 +77,7 @@
                                 title: '源数据范围统计'
                             },
                           {
-                            index: '',
+                            index: 'DataTrustworthinessSupervision',
                             title: '数据可信监管'
                           },
                           {

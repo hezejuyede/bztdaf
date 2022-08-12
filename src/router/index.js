@@ -21,6 +21,8 @@ import LargeDataScreen from '../components/LargeDataScreen/index'
 
 //源数据范围统计
 import SourceDataRangeStatistics from '../components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index'
+import DataTrustworthinessSupervision from '../components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index'
+
 
 Vue.use(Router);
 
@@ -45,6 +47,11 @@ export default new Router({
                     path: '/SourceDataRangeStatistics',
                     component: SourceDataRangeStatistics,
                     meta: {title: '源数据范围统计'}
+                },
+                {
+                    path: '/DataTrustworthinessSupervision',
+                    component: DataTrustworthinessSupervision,
+                    meta: {title: '数据可信监管'}
                 },
 
 
