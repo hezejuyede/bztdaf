@@ -38,7 +38,7 @@
                             filterable
                             allow-create
                             default-first-option
-                            @changeSelect="changeSelect"
+                            @change="changeSelect"
                             placeholder="请选择区域">
                             <el-option
                                 v-for="item in regionOptions"
@@ -119,13 +119,16 @@
 
                 </div>
                 <div class="templateDivTopTList">
-                    <div class="ListT">
+                    <div class="ListT"   v-for="(item,index) in selectData.street">
                         <div class="ListTL">
                             <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
+                                <img v-if="index===0" src="../../../assets/img/dw/1.png" alt="">
+                                <img v-if="index===1" src="../../../assets/img/dw/2.png" alt="">
+                                <img v-if="index===2" src="../../../assets/img/dw/3.png" alt="">
+                                <div v-if="index>2" class="rankingDiv">{{index+1}}</div>
                             </div>
                             <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
+                               {{item.name}}
                             </div>
 
                         </div>
@@ -133,315 +136,18 @@
                             <div class="ListTR1">
                                 <div class="ListTR1T">
                                     <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
+                                                       :style="{'width':(parseInt(item.regionalPercentage)-2.5)+'%','background-color': '#23A99A','float': 'left','margin-right':'5%'}"/>
                                     <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
+                                                      :style="{'width':(parseInt(item.equipmentPercentage)-2.5)+'%','background-color': '#EBE27C','float': 'left'}"/>
                                 </div>
 
                             </div>
                             <div class="ListTR2">
                                 <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
+                                    {{item.regional}}
                                 </div>
                                 <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="ListT">
-                        <div class="ListTL">
-                            <div class="ListTLIcon">
-                                <img src="../../../assets/img/dw/1.png" alt="">
-                            </div>
-                            <div class="ListTLText" style="margin-left: 5px">
-                                市中街道
-                            </div>
-
-                        </div>
-                        <div class="ListTR">
-                            <div class="ListTR1">
-                                <div class="ListTR1T">
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 67.5%;background-color: #23A99A;float: left;margin-right:5%"/>
-                                    <el-skeleton-item variant="text"
-                                                      style="width: 27.5%;background-color: #EBE27C;float: left"/>
-                                </div>
-
-                            </div>
-                            <div class="ListTR2">
-                                <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    200
-                                </div>
-                                <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    20
+                                    {{item.equipment}}
                                 </div>
 
                             </div>
@@ -571,28 +277,47 @@
                                   :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                                   :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                                   border
-                                  :height="this.tableHeight"
+                                  :height="400"
                                   id="rebateSetTable"
                                   ref="moviesTable"
                                   highlight-current-row
                                   :row-class-name="tableRowClassName"
                                   style="width: 98%;margin: auto">
-                            <template v-for="(col ,index) in cols">
-                                <el-table-column align="center" v-if="col.prop==='industry'" :label="col.label"
-                                                 :prop="col.prop">
-                                    <template slot-scope="scope">
-                                        <span v-if="scope.row.industry==='01'">电力</span>
-                                        <span v-if="scope.row.industry==='02'">钢铁</span>
-                                        <span v-if="scope.row.industry==='03'">交通</span>
-                                        <span v-if="scope.row.industry==='04'">建筑</span>
-                                        <span v-if="scope.row.industry==='05'">建材</span>
-                                        <span v-if="scope.row.industry==='06'">化工</span>
-                                    </template>
-                                </el-table-column>
-                                <el-table-column align="center" v-if="col.prop!=='industry'" :label="col.label"
-                                                 :prop="col.prop">
-                                </el-table-column>
-                            </template>
+                            <el-table-column label="下属社区" prop="xssq" align="center"></el-table-column>
+                            <el-table-column label="具体地址" prop="jtdz" align="center">
+                                <template slot-scope="scope">
+                                    <el-popover placement="top-start" title="具体地址" width="350" trigger="hover"
+                                                :content="scope.row.jtdz">
+                                        <div slot="reference"
+                                             style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                            {{scope.row.jtdz}}
+                                        </div>
+                                    </el-popover>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="终端设备厂家" prop="zdsbcj" align="center">
+                                <template slot-scope="scope">
+                                    <span style="color: #409EFF;cursor: pointer" @click="showCJ(scope.row)">{{ scope.row.zdsbcj }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="终端设备类型" prop="zdsblx" align="center">
+                                <template slot-scope="scope">
+                                    <span style="color: #409EFF;cursor: pointer" @click="showType(scope.row)">{{ scope.row.zdsblx }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="终端设备个数" prop="zdsbgs" align="center">
+                            </el-table-column>
+                            <el-table-column label="监测指标" prop="jkzb" align="center"></el-table-column>
+                            <el-table-column label="异常指标" prop="yczb" align="center">
+                                <template slot-scope="scope">
+                                    <span style="color: #409EFF;cursor: pointer" @click="showYC(scope.row)">{{ scope.row.yczb }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="监测开始时间" prop="jckssj" align="center"></el-table-column>
+                            <el-table-column label="监测持续时间" prop="jccxsj" align="center"></el-table-column>
+                            <el-table-column label="监测中断时间" prop="jczdsj" align="center"></el-table-column>
+                            <el-table-column label="监测最大频率" prop="jczxpl" align="center"></el-table-column>
+                            <el-table-column label="监测最小频率" prop="jczdpl" align="center"></el-table-column>
                         </el-table>
                     </div>
                 </div>
@@ -600,10 +325,10 @@
             </div>
 
         </div>
-        <equipment :equipmentVisible="equipmentVisible" @closeVisible="closeVisible"></equipment>
-        <abnormalIndicators :abnormalIndicators="abnormalIndicators" @closeVisible="closeVisible"></abnormalIndicators>
-        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" @closeVisible="closeVisible"></terminalEquipmentManufacturer>
-        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType" @closeVisible="closeVisible"></terminalEquipmentType>
+        <equipment :equipmentVisible="equipmentVisible"  @closeVisible="closeVisible"></equipment>
+        <abnormalIndicators :abnormalIndicators="abnormalIndicators"  :rowId="rowId" @closeVisible="closeVisible"></abnormalIndicators>
+        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" :rowId="rowId"  @closeVisible="closeVisible"></terminalEquipmentManufacturer>
+        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType"  :rowId="rowId" @closeVisible="closeVisible"></terminalEquipmentType>
         <shadinLayer></shadinLayer>
     </div>
 </template>
@@ -627,6 +352,7 @@ export default {
         return {
             radio1: "区域",
             region: "1",
+            rowId:"",
             regionOptions: regionOptions,
             countyOptions: [
                 {"name": "无棣县", "value": "88"},
@@ -963,17 +689,36 @@ export default {
 
         //详情列表
         getList(){
-           /* let that = this;
+            let that = this;
             const getListData = async () => {
                 const result = await DetailsList({
                     "regionS": this.regionS,
                     "street": this.street,
                     "community": this.community
                 })
-                that.cols = result.data.data.cols;
                 that.tableData = result.data.data.data;
             }
-            getListData();*/
+            getListData();
+        },
+
+
+        //显示厂家
+        showCJ(row){
+            this.rowId=row.id;
+            this.terminalEquipmentManufacturer=true;
+
+        },
+
+        //显示类型
+        showType(row){
+            this.rowId=row.id;
+            this.terminalEquipmentType=true;
+        },
+
+        //显示异常
+        showYC(row){
+            this.rowId=row.id;
+            this.abnormalIndicators=true;
         }
 
 
@@ -1186,6 +931,17 @@ export default {
                 }
 
             }
+
+            .rankingDiv {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #C6CBCC;
+                font-size: 12px;
+            }
         }
 
         .templateDivTopTitle{
@@ -1279,6 +1035,7 @@ export default {
                 }
             }
         }
+
     }
 
 

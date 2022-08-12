@@ -29,7 +29,7 @@
                 </label>
             </div>
             <div class="visibleTable">
-                <el-table class="tb-edit" :data="tables"
+                <el-table class="tb-edit" :data="tableData"
                           :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
@@ -37,11 +37,11 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="终端设备类型" prop="couponCodeName" align="center" ></el-table-column>
-                    <el-table-column label="最大输入电流" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="最小输入电流" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="额定输出功率" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="额定输入功率" prop="couponCodeName" align="center"></el-table-column>
+                    <el-table-column label="终端设备类型" prop="name" align="center" ></el-table-column>
+                    <el-table-column label="最大输入电流" prop="zdsrdl" align="center"></el-table-column>
+                    <el-table-column label="最小输入电流" prop="zxsrdl" align="center"></el-table-column>
+                    <el-table-column label="额定输出功率" prop="edscgk" align="center"></el-table-column>
+                    <el-table-column label="额定输入功率" prop="zdscgl" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>
@@ -49,12 +49,15 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {industryCarbonReport, regionalCarbonLine} from "../../../../api/dataManagement";
+import {TerminalEquipmentType} from "../../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
+
 
 export default {
     name: 'modal',
     data() {
-        return {}
+        return {
+            tableData:[],
+        }
     },
     mounted() {
         this.doSearch();
@@ -73,24 +76,22 @@ export default {
 
         //查询
         getList() {
-            /*   let that = this;
+               let that = this;
                const getListData = async () => {
-                   const result = await industryCarbonReport({
-                       "startTime": 0,
-                       "endTime":0,
-                       "type": ""
+                   const result = await TerminalEquipmentType({
+                       "id": "",
+                       "name":""
                    })
-                   that.cols = result.data.data.cols;
                    that.tableData = result.data.data.data;
                }
-               getListData();*/
+               getListData();
 
         },
 
 
         //关闭对话框
         closeVisible(){
-
+            this.$emit('closeVisible','terminalEquipmentType')
         },
 
 
@@ -103,8 +104,8 @@ export default {
             type: Boolean,
             required: true
         },
-        tables: {
-            type: Array,
+        rowId: {
+            type: String,
             required: true
         },
     },

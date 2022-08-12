@@ -29,7 +29,7 @@
                 </label>
             </div>
             <div class="visibleTable">
-                <el-table class="tb-edit" :data="tables"
+                <el-table class="tb-edit" :data="tableData"
                           :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
@@ -37,12 +37,43 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="指标名称" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="数据hash" prop="couponCodeName" align="center"></el-table-column>
-                    <el-table-column label="时间" prop="provinceName" align="center"></el-table-column>
-                    <el-table-column label="可信存证状态" prop="provinceName" align="center"></el-table-column>
-                    <el-table-column label="地址" prop="provinceName" align="center"></el-table-column>
-                    <el-table-column label="编号" prop="provinceName" align="center"></el-table-column>
+                    <el-table-column label="指标名称" prop="name" align="center"></el-table-column>
+                    <el-table-column label="数据hash" prop="hash" align="center">
+                        <template slot-scope="scope">
+                            <el-popover placement="top-start" title="数据hash" width="350" trigger="hover"
+                                        :content="scope.row.hash">
+                                <div slot="reference"
+                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                    {{scope.row.hash}}
+                                </div>
+                            </el-popover>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                    <el-table-column label="可信存证状态" prop="provinceName" align="center">
+                        <template slot-scope="scope">
+                             <div v-if="scope.row.status==='1'" style="display: flex;align-items: center;justify-content: center">
+                                 <div style="width: 10px;height: 10px;background-color:#409EFF;border-radius: 50%"></div>
+                                 <div style="color: #409EFF;cursor: pointer;margin-left: 5px" >正常</div>
+                             </div>
+                            <div v-if="scope.row.status==='2'" style="display: flex;align-items: center;justify-content: center">
+                                <div style="width: 10px;height: 10px;background-color:#F56C6C;border-radius: 50%"></div>
+                                <div style="color: #F56C6C;cursor: pointer;margin-left: 5px" >异常</div>
+                            </div>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="地址" prop="address" align="center">
+                        <template slot-scope="scope">
+                            <el-popover placement="top-start" title="地址" width="350" trigger="hover"
+                                        :content="scope.row.address">
+                                <div slot="reference"
+                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                    {{scope.row.address}}
+                                </div>
+                            </el-popover>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="编号" prop="code" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>
@@ -50,48 +81,44 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {industryCarbonReport, regionalCarbonLine} from "../../../../api/dataManagement";
+import {AbnormalIndicators} from "../../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
 
 export default {
     name: 'modal',
     data() {
-        return {}
+        return {
+            tableData:[],
+        }
     },
     mounted() {
-        this.doSearch();
+
 
     },
     created() {
-
+        this.getList();
     },
     methods: {
 
-        //查詢
-        doSearch() {
 
-            this.getList();
-        },
 
         //查询
         getList() {
-            /*   let that = this;
+               let that = this;
                const getListData = async () => {
-                   const result = await industryCarbonReport({
-                       "startTime": 0,
-                       "endTime":0,
-                       "type": ""
+                   const result = await AbnormalIndicators({
+                       "id": "",
+                       "name":""
                    })
-                   that.cols = result.data.data.cols;
                    that.tableData = result.data.data.data;
                }
-               getListData();*/
+               getListData();
 
         },
 
 
         //关闭对话框
         closeVisible(){
-
+            this.$emit('closeVisible','abnormalIndicators')
         },
 
 
@@ -104,8 +131,8 @@ export default {
             type: Boolean,
             required: true
         },
-        tables: {
-            type: Array,
+        rowId: {
+            type: String,
             required: true
         },
     },
