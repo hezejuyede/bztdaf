@@ -1,16 +1,16 @@
 import request from '../../utils/http.js'
 
 const URL = {
-    upperChains: '/DataTrustworthinessSupervision/upperChains',                                              //实际上链数量
+    upperChains: '/DataTrustworthinessSupervision/upperChains',                                               //实际上链数量
     abnormalChains: '/DataTrustworthinessSupervision/abnormalChains',                                         //异常链数
-    stateStatistics: '/DataTrustworthinessSupervision/stateStatistics',                                      //可信状态统计
+    stateStatistics: '/DataTrustworthinessSupervision/stateStatistics',                                       //可信状态统计
     stateStatisticsList: '/DataTrustworthinessSupervision/stateStatisticsList',                               //可信状态统计列表
     areaDetails: '/DataTrustworthinessSupervision/areaDetails',                                               //区域详情
     dataLinkDetails: '/DataTrustworthinessSupervision/dataLinkDetails',                                       //数据链详情
 
-    manufactorList: '/DataTrustworthinessSupervision/manufactorList',                                           //厂家列表
+    manufactorList: '/DataTrustworthinessSupervision/manufactorList',                                          //厂家列表
     dataHash: '/DataTrustworthinessSupervision/dataHash',                                                      //数据哈希
-    exceptionDetails: '/DataTrustworthinessSupervision/exceptionDetails',                                       //异常详情
+    exceptionDetails: '/DataTrustworthinessSupervision/exceptionDetails',                                      //异常详情
 };
 
 

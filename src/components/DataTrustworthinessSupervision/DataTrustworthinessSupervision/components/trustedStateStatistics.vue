@@ -9,12 +9,12 @@
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
                     <div class="dataDivTemplateB">
-                        666541
+                        {{title.drslsl}}
                     </div>
                 </div>
                 <div class="dataDivTemplateR fl">
                     <span>较昨日</span>
-                    <span style="color: #dd6161">+23</span>
+                    <span style="color: #dd6161">+{{title.jsr}}</span>
                 </div>
             </div>
             <div class="dataDivTemplate fl">
@@ -25,12 +25,12 @@
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
                     <div class="dataDivTemplateB">
-                        666541
+                        {{title.byslsl}}
                     </div>
                 </div>
                 <div class="dataDivTemplateR fl">
                     <span>较上月</span>
-                    <span style="color: #dd6161">+23</span>
+                    <span style="color: #dd6161">+{{title.jsy}}</span>
                 </div>
             </div>
             <div class="dataDivTemplate fl">
@@ -41,12 +41,12 @@
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
                     <div class="dataDivTemplateB">
-                        666541
+                        {{title.ycls}}
                     </div>
                 </div>
                 <div class="dataDivTemplateR fl">
                     <span>较上周</span>
-                    <span style="color: #68D085">+23</span>
+                    <span style="color: #68D085">+{{title.jsz}}</span>
                 </div>
             </div>
         </div>
@@ -59,29 +59,27 @@
                               id="rebateSetTable"
                               ref="moviesTable"
                               highlight-current-row style="width: 95%;margin: auto">
-                        <el-table-column label="地区" prop="name" align="center" width="80"></el-table-column>
-                        <el-table-column label="当日上链数量" prop="ascription" align="center"></el-table-column>
-                        <el-table-column label="当日异常数据" prop="ascription" align="center"></el-table-column>
-                        <el-table-column label="本月上链数量" prop="ascription" align="center"></el-table-column>
-                        <el-table-column label="本月异常数据" prop="ascription" align="center"></el-table-column>
-                        <el-table-column label="年度上链数量" prop="ascription" align="center"></el-table-column>
-                        <el-table-column label="年度异常" prop="ascription" align="center" width="80"></el-table-column>
+                        <el-table-column label="地区" prop="dq" align="center" width="80"></el-table-column>
+                        <el-table-column label="当日上链数量" prop="drslsl" align="center"></el-table-column>
+                        <el-table-column label="当日异常数据" prop="drycsl" align="center"></el-table-column>
+                        <el-table-column label="本月上链数量" prop="byslsl" align="center"></el-table-column>
+                        <el-table-column label="本月异常数据" prop="byycsl" align="center"></el-table-column>
+                        <el-table-column label="年度上链数量" prop="ndslsl" align="center"></el-table-column>
+                        <el-table-column label="年度异常" prop="ndycsl" align="center" width="80"></el-table-column>
                     </el-table>
                 </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import {TerminalEquipmentManufacturer} from "../../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
+import {stateStatistics,stateStatisticsList} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
 
 export default {
     name: 'modal',
     data() {
         return {
             tableData: [],
-            manufactor: "",
-            manufactoreOptions: [],
-            hashData: "",
+            title:{}
         }
     },
     mounted() {
@@ -89,8 +87,8 @@ export default {
 
     },
     created() {
-
-
+        this.getData();
+        this.getList();
 
     },
     methods: {
@@ -99,21 +97,26 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await TerminalEquipmentManufacturer({
-                    "id": "",
-                    "name":""
-                })
+                const result = await  stateStatisticsList({})
                 that.tableData = result.data.data.data;
+            }
+            getListData();
+
+        },
+
+        //查询
+        getData() {
+            let that = this;
+            const getListData = async () => {
+                const result = await  stateStatistics({})
+                that.title = result.data.data.data;
             }
             getListData();
 
         },
     },
     props: {
-        tableData: {
-            type: Array,
-            required: true
-        },
+
     },
 }
 </script>
