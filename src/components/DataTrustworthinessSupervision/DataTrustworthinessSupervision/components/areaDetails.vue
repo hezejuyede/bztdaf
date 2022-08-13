@@ -54,20 +54,30 @@
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="地区" prop="name" align="center"></el-table-column>
-                <el-table-column label="部署区域" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="类型" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="地址" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="终端编号" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="上链数量" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="异常数量" prop="ascription" align="center"></el-table-column>
+                <el-table-column label="地区" prop="dq" align="center"></el-table-column>
+                <el-table-column label="部署区域" prop="bsqy" align="center"></el-table-column>
+                <el-table-column label="类型" prop="type" align="center"></el-table-column>
+                <el-table-column label="地址" prop="address" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="地址" width="350" trigger="hover"
+                                    :content="scope.row.address">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                {{scope.row.address}}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
+                <el-table-column label="终端编号" prop="zdbh" align="center"></el-table-column>
+                <el-table-column label="上链数量" prop="slsl" align="center"></el-table-column>
+                <el-table-column label="异常数量" prop="ycsl" align="center"></el-table-column>
             </el-table>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import {TerminalEquipmentManufacturer} from "../../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
+import { areaDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
 
 export default {
     name: 'modal',
@@ -81,7 +91,7 @@ export default {
         }
     },
     mounted() {
-
+         this.getList()
 
     },
     created() {
@@ -95,9 +105,9 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await TerminalEquipmentManufacturer({
-                    "id": "",
-                    "name":""
+                const result = await  areaDetails({
+                    "type": this.type,
+                    "region":this.region
                 })
                 that.tableData = result.data.data.data;
             }
@@ -106,10 +116,7 @@ export default {
         },
     },
     props: {
-        tableData: {
-            type: Array,
-            required: true
-        },
+
     },
 }
 </script>

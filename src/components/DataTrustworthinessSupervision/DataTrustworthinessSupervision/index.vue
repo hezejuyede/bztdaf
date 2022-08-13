@@ -145,11 +145,13 @@ export default {
     components: {areaDetails,sataLinkDetails,trustedStateStatistics},
 
     mounted() {
-        this.setPie()
+        this.getList();
+        this.setPie();
+
 
     },
     created() {
-        this.getList();
+
 
     },
     methods: {
