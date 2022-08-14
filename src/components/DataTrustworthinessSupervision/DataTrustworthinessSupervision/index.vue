@@ -19,10 +19,10 @@
                             <img src="../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_03.png" alt="">
                         </div>
                         <div class="BottomTitleR">
-                            <div class="BottomTitleRT">
+                            <div class="BottomTitleRT"  >
                                 当日上链数量（个）
                             </div>
-                            <div class="BottomTitleRB">
+                            <div class="BottomTitleRB" @click="showHash">
                                 {{count }}
                             </div>
                         </div>
@@ -52,10 +52,10 @@
                             <img src="../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_03.png" alt="">
                         </div>
                         <div class="BottomTitleR">
-                            <div class="BottomTitleRT">
+                            <div class="BottomTitleRT" @click="showException">
                                 异常链数
                             </div>
-                            <div class="BottomTitleRB">
+                            <div class="BottomTitleRB" @click="showManufactor">
                               6
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                         <img src="../../../assets/img/dw/bt.png" alt="">
                     </div>
                 </div>
-                <div class="templateDivTTopR fl">
+                <div class="templateDivTTopR fl"  @click="showManufactor">
                     更多>
                 </div>
             </div>
@@ -118,6 +118,12 @@
                 <sata-link-details></sata-link-details>
             </div>
         </div>
+
+        <dataHashDialog :dataHashDialog="dataHashDialog" :rowId="rowId" @closeVisible="closeVisible"></dataHashDialog>
+        <exceptionDetailsDialog :exceptionDetailsDialog="exceptionDetailsDialog" :rowId="rowId"
+                                @closeVisible="closeVisible"></exceptionDetailsDialog>
+        <manufactorDialog :manufactorDialog="manufactorDialog" :rowId="rowId"
+                          @closeVisible="closeVisible"></manufactorDialog>
     </div>
 </template>
 
@@ -125,11 +131,12 @@
 import areaDetails from './components/areaDetails'
 import sataLinkDetails from './components/sataLinkDetails'
 import trustedStateStatistics from './components/trustedStateStatistics'
+import dataHashDialog from './components/dataHashDialog'
+import exceptionDetailsDialog from './components/exceptionDetailsDialog'
+import manufactorDialog from './components/manufactorDialog'
 import {
     upperChains,
     abnormalChains,
-    RegionalData,
-    RegionSelectionData
 } from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
 
 export default {
@@ -138,11 +145,15 @@ export default {
         return {
             count:"",
             tableData:[],
+            dataHashDialog:false,
+            exceptionDetailsDialog:false,
+            manufactorDialog:false,
+            rowId:"",
         }
     },
 
 
-    components: {areaDetails,sataLinkDetails,trustedStateStatistics},
+    components: {areaDetails,sataLinkDetails,trustedStateStatistics,dataHashDialog,manufactorDialog,exceptionDetailsDialog},
 
     mounted() {
         this.getList();
@@ -162,7 +173,7 @@ export default {
             const getListData = async () => {
                 const result = await upperChains({})
                 that.tableData = result.data.data.data;
-                that.count=result.data.data.number;
+                that.count = result.data.data.number;
             }
             getListData();
 
@@ -227,8 +238,37 @@ export default {
             getListData();
 
 
+        },
+
+
+        //关闭弹出框
+        closeVisible(type) {
+            if (type === 'dataHashDialog') {
+                this.dataHashDialog = false;
+            } else if (type === 'exceptionDetailsDialog') {
+                this.exceptionDetailsDialog = false;
+            } else if (type === 'manufactorDialog') {
+                this.manufactorDialog = false;
+            }
+        },
+
+
+        showHash() {
+            this.dataHashDialog = true;
+
+        },
+
+        showException() {
+            this.exceptionDetailsDialog = true;
+
+        },
+
+        showManufactor() {
+            this.manufactorDialog = true;
         }
-    },
+
+    }
+
 }
 </script>
 
