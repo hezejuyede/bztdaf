@@ -17,12 +17,13 @@ import enterpriseOverDischargeWarningReport from '../components/DataManagement/e
 import LargeDataScreen from '../components/LargeDataScreen/index'
 
 
-
-
 //源数据范围统计
 import SourceDataRangeStatistics from '../components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index'
 import DataTrustworthinessSupervision from '../components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index'
 
+
+//绿电消费认证
+import GreenPowerConsumptionCertification from '../components/GreenPowerConsumptionCertification/index'
 
 Vue.use(Router);
 
@@ -54,7 +55,11 @@ export default new Router({
                     meta: {title: '数据可信监管'}
                 },
 
-
+                {
+                    path: '/GreenPowerConsumptionCertification',
+                    component: GreenPowerConsumptionCertification,
+                    meta: {title: '绿电消费认证'}
+                },
 
 
 

@@ -44,7 +44,7 @@
                         index: '/',
                         title: '平台首页'
                     },
-                    {
+                   /* {
                         icon: 'iconfont el-icon-s-marketing',
                         index: '2',
                         title: '数据管理',
@@ -66,7 +66,7 @@
                                 title: '企业超排预警'
                             },
                         ]
-                    },
+                    },*/
                     {
                         icon: 'iconfont el-icon-s-marketing',
                         index: '4',
@@ -86,11 +86,25 @@
                           }
                         ]
                     },
+
+                    {
+                        icon: 'iconfont el-icon-s-marketing',
+                        index: '5',
+                        title: '绿电消费认证确权',
+                        subs: [
+                            {
+                                index: 'GreenPowerConsumptionCertification',
+                                title: '绿电消费认证'
+                            }
+                        ]
+                    },
+/*
+
                   {
                     icon: 'iconfont el-icon-s-platform',
                     index: '/LargeDataScreen',
                     title: '数据大屏'
-                  },
+                  },*/
                 ]
             }
         },

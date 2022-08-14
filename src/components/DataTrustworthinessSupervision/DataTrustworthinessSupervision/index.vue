@@ -124,6 +124,8 @@
                                 @closeVisible="closeVisible"></exceptionDetailsDialog>
         <manufactorDialog :manufactorDialog="manufactorDialog" :rowId="rowId"
                           @closeVisible="closeVisible"></manufactorDialog>
+        <shadinLayer></shadinLayer>
+
     </div>
 </template>
 
@@ -138,6 +140,7 @@ import {
     upperChains,
     abnormalChains,
 } from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import shadinLayer from "../../../common/shadinLayer";
 
 export default {
     name: "index",
@@ -153,7 +156,7 @@ export default {
     },
 
 
-    components: {areaDetails,sataLinkDetails,trustedStateStatistics,dataHashDialog,manufactorDialog,exceptionDetailsDialog},
+    components: {shadinLayer,areaDetails,sataLinkDetails,trustedStateStatistics,dataHashDialog,manufactorDialog,exceptionDetailsDialog},
 
     mounted() {
         this.getList();
