@@ -58,8 +58,7 @@
                         </div>
                     </div>
                     <div class="Bottom">
-
-
+                        <PowerSupplyCapacity></PowerSupplyCapacity>
                     </div>
                 </div>
             </div>
@@ -77,7 +76,7 @@
                         </div>
                     </div>
                     <div class="Bottom">
-
+                        <PowerSupplyDemand></PowerSupplyDemand>
                     </div>
                 </div>
             </div>
@@ -89,6 +88,8 @@
 <script>
 import ElectricitySalesInformation from './components/ElectricitySalesInformation'
 import PowerPurchaseInformation from './components/PowerPurchaseInformation'
+import PowerSupplyDemand from './components/PowerSupplyDemand'
+import PowerSupplyCapacity from './components/PowerSupplyCapacity'
 import shadinLayer from "../../../common/shadinLayer";
 import {
     upperChains,
@@ -104,7 +105,7 @@ export default {
     },
 
 
-    components: {ElectricitySalesInformation,PowerPurchaseInformation},
+    components: {ElectricitySalesInformation,PowerPurchaseInformation,shadinLayer,PowerSupplyDemand,PowerSupplyCapacity},
 
     mounted() {
         this.setLine();
@@ -195,6 +196,7 @@ export default {
     .BottomL{
         width: 50%;
         height: 320px;
+
     }
     .BottomR{
         width: 50%;
