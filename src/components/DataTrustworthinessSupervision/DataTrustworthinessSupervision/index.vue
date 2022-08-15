@@ -32,7 +32,7 @@
                     </div>
                     <div class="BottomTable">
                         <el-table class="tb-edit" :data="tableData"
-                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'10px',fontWeight: 'bold'}"
+                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'25px',borderColor:'#CAE5E4',fontSize:'10px',fontWeight: 'bold'}"
                                   :cell-style="{fontSize:'10px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                                   border
                                   :height="160"

@@ -60,7 +60,7 @@
                             </div>
                             <div class="regionTitleTB">
                                 <span
-                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{selectData.area}}</span>
+                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{ selectData.area }}</span>
                                 <img src="../../../assets/img/dw/sheng.png" alt="">
                             </div>
 
@@ -74,20 +74,20 @@
                             </div>
                             <div class="regionTitleTB">
                                 <span
-                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{selectData.range}}</span>
+                                    style="font-size:32px;color: #323A3A;font-weight: bold;margin-right: 5px">{{ selectData.range }}</span>
                                 <img src="../../../assets/img/dw/jiang.png" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="regionContent">
                         <div class="templateDivTopTTopLImgText">
-                            {{selectData.percentage}}%
+                            {{ selectData.percentage }}%
                         </div>
                         <img src="../../../assets/img/dw/tj-yuan.png" alt="">
                     </div>
                     <div class="regionNumber">
                         <div class="regionNumberText">
-                            {{selectData.region}}
+                            {{ selectData.region }}
                         </div>
 
                     </div>
@@ -119,16 +119,16 @@
 
                 </div>
                 <div class="templateDivTopTList">
-                    <div class="ListT"   v-for="(item,index) in selectData.street">
+                    <div class="ListT" v-for="(item,index) in selectData.street">
                         <div class="ListTL">
                             <div class="ListTLIcon">
                                 <img v-if="index===0" src="../../../assets/img/dw/1.png" alt="">
                                 <img v-if="index===1" src="../../../assets/img/dw/2.png" alt="">
                                 <img v-if="index===2" src="../../../assets/img/dw/3.png" alt="">
-                                <div v-if="index>2" class="rankingDiv">{{index+1}}</div>
+                                <div v-if="index>2" class="rankingDiv">{{ index + 1 }}</div>
                             </div>
                             <div class="ListTLText" style="margin-left: 5px">
-                               {{item.name}}
+                                {{ item.name }}
                             </div>
 
                         </div>
@@ -136,7 +136,7 @@
                             <div class="ListTR1">
                                 <div class="ListTR1T">
                                     <el-skeleton-item variant="text"
-                                                       :style="{'width':(parseInt(item.regionalPercentage)-2.5)+'%','background-color': '#23A99A','float': 'left','margin-right':'5%'}"/>
+                                                      :style="{'width':(parseInt(item.regionalPercentage)-2.5)+'%','background-color': '#23A99A','float': 'left','margin-right':'5%'}"/>
                                     <el-skeleton-item variant="text"
                                                       :style="{'width':(parseInt(item.equipmentPercentage)-2.5)+'%','background-color': '#EBE27C','float': 'left'}"/>
                                 </div>
@@ -144,10 +144,10 @@
                             </div>
                             <div class="ListTR2">
                                 <div class="fl" style="color: #07807B;font-size: 18px;font-weight: bold">
-                                    {{item.regional}}
+                                    {{ item.regional }}
                                 </div>
                                 <div class="fr" style="color: #9A8E2C;font-size: 18px;font-weight: bold">
-                                    {{item.equipment}}
+                                    {{ item.equipment }}
                                 </div>
 
                             </div>
@@ -186,7 +186,7 @@
                     <div class="templateDivTopTCommunity3">
                         <div class="Community3Div">
                             <div class="">终端设备数量</div>
-                            <div class="">{{selectData.number}}</div>
+                            <div class="">{{ selectData.number }}</div>
                         </div>
                         <img src="../../../assets/img/dw/di.png" alt="" class="">
                     </div>
@@ -290,19 +290,21 @@
                                                 :content="scope.row.jtdz">
                                         <div slot="reference"
                                              style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                            {{scope.row.jtdz}}
+                                            {{ scope.row.jtdz }}
                                         </div>
                                     </el-popover>
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备厂家" prop="zdsbcj" align="center">
                                 <template slot-scope="scope">
-                                    <span style="color: #409EFF;cursor: pointer" @click="showCJ(scope.row)">{{ scope.row.zdsbcj }}</span>
+                                    <span style="color: #409EFF;cursor: pointer"
+                                          @click="showCJ(scope.row)">{{ scope.row.zdsbcj }}</span>
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备类型" prop="zdsblx" align="center">
                                 <template slot-scope="scope">
-                                    <span style="color: #409EFF;cursor: pointer" @click="showType(scope.row)">{{ scope.row.zdsblx }}</span>
+                                    <span style="color: #409EFF;cursor: pointer"
+                                          @click="showType(scope.row)">{{ scope.row.zdsblx }}</span>
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备个数" prop="zdsbgs" align="center">
@@ -310,7 +312,8 @@
                             <el-table-column label="监测指标" prop="jkzb" align="center"></el-table-column>
                             <el-table-column label="异常指标" prop="yczb" align="center">
                                 <template slot-scope="scope">
-                                    <span style="color: #409EFF;cursor: pointer" @click="showYC(scope.row)">{{ scope.row.yczb }}</span>
+                                    <span style="color: #409EFF;cursor: pointer"
+                                          @click="showYC(scope.row)">{{ scope.row.yczb }}</span>
                                 </template>
                             </el-table-column>
                             <el-table-column label="监测开始时间" prop="jckssj" align="center"></el-table-column>
@@ -325,10 +328,13 @@
             </div>
 
         </div>
-        <equipment :equipmentVisible="equipmentVisible"  @closeVisible="closeVisible"></equipment>
-        <abnormalIndicators :abnormalIndicators="abnormalIndicators"  :rowId="rowId" @closeVisible="closeVisible"></abnormalIndicators>
-        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" :rowId="rowId"  @closeVisible="closeVisible"></terminalEquipmentManufacturer>
-        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType"  :rowId="rowId" @closeVisible="closeVisible"></terminalEquipmentType>
+        <equipment :equipmentVisible="equipmentVisible" @closeVisible="closeVisible"></equipment>
+        <abnormalIndicators :abnormalIndicators="abnormalIndicators" :rowId="rowId"
+                            @closeVisible="closeVisible"></abnormalIndicators>
+        <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" :rowId="rowId"
+                                       @closeVisible="closeVisible"></terminalEquipmentManufacturer>
+        <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType" :rowId="rowId"
+                               @closeVisible="closeVisible"></terminalEquipmentType>
         <shadinLayer></shadinLayer>
     </div>
 </template>
@@ -339,8 +345,12 @@ import abnormalIndicators from './components/abnormalIndicators'
 import terminalEquipmentManufacturer from './components/terminalEquipmentManufacturer'
 import terminalEquipmentType from './components/terminalEquipmentType'
 
-import {regionOptions, streetOptions,communityOptions} from "../../../utils/options";
-import { RegionalData,DetailsList,RegionSelectionData} from "../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
+import {regionOptions, streetOptions, communityOptions} from "../../../utils/options";
+import {
+    RegionalData,
+    DetailsList,
+    RegionSelectionData
+} from "../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
 
 
 import FileSaver from 'file-saver'
@@ -352,7 +362,7 @@ export default {
         return {
             radio1: "区域",
             region: "1",
-            rowId:"",
+            rowId: "",
             regionOptions: regionOptions,
             countyOptions: [
                 {"name": "无棣县", "value": "88"},
@@ -366,23 +376,23 @@ export default {
             tableData: [],
             cols: [],
 
-            selectData:{},
+            selectData: {},
 
-            street:"",
+            street: "",
             streetOptions: streetOptions,
-            community:"",
+            community: "",
             communityOptions: communityOptions,
-            regionS:"",
+            regionS: "",
 
             equipmentVisible: false,
-            abnormalIndicators:false,
-            terminalEquipmentManufacturer:false,
-            terminalEquipmentType:false
+            abnormalIndicators: false,
+            terminalEquipmentManufacturer: false,
+            terminalEquipmentType: false
         }
     },
 
 
-    components: {shadinLayer, equipment,abnormalIndicators,terminalEquipmentManufacturer,terminalEquipmentType},
+    components: {shadinLayer, equipment, abnormalIndicators, terminalEquipmentManufacturer, terminalEquipmentType},
 
     mounted() {
         this.doSearch();
@@ -401,7 +411,6 @@ export default {
             this.getList();
 
         },
-
 
 
         //重置
@@ -559,8 +568,7 @@ export default {
         changeRadio(type) {
             if (type === '设备') {
                 this.equipmentVisible = true;
-            }
-            else {
+            } else {
                 this.equipmentVisible = false;
             }
 
@@ -582,7 +590,7 @@ export default {
         },
 
         //滨州区域数据
-        getRegion(){
+        getRegion() {
             const getListData = async () => {
                 const result = await RegionalData({})
                 var data = result.data.data.data;
@@ -669,26 +677,26 @@ export default {
         },
 
 
-        changeSelect(){
+        changeSelect() {
             this.getSelectData();
 
         },
 
         //区域选择数据
-        getSelectData(){
+        getSelectData() {
             let that = this;
             const getListData = async () => {
                 const result = await RegionSelectionData({
                     "region": this.region
                 })
-                that.selectData =result.data.data.data;
+                that.selectData = result.data.data.data;
             }
             getListData();
         },
 
 
         //详情列表
-        getList(){
+        getList() {
             let that = this;
             const getListData = async () => {
                 const result = await DetailsList({
@@ -703,22 +711,22 @@ export default {
 
 
         //显示厂家
-        showCJ(row){
-            this.rowId=row.id;
-            this.terminalEquipmentManufacturer=true;
+        showCJ(row) {
+            this.rowId = row.id;
+            this.terminalEquipmentManufacturer = true;
 
         },
 
         //显示类型
-        showType(row){
-            this.rowId=row.id;
-            this.terminalEquipmentType=true;
+        showType(row) {
+            this.rowId = row.id;
+            this.terminalEquipmentType = true;
         },
 
         //显示异常
-        showYC(row){
-            this.rowId=row.id;
-            this.abnormalIndicators=true;
+        showYC(row) {
+            this.rowId = row.id;
+            this.abnormalIndicators = true;
         }
 
 
@@ -944,16 +952,18 @@ export default {
             }
         }
 
-        .templateDivTopTitle{
+        .templateDivTopTitle {
             height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            .templateDivTopTitleL{
+
+            .templateDivTopTitleL {
                 flex: 1;
 
             }
-            .templateDivTopTitleR{
+
+            .templateDivTopTitleR {
                 flex: 2;
             }
         }

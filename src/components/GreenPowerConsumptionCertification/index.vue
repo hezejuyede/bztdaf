@@ -1,26 +1,96 @@
 <template>
     <div class="templateDiv">
-        <div class="templateDivT">
-            <div class="templateDivTTop">
-                <div class="templateDivTTopL fl">
-                    <div class="templateDivTTopLText">可信状态实时监控</div>
-                    <div class="templateDivTTopLImg">
-                        <img src="../../assets/img/dw/bt.png" alt="">
+        <div class="templateDivL fl">
+            <div class="templateDivT">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">绿证历史记录</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../assets/img/dw/bt.png" alt="">
+                        </div>
+                    </div>
+                    <div class="templateDivTTopR fl">
+
                     </div>
                 </div>
-                <div class="templateDivTTopR fl">
-
+                <div class="Bottom">
+                    <GreenCardHistory></GreenCardHistory>
                 </div>
             </div>
-            <div class="Bottom">
 
+            <div class="templateDivT2">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">绿证标签预览</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../assets/img/dw/bt.png" alt="">
+                        </div>
+                    </div>
+                    <div class="templateDivTTopR fl">
+
+                    </div>
+                </div>
+                <div class="Bottom">
+                    <LabelPreview></LabelPreview>
+                </div>
+            </div>
+        </div>
+        <div class="templateDivR fl">
+            <div class="templateDivRL fl">
+                <div class="templateDivRLT">
+                    <div class="" style="margin-bottom: 5px">
+                        <i class="el-icon-s-unfold"></i>
+                    </div>
+                    <div class="">企</div>
+                    <div class="">业</div>
+                    <div class="">设</div>
+                    <div class="">备</div>
+                    <div class="">数</div>
+                </div>
+            </div>
+            <div class="templateDivRR fl">
+                <div class="templateDivRRT">
+                    <div class="templateDivRRTL fl">
+                        <div id="lineList1" style="width:100%;height: 250px;"></div>
+                    </div>
+                    <div class="templateDivRRTR fl">
+                        <el-table class="tb-edit" :data="tableData"
+                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'30px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
+                                  :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                                  :height="400"
+                                  ref="moviesTable"
+                                  highlight-current-row style="width: 95%;margin: auto">
+                            <el-table-column label="时间" prop="jczb" align="center"></el-table-column>
+                            <el-table-column label="耗电量(MWH)" prop="type" align="center"></el-table-column>
+                            <el-table-column label="绿电占比(%)" prop="cjed" align="center"></el-table-column>
+                        </el-table>
+                    </div>
+                </div>
+                <div class="templateDivRRT">
+                    <div class="templateDivRRTL fl">
+                        <div id="lineList2" style="width:100%;height: 250px;"></div>
+                    </div>
+                    <div class="templateDivRRTR fl">
+                        <el-table class="tb-edit" :data="tableData"
+                                  :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'30px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
+                                  :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                                  :height="400"
+                                  ref="moviesTable"
+                                  highlight-current-row style="width: 95%;margin: auto">
+                            <el-table-column label="时间" prop="jczb" align="center"></el-table-column>
+                            <el-table-column label="耗电量(MWH)" prop="type" align="center"></el-table-column>
+                            <el-table-column label="绿电占比(%)" prop="cjed" align="center"></el-table-column>
+                        </el-table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
+import GreenCardHistory from './components/GreenCardHistory'
+import LabelPreview from './components/LabelPreview'
 import {
     upperChains,
     abnormalChains,
@@ -40,11 +110,11 @@ export default {
     },
 
 
-    components: {},
+    components: {GreenCardHistory,LabelPreview},
 
     mounted() {
-
-
+        this.setLine();
+        this.setLine2();
     },
     created() {
 
@@ -66,61 +136,215 @@ export default {
 
 
         //设置饼图
-        setPie() {
-            let that = this;
+        setLine() {
+          /*  let that = this;
             const getListData = async () => {
                 const result = await abnormalChains({})
-                var data = result.data.data.data;
-                let myChart = this.$echarts.init(document.getElementById('enterpriseBar'));
-                // 绘制图表
-                myChart.setOption({
-                    tooltip: {
-                        trigger: 'item'
+
+            }
+            getListData();*/
+
+           /* var data = result.data.data.data;*/
+            let myChart = this.$echarts.init(document.getElementById('lineList1'));
+            myChart.clear();
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (point, params, dom, rect, size) {
+                        //  size为当前窗口大小
+                        if ((size.viewSize[0] / 2) >= point[0]) {
+                            //其中point为当前鼠标的位置
+                            return [point[0] + 50, '10%'];
+                        } else {
+                            //其中point为当前鼠标的位置
+                            return [point[0] - 200, '10%'];
+                        }
+                    }
+                },
+                grid: {
+                    top: '20%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '5%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data:[2022.01,2022.02,2022.03,2022.04,2022.05,2022.06,2022.07,2022.08,2022.09,2022.10,2022.11,2022.12],
+                    axisTick: { //X轴刻度线
+                        show: false,
                     },
-                    legend: {
-                        top: '80%',
-                        left: 'center',
+                    boundaryGap: true,
+                    offset:10,
+                    splitLine: {
+                        show:false
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#259793",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisLabel: {
+                        //  让x轴文字方向为竖向
+                        rotate : 30,
+                        textStyle: {
+                            color: '#9B9E9E'
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name:"(电量:兆瓦时)",
+                    axisTick: { //y轴刻度线
+                        show: false,
 
                     },
-                    series: [
-                        {
-                            name: '',
-                            type: 'pie',
-                            radius: ['40%', '70%'],
-                            avoidLabelOverlap: false,
+                    axisLine: {
+                        show: false,
+                    },
+                    splitLine: {
+                        show:true,
+                    },
+                },
+                lineStyle: {
+                    color: '#86E6FD'
+                },
 
-                            itemStyle: {
-                                normal: {
-                                    color: function (colors) {
-                                        var colorList = [
-                                            '#2DC3B0', '#2174ED', '#FFC851', '#5A5476', '#1869A0', '#FF9393'
-                                        ];
-                                        return colorList[colors.dataIndex]
-                                    }
+                series: [
+                    {
+                        data:[4000,3500.5500,6000,2600,5300,4780,6532,6753,3290,4208,1357],
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'circle',
+                        symbolSize: 8,
+                        itemStyle: {
+                            normal: {
+                                color: '#0ECDFC',
+                                label: {
+                                    show: false,
+                                    color: '#FFF',
+                                    position: 'bottom',
                                 },
-                            },
+                                areaStyle: {
+                                    type: 'default',
+                                    opacity: 0.1
+                                }
 
-                            label: {
-                                show: false,
-                                position: 'center'
-                            },
-                            emphasis: {
+                            }
+                        },
+                    }
+                ]
+            });
+
+
+        },
+
+        //设置饼图
+        setLine2() {
+            /*  let that = this;
+              const getListData = async () => {
+                  const result = await abnormalChains({})
+
+              }
+              getListData();*/
+
+            /* var data = result.data.data.data;*/
+            let myChart = this.$echarts.init(document.getElementById('lineList2'));
+            myChart.clear();
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (point, params, dom, rect, size) {
+                        //  size为当前窗口大小
+                        if ((size.viewSize[0] / 2) >= point[0]) {
+                            //其中point为当前鼠标的位置
+                            return [point[0] + 50, '10%'];
+                        } else {
+                            //其中point为当前鼠标的位置
+                            return [point[0] - 200, '10%'];
+                        }
+                    }
+                },
+                grid: {
+                    top: '20%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '5%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data:[2022.01,2022.02,2022.03,2022.04,2022.05,2022.06,2022.07,2022.08,2022.09,2022.10,2022.11,2022.12],
+                    axisTick: { //X轴刻度线
+                        show: false,
+                    },
+                    boundaryGap: true,
+                    offset:10,
+                    splitLine: {
+                        show:false
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#259793",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisLabel: {
+                        //  让x轴文字方向为竖向
+                        rotate : 30,
+                        textStyle: {
+                            color: '#9B9E9E'
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name:"(电量:兆瓦时)",
+                    axisTick: { //y轴刻度线
+                        show: false,
+
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    splitLine: {
+                        show:true,
+                    },
+                },
+                lineStyle: {
+                    color: '#86E6FD'
+                },
+
+                series: [
+                    {
+                        data:[4000,3500.5500,6000,2600,5300,4780,6532,6753,3290,4208,1357],
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'circle',
+                        symbolSize: 8,
+                        itemStyle: {
+                            normal: {
+                                color: '#0ECDFC',
                                 label: {
                                     show: true,
-                                    fontSize: '40',
-                                    fontWeight: 'bold'
+                                    color: '#FFF',
+                                    position: 'bottom',
+                                },
+                                areaStyle: {
+                                    type: 'default',
+                                    opacity: 0.1
                                 }
-                            },
-                            labelLine: {
-                                show: false
-                            },
 
-                            data: data
-                        }
-                    ]
-                });
-            }
-            getListData();
+                            }
+                        },
+                    }
+                ]
+            });
 
 
         },
@@ -166,17 +390,8 @@ export default {
     overflow: auto;
     background-color: #EDF4F4;
     padding-bottom: 50px;
-
-    .templateDivT {
-        float: left;
-        width: 48%;
-        height: 500px;
-        background-color: #ffffff;
-        margin-left: 1%;
-        margin-top: 1%;
-        margin-bottom: 1%;
-
-
+    .templateDivL{
+        width: 40%;
         .templateDivTTop {
             height: 50px;
             padding-left: 20px;
@@ -204,8 +419,79 @@ export default {
                 padding-right: 20px;
             }
         }
+        .templateDivT {
+            width: 100%;
+            height: 350px;
+            background-color: #ffffff;
+            margin-left: 1%;
+            margin-top: 1%;
+            margin-bottom: 1%;
 
+
+        }
+        .templateDivT2 {
+            width: 100%;
+            height: 500px;
+            background-color: #ffffff;
+            margin-left: 1%;
+            margin-top: 1%;
+            margin-bottom: 1%;
+
+
+        }
     }
+    .templateDivR{
+        width: 60%;
+        height: 972px;
+
+        .templateDivRL{
+            width:7%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 10px solid #EDF4F4;
+
+            .templateDivRLT{
+                height: 95%;
+                width: 70%;
+                border-radius: 5px;
+                background-color: #EDF4F4;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: #3C9D99;
+                font-weight: bold;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+        }
+        .templateDivRR{
+            background-color: #ffffff;
+            width:93%;
+            height: 972px;
+            .templateDivRRT{
+                width:100%;
+                height: 485px;
+                padding-top: 50px;
+                .templateDivRRTL{
+                    width:60%;
+                    height: 100%;
+                }
+                .templateDivRRTR{
+                     width:40%;
+                    height: 100%;
+                 }
+
+            }
+        }
+    }
+
+
+
 }
 
 </style>
