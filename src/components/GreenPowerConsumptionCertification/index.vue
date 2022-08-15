@@ -51,7 +51,7 @@
             <div class="templateDivRR fl">
                 <div class="templateDivRRT">
                     <div class="templateDivRRTL fl">
-                        <div id="lineList1" style="width:100%;height: 250px;"></div>
+                        <div id="lineList1" style="width:100%;height: 350px;"></div>
                     </div>
                     <div class="templateDivRRTR fl">
                         <el-table class="tb-edit" :data="tableData"
@@ -68,7 +68,7 @@
                 </div>
                 <div class="templateDivRRT">
                     <div class="templateDivRRTL fl">
-                        <div id="lineList2" style="width:100%;height: 250px;"></div>
+                        <div id="lineList2" style="width:100%;height: 350px;"></div>
                     </div>
                     <div class="templateDivRRTR fl">
                         <el-table class="tb-edit" :data="tableData"
@@ -85,12 +85,15 @@
                 </div>
             </div>
         </div>
+
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 
 <script>
 import GreenCardHistory from './components/GreenCardHistory'
 import LabelPreview from './components/LabelPreview'
+import shadinLayer from "../../common/shadinLayer";
 import {
     upperChains,
     abnormalChains,
@@ -148,18 +151,11 @@ export default {
             let myChart = this.$echarts.init(document.getElementById('lineList1'));
             myChart.clear();
             myChart.setOption({
+                title: {
+                    text: ''
+                },
                 tooltip: {
-                    trigger: 'axis',
-                    position: function (point, params, dom, rect, size) {
-                        //  size为当前窗口大小
-                        if ((size.viewSize[0] / 2) >= point[0]) {
-                            //其中point为当前鼠标的位置
-                            return [point[0] + 50, '10%'];
-                        } else {
-                            //其中point为当前鼠标的位置
-                            return [point[0] - 200, '10%'];
-                        }
-                    }
+                    trigger: 'item',
                 },
                 grid: {
                     top: '20%',
@@ -256,17 +252,14 @@ export default {
             myChart.clear();
             myChart.setOption({
                 tooltip: {
-                    trigger: 'axis',
-                    position: function (point, params, dom, rect, size) {
-                        //  size为当前窗口大小
-                        if ((size.viewSize[0] / 2) >= point[0]) {
-                            //其中point为当前鼠标的位置
-                            return [point[0] + 50, '10%'];
-                        } else {
-                            //其中point为当前鼠标的位置
-                            return [point[0] - 200, '10%'];
-                        }
-                    }
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['低碳情景'],
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    top: '8%'
                 },
                 grid: {
                     top: '20%',
@@ -331,7 +324,7 @@ export default {
                             normal: {
                                 color: '#0ECDFC',
                                 label: {
-                                    show: true,
+                                    show: false,
                                     color: '#FFF',
                                     position: 'bottom',
                                 },
@@ -477,6 +470,7 @@ export default {
                 width:100%;
                 height: 485px;
                 padding-top: 50px;
+
                 .templateDivRRTL{
                     width:60%;
                     height: 100%;

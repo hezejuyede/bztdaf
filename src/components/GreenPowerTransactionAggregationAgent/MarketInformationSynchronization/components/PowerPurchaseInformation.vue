@@ -1,0 +1,86 @@
+<template>
+    <div class="templateDivTable">
+        <el-table class="tb-edit" :data="tableData"
+                  :header-cell-style="{background:'#FFF',color:'#474F4F',height:'50px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
+                  :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                  ref="moviesTable"
+                  :height="320"
+                  highlight-current-row style="width: 95%;margin: auto">
+            <el-table-column label="实时卖电信息" prop="jczb" align="center"></el-table-column>
+            <el-table-column label="补贴" prop="type" align="center"></el-table-column>
+            <el-table-column label="绿电" prop="cjed" align="center"></el-table-column>
+        </el-table>
+    </div>
+</template>
+
+
+<script type="text/ecmascript-6">
+import {areaDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+
+export default {
+    name: 'modal',
+    data() {
+        return {
+            tableData: [],
+        }
+    },
+    mounted() {
+        this.getList()
+
+    },
+    watch: {
+        typeDay(newVal, oldVal) {
+            // newVal是新值，oldVal是旧值
+            console.log(newVal)
+            console.log(oldVal)
+        },
+    },
+    created() {
+
+
+    },
+    methods: {
+
+        //查询
+        getList() {
+            let that = this;
+            const getListData = async () => {
+                const result = await areaDetails({
+                    "type": this.typeDay,
+                })
+                that.tableData = result.data.data.data;
+            }
+            getListData();
+        },
+    },
+    props: {
+        typeDay: {
+            type: String,
+            required: true
+        },
+    },
+}
+</script>
+<style scoped lang="less" rel="stylesheet/less">
+
+
+.templateDivTable{
+
+
+
+
+}
+
+.el-table {
+    // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    // 深度选择器，去除默认的padding
+    /deep/ th {
+        padding: 0 ;
+    }
+    /deep/ td {
+        padding: 5px ;
+    }
+}
+
+
+</style>

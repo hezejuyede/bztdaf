@@ -39,11 +39,11 @@
             return {
                 collapse: false,
                 items: [
-                    {
+                  /*  {
                         icon: 'iconfont icon-shouye',
                         index: '/',
                         title: '平台首页'
-                    },
+                    },*/
                    /* {
                         icon: 'iconfont el-icon-s-marketing',
                         index: '2',
@@ -69,7 +69,7 @@
                     },*/
                     {
                         icon: 'iconfont el-icon-s-marketing',
-                        index: '4',
+                        index: '1',
                         title: '数据可信监控',
                         subs: [
                             {
@@ -87,9 +87,28 @@
                         ]
                     },
 
+
                     {
                         icon: 'iconfont el-icon-s-marketing',
-                        index: '5',
+                        index: '2',
+                        title: '绿电交易聚合代理',
+                        subs: [
+                            {
+                                index: 'MarketInformationSynchronization',
+                                title: '绿电市场信息同步'
+                            },
+                        ]
+                    },
+                    {
+                        icon: 'iconfont el-icon-s-marketing',
+                        index: '3',
+                        title: '绿电过程溯源',
+
+                    },
+
+                    {
+                        icon: 'iconfont el-icon-s-marketing',
+                        index: '4',
                         title: '绿电消费认证确权',
                         subs: [
                             {

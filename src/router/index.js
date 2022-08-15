@@ -25,6 +25,10 @@ import DataTrustworthinessSupervision from '../components/DataTrustworthinessSup
 //绿电消费认证
 import GreenPowerConsumptionCertification from '../components/GreenPowerConsumptionCertification/index'
 
+//绿电交易聚合代理示范
+import MarketInformationSynchronization from '../components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index'
+
+
 Vue.use(Router);
 
 export default new Router({
@@ -40,8 +44,8 @@ export default new Router({
             children: [
                 {
                     path: '/Index',
-                    component: Index,
-                    meta: {title: '系统首页'}
+                    component: SourceDataRangeStatistics,
+                    meta: {title: '源数据范围统计'}
                 },
 
                 {
@@ -53,6 +57,12 @@ export default new Router({
                     path: '/DataTrustworthinessSupervision',
                     component: DataTrustworthinessSupervision,
                     meta: {title: '数据可信监管'}
+                },
+
+                {
+                    path: '/MarketInformationSynchronization',
+                    component: MarketInformationSynchronization,
+                    meta: {title: '绿电市场信息同步'}
                 },
 
                 {
