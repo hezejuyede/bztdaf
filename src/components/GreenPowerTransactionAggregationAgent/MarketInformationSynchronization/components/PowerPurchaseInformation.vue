@@ -6,9 +6,24 @@
                   ref="moviesTable"
                   :height="320"
                   highlight-current-row style="width: 95%;margin: auto">
-            <el-table-column label="实时卖电信息" prop="jczb" align="center"></el-table-column>
-            <el-table-column label="补贴" prop="type" align="center"></el-table-column>
-            <el-table-column label="绿电" prop="cjed" align="center"></el-table-column>
+            <el-table-column label="实时购电信息" prop="ssgdxx" align="center">
+                <template slot-scope="scope">
+                    <el-popover placement="top-start" title="实时购电信息" width="350" trigger="hover"
+                                :content="scope.row.ssgdxx">
+                        <div slot="reference"
+                             style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                            <i class="el-icon-office-building"   style="color: #5A9591;font-size: 18px"></i>
+                            {{scope.row.ssgdxx}}
+                        </div>
+                    </el-popover>
+                </template>
+            </el-table-column>
+            <el-table-column label="补贴" prop="bt" align="center">
+                <template slot-scope="scope">
+                    <span>核发张数：{{scope.row.bt}}张</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="绿电" prop="ld" align="center"></el-table-column>
         </el-table>
     </div>
 </template>
@@ -21,7 +36,14 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData: [],
+            tableData: [
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
+                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"}
+            ],
         }
     },
     mounted() {
@@ -48,7 +70,7 @@ export default {
                 const result = await areaDetails({
                     "type": this.typeDay,
                 })
-                that.tableData = result.data.data.data;
+              /*  that.tableData = result.data.data.data;*/
             }
             getListData();
         },

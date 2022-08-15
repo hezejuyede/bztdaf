@@ -14,8 +14,8 @@
 
                         </div>
                     </div>
-                    <div class="Bottom">
-
+                    <div class="Bottom1" style="overflow: auto">
+                        <InformationAnnouncement></InformationAnnouncement>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import InformationAnnouncement from './components/InformationAnnouncement'
 import ElectricitySalesInformation from './components/ElectricitySalesInformation'
 import PowerPurchaseInformation from './components/PowerPurchaseInformation'
 import PowerSupplyDemand from './components/PowerSupplyDemand'
@@ -105,7 +106,7 @@ export default {
     },
 
 
-    components: {ElectricitySalesInformation,PowerPurchaseInformation,shadinLayer,PowerSupplyDemand,PowerSupplyCapacity},
+    components: {ElectricitySalesInformation,InformationAnnouncement,PowerPurchaseInformation,shadinLayer,PowerSupplyDemand,PowerSupplyCapacity},
 
     mounted() {
         this.setLine();
@@ -191,6 +192,9 @@ export default {
         width: 49%;
         height: 400px;
         margin-left: 1%;
+    }
+    .Bottom1{
+        height:350px;
     }
 
     .BottomL{
