@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/GreenCardHistory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/GreenCardHistory.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
-      <workItem from="1660531347548" duration="21532000" />
+      <workItem from="1660531347548" duration="22967000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -268,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660611123279</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="10点23分">
+      <created>1660616644299</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1660616644299</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +301,7 @@
     <MESSAGE value="16点12分" />
     <MESSAGE value="17点21分" />
     <MESSAGE value="08点51分" />
-    <option name="LAST_COMMIT_MESSAGE" value="08点51分" />
+    <MESSAGE value="10点23分" />
+    <option name="LAST_COMMIT_MESSAGE" value="10点23分" />
   </component>
 </project>

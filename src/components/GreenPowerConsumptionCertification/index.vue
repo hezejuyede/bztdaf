@@ -103,16 +103,7 @@ export default {
     data() {
         return {
             count: "",
-            tableData: [
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
-                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"}
-            ],
+            tableData: [],
             dataHashDialog: false,
             exceptionDetailsDialog: false,
             manufactorDialog: false,
@@ -217,6 +208,7 @@ export default {
                     color: '#86E6FD'
                 },
 
+                
                 series: [
                     {
                         data: [4000, 3500.5500, 6000, 2600, 5300, 4780, 6532, 6753, 3290, 4208, 1357],
