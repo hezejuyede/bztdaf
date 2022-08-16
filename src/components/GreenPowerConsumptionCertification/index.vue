@@ -85,7 +85,6 @@
                 </div>
             </div>
         </div>
-
         <shadinLayer></shadinLayer>
     </div>
 </template>
@@ -122,7 +121,7 @@ export default {
     },
 
 
-    components: {GreenCardHistory, LabelPreview},
+    components: {GreenCardHistory, LabelPreview,shadinLayer},
 
     mounted() {
         this.setLine();

@@ -93,7 +93,7 @@ import PowerSupplyDemand from './components/PowerSupplyDemand'
 import PowerSupplyCapacity from './components/PowerSupplyCapacity'
 import shadinLayer from "../../../common/shadinLayer";
 import {
-    upperChains,
+    getTreeList,
     abnormalChains,
 } from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
 

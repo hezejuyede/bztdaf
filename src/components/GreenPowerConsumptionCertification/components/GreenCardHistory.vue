@@ -50,7 +50,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {TerminalEquipmentManufacturer} from "../../../api/DataTrustworthinessSupervision/SourceDataRangeStatistics";
+import {greenCardHistory} from "../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
 import {regionOptions} from "../../../utils/options";
 export default {
     name: 'modal',
@@ -83,12 +83,12 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await TerminalEquipmentManufacturer({
+                const result = await greenCardHistory({
                     "region": that.region,
                     "startTime":examineTime[0],
                     "endTime":examineTime[1]
                 })
-               /* that.tableData = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
 
