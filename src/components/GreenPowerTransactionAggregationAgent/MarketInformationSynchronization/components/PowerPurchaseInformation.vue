@@ -30,7 +30,7 @@
 
 
 <script type="text/ecmascript-6">
-import {areaDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {PowerPurchaseInformation} from "../../../../api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization";
 
 export default {
     name: 'modal',
@@ -67,10 +67,10 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await areaDetails({
+                const result = await PowerPurchaseInformation({
                     "type": this.typeDay,
                 })
-              /*  that.tableData = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
         },

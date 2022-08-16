@@ -30,20 +30,13 @@
 
 
 <script type="text/ecmascript-6">
-import {areaDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {ElectricitySalesInformation} from "../../../../api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData: [
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"},
-                {"ssgdxx":"高唐润能新能源有限公司","bt":"879","ld":"2020-07-02 10:37:27"}
-            ],
+            tableData: [],
         }
     },
     mounted() {
@@ -67,10 +60,10 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await areaDetails({
+                const result = await ElectricitySalesInformation({
                     "type": this.typeDay,
                 })
-               /* that.tableData = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
         },

@@ -19,20 +19,13 @@
 
 
 <script type="text/ecmascript-6">
-import {areaDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {InformationAnnouncement} from "../../../../api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization";
 
 export default {
     name: 'modal',
     data() {
         return {
-            listData: [
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-                {"title":"绿色电力交易及输配电服务合同","time":"2022.08.01"},
-            ],
+            listData: [],
         }
     },
     mounted() {
@@ -50,10 +43,8 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await areaDetails({
-                    "type": this.typeDay,
-                })
-                /*  that.tableData = result.data.data.data;*/
+                const result = await InformationAnnouncement({})
+                  that.listData = result.data.data.data;
             }
             getListData();
         },

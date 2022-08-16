@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/GreenCardHistory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/GreenCardHistory.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/InformationAnnouncement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/InformationAnnouncement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerSupplyCapacity.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerSupplyCapacity.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerSupplyDemand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerSupplyDemand.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -61,7 +63,7 @@
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
-      <workItem from="1660531347548" duration="24490000" />
+      <workItem from="1660531347548" duration="27338000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -287,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660618118704</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="11点13分">
+      <created>1660619648612</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1660619648612</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +326,7 @@
     <MESSAGE value="17点21分" />
     <MESSAGE value="08点51分" />
     <MESSAGE value="10点23分" />
-    <option name="LAST_COMMIT_MESSAGE" value="10点23分" />
+    <MESSAGE value="11点13分" />
+    <option name="LAST_COMMIT_MESSAGE" value="11点13分" />
   </component>
 </project>
