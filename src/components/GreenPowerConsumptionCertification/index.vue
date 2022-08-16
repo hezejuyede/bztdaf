@@ -60,9 +60,9 @@
                                   :height="400"
                                   ref="moviesTable"
                                   highlight-current-row style="width: 95%;margin: auto">
-                            <el-table-column label="时间" prop="jczb" align="center"></el-table-column>
-                            <el-table-column label="耗电量(MWH)" prop="type" align="center"></el-table-column>
-                            <el-table-column label="绿电占比(%)" prop="cjed" align="center"></el-table-column>
+                            <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                            <el-table-column label="耗电量(MWH)" prop="MWH" align="center"></el-table-column>
+                            <el-table-column label="绿电占比(%)" prop="ldzb" align="center"></el-table-column>
                         </el-table>
                     </div>
                 </div>
@@ -77,9 +77,9 @@
                                   :height="400"
                                   ref="moviesTable"
                                   highlight-current-row style="width: 95%;margin: auto">
-                            <el-table-column label="时间" prop="jczb" align="center"></el-table-column>
-                            <el-table-column label="耗电量(MWH)" prop="type" align="center"></el-table-column>
-                            <el-table-column label="绿电占比(%)" prop="cjed" align="center"></el-table-column>
+                            <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                            <el-table-column label="耗电量(MWH)" prop="MWH" align="center"></el-table-column>
+                            <el-table-column label="绿电占比(%)" prop="ldzb" align="center"></el-table-column>
                         </el-table>
                     </div>
                 </div>
@@ -103,17 +103,26 @@ export default {
     name: "index",
     data() {
         return {
-            count:"",
-            tableData:[],
-            dataHashDialog:false,
-            exceptionDetailsDialog:false,
-            manufactorDialog:false,
-            rowId:"",
+            count: "",
+            tableData: [
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"},
+                {"time": "2020-01", "MWH": "9796.960", "ldzb": "17.13"}
+            ],
+            dataHashDialog: false,
+            exceptionDetailsDialog: false,
+            manufactorDialog: false,
+            rowId: "",
         }
     },
 
 
-    components: {GreenCardHistory,LabelPreview},
+    components: {GreenCardHistory, LabelPreview},
 
     mounted() {
         this.setLine();
@@ -140,14 +149,14 @@ export default {
 
         //设置饼图
         setLine() {
-          /*  let that = this;
-            const getListData = async () => {
-                const result = await abnormalChains({})
+            /*  let that = this;
+              const getListData = async () => {
+                  const result = await abnormalChains({})
 
-            }
-            getListData();*/
+              }
+              getListData();*/
 
-           /* var data = result.data.data.data;*/
+            /* var data = result.data.data.data;*/
             let myChart = this.$echarts.init(document.getElementById('lineList1'));
             myChart.clear();
             myChart.setOption({
@@ -166,14 +175,14 @@ export default {
                 },
                 xAxis: {
                     type: 'category',
-                    data:[2022.01,2022.02,2022.03,2022.04,2022.05,2022.06,2022.07,2022.08,2022.09,2022.10,2022.11,2022.12],
+                    data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
                     axisTick: { //X轴刻度线
                         show: false,
                     },
                     boundaryGap: true,
-                    offset:10,
+                    offset: 10,
                     splitLine: {
-                        show:false
+                        show: false
                     },
                     axisLine: {
                         show: true,
@@ -185,7 +194,7 @@ export default {
                     },
                     axisLabel: {
                         //  让x轴文字方向为竖向
-                        rotate : 30,
+                        rotate: 30,
                         textStyle: {
                             color: '#9B9E9E'
                         }
@@ -193,7 +202,7 @@ export default {
                 },
                 yAxis: {
                     type: 'value',
-                    name:"(电量:兆瓦时)",
+                    name: "(电量:兆瓦时)",
                     axisTick: { //y轴刻度线
                         show: false,
 
@@ -202,7 +211,7 @@ export default {
                         show: false,
                     },
                     splitLine: {
-                        show:true,
+                        show: true,
                     },
                 },
                 lineStyle: {
@@ -211,7 +220,7 @@ export default {
 
                 series: [
                     {
-                        data:[4000,3500.5500,6000,2600,5300,4780,6532,6753,3290,4208,1357],
+                        data: [4000, 3500.5500, 6000, 2600, 5300, 4780, 6532, 6753, 3290, 4208, 1357],
                         type: 'line',
                         smooth: true,
                         symbol: 'circle',
@@ -270,14 +279,14 @@ export default {
                 },
                 xAxis: {
                     type: 'category',
-                    data:[2022.01,2022.02,2022.03,2022.04,2022.05,2022.06,2022.07,2022.08,2022.09,2022.10,2022.11,2022.12],
+                    data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
                     axisTick: { //X轴刻度线
                         show: false,
                     },
                     boundaryGap: true,
-                    offset:10,
+                    offset: 10,
                     splitLine: {
-                        show:false
+                        show: false
                     },
                     axisLine: {
                         show: true,
@@ -289,7 +298,7 @@ export default {
                     },
                     axisLabel: {
                         //  让x轴文字方向为竖向
-                        rotate : 30,
+                        rotate: 30,
                         textStyle: {
                             color: '#9B9E9E'
                         }
@@ -297,7 +306,7 @@ export default {
                 },
                 yAxis: {
                     type: 'value',
-                    name:"(电量:兆瓦时)",
+                    name: "(电量:兆瓦时)",
                     axisTick: { //y轴刻度线
                         show: false,
 
@@ -306,7 +315,7 @@ export default {
                         show: false,
                     },
                     splitLine: {
-                        show:true,
+                        show: true,
                     },
                 },
                 lineStyle: {
@@ -315,7 +324,7 @@ export default {
 
                 series: [
                     {
-                        data:[4000,3500.5500,6000,2600,5300,4780,6532,6753,3290,4208,1357],
+                        data: [4000, 3500.5500, 6000, 2600, 5300, 4780, 6532, 6753, 3290, 4208, 1357],
                         type: 'line',
                         smooth: true,
                         symbol: 'circle',
@@ -383,8 +392,10 @@ export default {
     overflow: auto;
     background-color: #EDF4F4;
     padding-bottom: 50px;
-    .templateDivL{
+
+    .templateDivL {
         width: 40%;
+
         .templateDivTTop {
             height: 50px;
             padding-left: 20px;
@@ -412,6 +423,7 @@ export default {
                 padding-right: 20px;
             }
         }
+
         .templateDivT {
             width: 100%;
             height: 350px;
@@ -422,6 +434,7 @@ export default {
 
 
         }
+
         .templateDivT2 {
             width: 100%;
             height: 500px;
@@ -433,12 +446,13 @@ export default {
 
         }
     }
-    .templateDivR{
+
+    .templateDivR {
         width: 60%;
         height: 972px;
 
-        .templateDivRL{
-            width:7%;
+        .templateDivRL {
+            width: 7%;
             height: 100%;
             background-color: #ffffff;
             display: flex;
@@ -446,7 +460,7 @@ export default {
             justify-content: center;
             border-left: 10px solid #EDF4F4;
 
-            .templateDivRLT{
+            .templateDivRLT {
                 height: 95%;
                 width: 70%;
                 border-radius: 5px;
@@ -462,28 +476,30 @@ export default {
             }
 
         }
-        .templateDivRR{
+
+        .templateDivRR {
             background-color: #ffffff;
-            width:93%;
+            width: 93%;
             height: 972px;
-            .templateDivRRT{
-                width:100%;
+
+            .templateDivRRT {
+                width: 100%;
                 height: 485px;
                 padding-top: 50px;
 
-                .templateDivRRTL{
-                    width:60%;
+                .templateDivRRTL {
+                    width: 60%;
                     height: 100%;
                 }
-                .templateDivRRTR{
-                     width:40%;
+
+                .templateDivRRTR {
+                    width: 40%;
                     height: 100%;
-                 }
+                }
 
             }
         }
     }
-
 
 
 }

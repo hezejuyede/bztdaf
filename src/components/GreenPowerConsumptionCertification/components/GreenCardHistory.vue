@@ -33,17 +33,17 @@
         </div>
         <div class="visibleTable">
             <el-table class="tb-edit" :data="tableData"
-                      :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'30px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
+                      :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'40px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                       :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                       border
                       :height="200"
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="绿证编号" prop="name" align="center" width="150"></el-table-column>
-                <el-table-column label="生成日期" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="发电单位" prop="ascription" align="center"></el-table-column>
-                <el-table-column label="持有单位" prop="ascription" align="center"></el-table-column>
+                <el-table-column label="绿证编号" prop="lzbh" align="center" width="150"></el-table-column>
+                <el-table-column label="生成日期" prop="time" align="center"></el-table-column>
+                <el-table-column label="发电单位" prop="fddw" align="center"></el-table-column>
+                <el-table-column label="持有单位" prop="cydw" align="center"></el-table-column>
             </el-table>
         </div>
     </div>
@@ -56,7 +56,13 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData:[],
+            tableData:[
+                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
+                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
+                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
+                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
+                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
+            ],
             region:"",
             regionOptions:regionOptions,
             examineTime:[]
@@ -78,10 +84,11 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await TerminalEquipmentManufacturer({
-                    "id": "",
-                    "name":""
+                    "region": that.region,
+                    "startTime":examineTime[0],
+                    "endTime":examineTime[1]
                 })
-                that.tableData = result.data.data.data;
+               /* that.tableData = result.data.data.data;*/
             }
             getListData();
 
