@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/ElectricitySalesInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/ElectricitySalesInformation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerPurchaseInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerPurchaseInformation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
-      <workItem from="1660531347548" duration="28658000" />
+      <workItem from="1660531347548" duration="30951000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -302,14 +300,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660630645272</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="14点38分">
+      <created>1660631949394</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1660631949394</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="11" />
     <MESSAGE value="15点41分" />
     <MESSAGE value="16点37分" />
     <MESSAGE value="17点20分" />
@@ -334,6 +338,7 @@
     <MESSAGE value="10点23分" />
     <MESSAGE value="11点13分" />
     <MESSAGE value="14点17分" />
-    <option name="LAST_COMMIT_MESSAGE" value="14点17分" />
+    <MESSAGE value="14点38分" />
+    <option name="LAST_COMMIT_MESSAGE" value="14点38分" />
   </component>
 </project>

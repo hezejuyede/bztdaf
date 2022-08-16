@@ -482,6 +482,20 @@ export default {
             var myChart = this.$echarts.init(document.getElementById('chart_map'));
 
             var data = that.countyOptions;
+            let arr =[]
+            for (let i = 0; i < data.length; i++) {
+                let json = {
+                    "name": data[i].name, "value": data[i].value, "label": {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name + "\n" + params.value;    //地图上展示文字 + 数值
+                            },
+                        }
+                    }
+                }
+                arr.push(json)
+            }
 
 
             myChart.setOption({
@@ -554,7 +568,7 @@ export default {
                             brushType: 'stroke'
                         },
                         hoverAnimation: true,
-                        data: data
+                        data: arr
                     }],
             });
 
