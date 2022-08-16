@@ -476,107 +476,6 @@ export default {
         },
 
 
-        //山东碳排放地图
-        shandongMap() {
-            let that = this
-            var myChart = this.$echarts.init(document.getElementById('chart_map'));
-
-            var data = that.countyOptions;
-            let arr =[]
-            for (let i = 0; i < data.length; i++) {
-                let json = {
-                    "name": data[i].name, "value": data[i].value, "label": {
-                        normal: {
-                            show: true,
-                            formatter: function (params) {
-                                return params.name + "\n" + params.value;    //地图上展示文字 + 数值
-                            },
-                        }
-                    }
-                }
-                arr.push(json)
-            }
-
-
-            myChart.setOption({
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    trigger: 'item',
-                    formatter: '{b}',
-                    itemSize: '14px'
-                },
-                dataRange: {
-                    x: 'left',
-                    y: 'center',
-                    top: '100',
-                    splitList: [
-                        {start: 81, end: 100, label: '', color: '#329F9A'},
-                        {start: 71, end: 80, label: '', color: '#66B7B4'},
-                        {start: 51, end: 70, label: '', color: '#83C5C2'},
-                        {start: 41, end: 50, label: '', color: '#B4DCDA'},
-                        {start: 31, end: 40, label: '', color: '#9CD1CF'},
-                        {start: 21, end: 30, label: '', color: '#C6E4E3'},
-                        {start: 0, end: 20, label: '', color: '#DFF0EF'},
-                    ],
-                    textStyle: {
-                        color: '#3899FF' // 值域文字颜色
-                    },
-                    show: false,
-                    selectedMode: false,
-                    color: ['#E0022B', '#E09107', '#A3E00B']
-                },
-                series: [
-                    {
-                        name: '县域乡村振兴全景展示',
-                        type: 'map',
-                        map: '山东',
-                        mapType: '山东',
-                        mapLocation: {
-                            x: 'left'
-                        },
-                        zoom: 1.2,
-                        roam: true,
-                        show: true,
-                        itemStyle: {
-                            normal: {
-                                borderColor: "#fff",
-                                type: 'dashed',
-                                borderWidth: 1,
-                                label: {show: true}
-                            },
-                            emphasis: {
-                                areaColor: '#389BB7',
-                                borderWidth: 0
-                            }
-                        },
-                        label: {
-                            normal: {
-                                show: true,
-                                textStyle: {color: "#FFFFFF", fontSize: 10,}
-                            },
-                            emphasis: {
-                                show: true,
-                                textStyle: {
-                                    color: '#fff'
-                                }
-                            },
-                        },
-                        showEffectOn: 'render',
-                        rippleEffect: {
-                            brushType: 'stroke'
-                        },
-                        hoverAnimation: true,
-                        data: arr
-                    }],
-            });
-
-            window.addEventListener("resize", function () {
-                myChart.resize();
-            });
-        },
-
 
         //选择类型
         changeRadio(type) {
@@ -608,6 +507,21 @@ export default {
             const getListData = async () => {
                 const result = await RegionalData({})
                 var data = result.data.data.data;
+
+                let arr =[]
+                for (let i = 0; i < data.length; i++) {
+                    let json = {
+                        "name": data[i].name, "value": data[i].value, "label": {
+                            normal: {
+                                show: true,
+                                formatter: function (params) {
+                                    return params.name + "\n" + params.value;    //地图上展示文字 + 数值
+                                },
+                            }
+                        }
+                    }
+                    arr.push(json)
+                }
                 var myChart = this.$echarts.init(document.getElementById('chart_map'));
                 myChart.setOption({
                     title: {
@@ -679,7 +593,7 @@ export default {
                                 brushType: 'stroke'
                             },
                             hoverAnimation: true,
-                            data: data
+                            data:arr
                         }],
                 });
 
