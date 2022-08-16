@@ -94,9 +94,10 @@ import GreenCardHistory from './components/GreenCardHistory'
 import LabelPreview from './components/LabelPreview'
 import shadinLayer from "../../common/shadinLayer";
 import {
-    upperChains,
-    abnormalChains,
-} from "../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+    getTreeList,
+    getLineList,
+    getTableData
+} from "../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
 
 export default {
     name: "index",
@@ -104,19 +105,18 @@ export default {
         return {
             count: "",
             tableData: [],
-            dataHashDialog: false,
-            exceptionDetailsDialog: false,
-            manufactorDialog: false,
-            rowId: "",
+            treeData: [],
         }
     },
 
 
-    components: {GreenCardHistory, LabelPreview,shadinLayer},
+    components: {GreenCardHistory, LabelPreview, shadinLayer},
 
     mounted() {
+        this.getTree();
         this.setLine();
         this.setLine2();
+        this.getList();
     },
     created() {
 
@@ -128,9 +128,8 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await upperChains({})
+                const result = await getTableData({})
                 that.tableData = result.data.data.data;
-                that.count = result.data.data.number;
             }
             getListData();
 
@@ -139,235 +138,214 @@ export default {
 
         //设置饼图
         setLine() {
-            /*  let that = this;
-              const getListData = async () => {
-                  const result = await abnormalChains({})
-
-              }
-              getListData();*/
-
-            /* var data = result.data.data.data;*/
-            let myChart = this.$echarts.init(document.getElementById('lineList1'));
-            myChart.clear();
-            myChart.setOption({
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    trigger: 'item',
-                },
-                grid: {
-                    top: '20%',
-                    left: '5%',
-                    right: '5%',
-                    bottom: '5%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
-                    axisTick: { //X轴刻度线
-                        show: false,
+            const getListData = async () => {
+                const result = await getLineList({})
+                var data = result.data.data.data;
+                let myChart = this.$echarts.init(document.getElementById('lineList1'));
+                myChart.clear();
+                myChart.setOption({
+                    title: {
+                        text: ''
                     },
-                    boundaryGap: true,
-                    offset: 10,
-                    splitLine: {
-                        show: false
+                    tooltip: {
+                        trigger: 'item',
                     },
-                    axisLine: {
-                        show: true,
-                        lineStyle: {
-                            color: "#259793",
-                            width: 2,
-                            type: "solid"
-                        }
+                    grid: {
+                        top: '20%',
+                        left: '5%',
+                        right: '5%',
+                        bottom: '5%',
+                        containLabel: true
                     },
-                    axisLabel: {
-                        //  让x轴文字方向为竖向
-                        rotate: 30,
-                        textStyle: {
-                            color: '#9B9E9E'
-                        }
-                    }
-                },
-                yAxis: {
-                    type: 'value',
-                    name: "(电量:兆瓦时)",
-                    axisTick: { //y轴刻度线
-                        show: false,
-
-                    },
-                    axisLine: {
-                        show: false,
-                    },
-                    splitLine: {
-                        show: true,
-                    },
-                },
-                lineStyle: {
-                    color: '#86E6FD'
-                },
-
-
-                series: [
-                    {
-                        data: [4000, 3500.5500, 6000, 2600, 5300, 4780, 6532, 6753, 3290, 4208, 1357],
-                        type: 'line',
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8,
-                        itemStyle: {
-                            normal: {
-                                color: '#0ECDFC',
-                                label: {
-                                    show: false,
-                                    color: '#FFF',
-                                    position: 'bottom',
-                                },
-                                areaStyle: {
-                                    type: 'default',
-                                    opacity: 0.1
-                                }
-
+                    xAxis: {
+                        type: 'category',
+                        data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
+                        axisTick: { //X轴刻度线
+                            show: false,
+                        },
+                        boundaryGap: true,
+                        offset: 10,
+                        splitLine: {
+                            show: false
+                        },
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: "#259793",
+                                width: 2,
+                                type: "solid"
                             }
                         },
-                    }
-                ]
-            });
+                        axisLabel: {
+                            //  让x轴文字方向为竖向
+                            rotate: 30,
+                            textStyle: {
+                                color: '#9B9E9E'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: "(电量:兆瓦时)",
+                        axisTick: { //y轴刻度线
+                            show: false,
+
+                        },
+                        axisLine: {
+                            show: false,
+                        },
+                        splitLine: {
+                            show: true,
+                        },
+                    },
+                    lineStyle: {
+                        color: '#86E6FD'
+                    },
 
 
+                    series: [
+                        {
+                            data: data,
+                            type: 'line',
+                            smooth: true,
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            itemStyle: {
+                                normal: {
+                                    color: '#0ECDFC',
+                                    label: {
+                                        show: false,
+                                        color: '#FFF',
+                                        position: 'bottom',
+                                    },
+                                    areaStyle: {
+                                        type: 'default',
+                                        opacity: 0.1
+                                    }
+
+                                }
+                            },
+                        }
+                    ]
+                });
+            }
+            getListData();
         },
 
         //设置饼图
         setLine2() {
-            /*  let that = this;
-              const getListData = async () => {
-                  const result = await abnormalChains({})
 
-              }
-              getListData();*/
+            const getListData = async () => {
+                const result = await getLineList({})
 
-            /* var data = result.data.data.data;*/
-            let myChart = this.$echarts.init(document.getElementById('lineList2'));
-            myChart.clear();
-            myChart.setOption({
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data: ['低碳情景'],
-                    textStyle: {
-                        color: '#fff'
+                var data = result.data.data.data;
+                let myChart = this.$echarts.init(document.getElementById('lineList2'));
+                myChart.clear();
+                myChart.setOption({
+                    tooltip: {
+                        trigger: 'axis'
                     },
-                    top: '8%'
-                },
-                grid: {
-                    top: '20%',
-                    left: '5%',
-                    right: '5%',
-                    bottom: '5%',
-                    containLabel: true
-                },
-                xAxis: {
-                    type: 'category',
-                    data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
-                    axisTick: { //X轴刻度线
-                        show: false,
-                    },
-                    boundaryGap: true,
-                    offset: 10,
-                    splitLine: {
-                        show: false
-                    },
-                    axisLine: {
-                        show: true,
-                        lineStyle: {
-                            color: "#259793",
-                            width: 2,
-                            type: "solid"
-                        }
-                    },
-                    axisLabel: {
-                        //  让x轴文字方向为竖向
-                        rotate: 30,
+                    legend: {
+                        data: ['低碳情景'],
                         textStyle: {
-                            color: '#9B9E9E'
-                        }
-                    }
-                },
-                yAxis: {
-                    type: 'value',
-                    name: "(电量:兆瓦时)",
-                    axisTick: { //y轴刻度线
-                        show: false,
-
+                            color: '#fff'
+                        },
+                        top: '8%'
                     },
-                    axisLine: {
-                        show: false,
+                    grid: {
+                        top: '20%',
+                        left: '5%',
+                        right: '5%',
+                        bottom: '5%',
+                        containLabel: true
                     },
-                    splitLine: {
-                        show: true,
-                    },
-                },
-                lineStyle: {
-                    color: '#86E6FD'
-                },
-
-                series: [
-                    {
-                        data: [4000, 3500.5500, 6000, 2600, 5300, 4780, 6532, 6753, 3290, 4208, 1357],
-                        type: 'line',
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 8,
-                        itemStyle: {
-                            normal: {
-                                color: '#0ECDFC',
-                                label: {
-                                    show: false,
-                                    color: '#FFF',
-                                    position: 'bottom',
-                                },
-                                areaStyle: {
-                                    type: 'default',
-                                    opacity: 0.1
-                                }
-
+                    xAxis: {
+                        type: 'category',
+                        data: [2022.01, 2022.02, 2022.03, 2022.04, 2022.05, 2022.06, 2022.07, 2022.08, 2022.09, 2022.10, 2022.11, 2022.12],
+                        axisTick: { //X轴刻度线
+                            show: false,
+                        },
+                        boundaryGap: true,
+                        offset: 10,
+                        splitLine: {
+                            show: false
+                        },
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: "#259793",
+                                width: 2,
+                                type: "solid"
                             }
                         },
-                    }
-                ]
-            });
+                        axisLabel: {
+                            //  让x轴文字方向为竖向
+                            rotate: 30,
+                            textStyle: {
+                                color: '#9B9E9E'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: "(电量:兆瓦时)",
+                        axisTick: { //y轴刻度线
+                            show: false,
 
+                        },
+                        axisLine: {
+                            show: false,
+                        },
+                        splitLine: {
+                            show: true,
+                        },
+                    },
+                    lineStyle: {
+                        color: '#86E6FD'
+                    },
 
-        },
+                    series: [
+                        {
+                            data: data,
+                            type: 'line',
+                            smooth: true,
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            itemStyle: {
+                                normal: {
+                                    color: '#0ECDFC',
+                                    label: {
+                                        show: false,
+                                        color: '#FFF',
+                                        position: 'bottom',
+                                    },
+                                    areaStyle: {
+                                        type: 'default',
+                                        opacity: 0.1
+                                    }
 
-
-        //关闭弹出框
-        closeVisible(type) {
-            if (type === 'dataHashDialog') {
-                this.dataHashDialog = false;
-            } else if (type === 'exceptionDetailsDialog') {
-                this.exceptionDetailsDialog = false;
-            } else if (type === 'manufactorDialog') {
-                this.manufactorDialog = false;
+                                }
+                            },
+                        }
+                    ]
+                });
             }
+            getListData();
+
+
         },
 
 
-        showHash() {
-            this.dataHashDialog = true;
-
+        //获取树列表
+        getTree() {
+            let that = this;
+            const getListData = async () => {
+                const result = await getTreeList({})
+                that.tableData = result.data.data.data;
+            }
+            getListData();
         },
 
-        showException() {
-            this.exceptionDetailsDialog = true;
-
-        },
-
-        showManufactor() {
-            this.manufactorDialog = true;
-        }
 
     }
 

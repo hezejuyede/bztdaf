@@ -56,13 +56,7 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData:[
-                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
-                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
-                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
-                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
-                {"lzbh":"23412765","time":"2022-08-02","fddw":"5345GW","cydw":"5345GW"},
-            ],
+            tableData:[],
             region:"",
             regionOptions:regionOptions,
             examineTime:[]
@@ -85,13 +79,12 @@ export default {
             const getListData = async () => {
                 const result = await greenCardHistory({
                     "region": that.region,
-                    "startTime":examineTime[0],
-                    "endTime":examineTime[1]
+                    "startTime":that.examineTime[0],
+                    "endTime":that.examineTime[1]
                 })
                 that.tableData = result.data.data.data;
             }
             getListData();
-
         },
 
 
