@@ -81,7 +81,7 @@
                             title: '数据可信监管'
                           },
                           {
-                            index: '',
+                            index: 'dataTrustworthinessVerification',
                             title: '数据可信验证'
                           }
                         ]
@@ -89,7 +89,7 @@
 
 
                     {
-                        icon: 'iconfont el-icon-s-marketing',
+                        icon: 'iconfont el-icon-document-remove',
                         index: '2',
                         title: '绿电交易聚合代理',
                         subs: [
@@ -100,14 +100,14 @@
                         ]
                     },
                     {
-                        icon: 'iconfont el-icon-s-marketing',
+                        icon: 'iconfont el-icon-s-data',
                         index: '3',
                         title: '绿电过程溯源',
 
                     },
 
                     {
-                        icon: 'iconfont el-icon-s-marketing',
+                        icon: 'iconfont el-icon-document',
                         index: '4',
                         title: '绿电消费认证确权',
                         subs: [

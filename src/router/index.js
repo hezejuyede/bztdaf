@@ -20,7 +20,7 @@ import LargeDataScreen from '../components/LargeDataScreen/index'
 //源数据范围统计
 import SourceDataRangeStatistics from '../components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index'
 import DataTrustworthinessSupervision from '../components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index'
-
+import dataTrustworthinessVerification from "../components/DataTrustworthinessSupervision/dataTrustworthinessVerification/Index"
 
 //绿电消费认证
 import GreenPowerConsumptionCertification from '../components/GreenPowerConsumptionCertification/index'
@@ -46,6 +46,12 @@ export default new Router({
                     path: '/Index',
                     component: SourceDataRangeStatistics,
                     meta: {title: '源数据范围统计'}
+                },
+
+                {
+                    path: '/dataTrustworthinessVerification',
+                    component: dataTrustworthinessVerification,
+                    meta: {title: '数据可信验证'}
                 },
 
                 {

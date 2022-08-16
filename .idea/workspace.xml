@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/dataTrustworthinessVerification/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/heng.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/stop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/yz-index_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/yz-index_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/dataTrustworthinessVerification/yz-index_15.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/SourceDataRangeStatistics/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,17 +40,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/api/GreenPowerConsumptionCertification" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\滨州市分布式光伏聚合运营平台\static\img" />
+      <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\DataTrustworthinessSupervision" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\api\GreenPowerConsumptionCertification" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\MarketInformationSynchronization" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw\DataTrustworthinessSupervision" />
-      <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\DataTrustworthinessSupervision\SourceDataRangeStatistics" />
@@ -60,7 +70,7 @@
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
-      <workItem from="1660531347548" duration="31950000" />
+      <workItem from="1660531347548" duration="34595000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -314,14 +324,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660634687821</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="15点41分">
+      <created>1660635676294</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1660635676294</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15点41分" />
     <MESSAGE value="16点37分" />
     <MESSAGE value="17点20分" />
     <MESSAGE value="15点19分" />
@@ -346,6 +362,7 @@
     <MESSAGE value="11点13分" />
     <MESSAGE value="14点17分" />
     <MESSAGE value="14点38分" />
-    <option name="LAST_COMMIT_MESSAGE" value="14点38分" />
+    <MESSAGE value="15点41分" />
+    <option name="LAST_COMMIT_MESSAGE" value="15点41分" />
   </component>
 </project>
