@@ -46,8 +46,9 @@ export default {
     watch: {
         typeDay(newVal, oldVal) {
             // newVal是新值，oldVal是旧值
-            console.log(newVal)
-            console.log(oldVal)
+            if(newVal){
+                this.getList()
+            }
         },
     },
     created() {

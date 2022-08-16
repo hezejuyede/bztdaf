@@ -29,15 +29,18 @@
                             </div>
                         </div>
                         <div class="templateDivTTopR fl">
-
+                            <el-radio-group v-model="radio" @change="changeRadio">
+                                <el-radio-button label="1">昨日</el-radio-button>
+                                <el-radio-button label="2">今日</el-radio-button>
+                            </el-radio-group>
                         </div>
                     </div>
                     <div class="Bottom">
                         <div class="BottomL fl">
-                            <ElectricitySalesInformation></ElectricitySalesInformation>
+                            <ElectricitySalesInformation :typeDay="radio"></ElectricitySalesInformation>
                         </div>
                         <div class="BottomR fl">
-                            <PowerPurchaseInformation></PowerPurchaseInformation>
+                            <PowerPurchaseInformation :typeDay="radio"></PowerPurchaseInformation>
                         </div>
                     </div>
                 </div>
@@ -92,16 +95,13 @@ import PowerPurchaseInformation from './components/PowerPurchaseInformation'
 import PowerSupplyDemand from './components/PowerSupplyDemand'
 import PowerSupplyCapacity from './components/PowerSupplyCapacity'
 import shadinLayer from "../../../common/shadinLayer";
-import {
-    getTreeList,
-    abnormalChains,
-} from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+
 
 export default {
     name: "index",
     data() {
         return {
-
+            radio: "1",
         }
     },
 
@@ -109,14 +109,17 @@ export default {
     components: {ElectricitySalesInformation,InformationAnnouncement,PowerPurchaseInformation,shadinLayer,PowerSupplyDemand,PowerSupplyCapacity},
 
     mounted() {
-        this.setLine();
-        this.setLine2();
+
     },
     created() {
 
 
     },
     methods: {
+
+        changeRadio(type){
+           this.radio= type;
+        },
 
 
     }
@@ -207,7 +210,9 @@ export default {
         height: 320px;
     }
 
-
+    /deep/ .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+        background-color: #19A59A;
+    }
 
 }
 
