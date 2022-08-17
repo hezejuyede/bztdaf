@@ -5,7 +5,7 @@
             <el-form ref="form" :model="ruleForm" :rules="rules" label-width="150px">
                 <el-form-item label="单位名称：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="装机容量">
+                               allow-create default-first-option placeholder="单位名称">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -16,7 +16,7 @@
                 </el-form-item>
                 <el-form-item label="光伏类型：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="已供应负荷">
+                               allow-create default-first-option placeholder="光伏类型">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -27,7 +27,7 @@
                 </el-form-item>
                 <el-form-item label="电压：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="可供应负荷">
+                               allow-create default-first-option placeholder="电压">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -38,7 +38,7 @@
                 </el-form-item>
                 <el-form-item label="装机总容量：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="计划供应电量">
+                               allow-create default-first-option placeholder="装机总容量">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"

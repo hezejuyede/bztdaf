@@ -27,19 +27,17 @@
                         </el-button>
                     </div>
                     <div class="">
-                        <el-button type="primary" @click=""
+                        <el-button type="primary" @click="showPolymerRegistrationDialog"
                                    style="background-color: #05A696;width: 100px;height: 35px">聚合体注册
                         </el-button>
                     </div>
-
-
                 </div>
                 <div class="">
                     <img src="../../../assets/img/dw/zuo.png" alt="">
 
                 </div>
                 <div class="">
-                    <el-button type="primary" @click=""
+                    <el-button type="primary" @click="showPolymerRecruitmentDialog"
                                style="background-color: #05A696;width: 100px;height: 35px">聚合体招募
                     </el-button>
                 </div>
@@ -88,6 +86,12 @@
                           @closeVisible="closeVisible"></AddPolymerDialog>
         <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
                                 @closeVisible="closeVisible"></UserRegistrationDialog>
+
+        <PolymerRegistrationDialog :PolymerRegistrationDialog="PolymerRegistrationDialog"
+                                   @closeVisible="closeVisible"></PolymerRegistrationDialog>
+
+        <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
+                                  @closeVisible="closeVisible"></PolymerRecruitmentDialog>
         <shadinLayer></shadinLayer>
     </div>
 </template>
@@ -98,20 +102,23 @@ import agentList from './components/agentList'
 import ElectricitySalesInquiry from './components/ElectricitySalesInquiry'
 import AddPolymer from './components/AddPolymer'
 import UserRegistrationDialog from './components/UserRegistrationDialog'
-
 import AddPolymerDialog from './components/AddPolymerDialog'
+import PolymerRegistrationDialog from './components/PolymerRegistrationDialog'
+import PolymerRecruitmentDialog from './components/PolymerRecruitmentDialog'
+
 export default {
     name: "index",
     data() {
         return {
             AddPolymerDialog:false,
             UserRegistrationDialog:false,
-            manufactorDialog:false,
+            PolymerRecruitmentDialog:false,
+            PolymerRegistrationDialog:false,
         }
     },
 
 
-    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog},
+    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog,PolymerRegistrationDialog,PolymerRecruitmentDialog},
 
     mounted() {
 
@@ -128,8 +135,11 @@ export default {
                 this.AddPolymerDialog = false;
             } else if (type === 'UserRegistrationDialog') {
                 this.UserRegistrationDialog = false;
-            } else if (type === 'manufactorDialog') {
-                this.manufactorDialog = false;
+            } else if (type === 'PolymerRegistrationDialog') {
+                this.PolymerRegistrationDialog = false;
+            }
+            else if (type === 'PolymerRecruitmentDialog') {
+                this.PolymerRecruitmentDialog = false;
             }
         },
 
@@ -145,14 +155,17 @@ export default {
         },
 
 
-        showException() {
-            this.exceptionDetailsDialog = true;
+        //显示聚合体注册
+        showPolymerRegistrationDialog() {
+            this.PolymerRegistrationDialog = true;
 
         },
 
-        showManufactor() {
-            this.manufactorDialog = true;
-        }
+        //聚合体招募
+        showPolymerRecruitmentDialog() {
+            this.PolymerRecruitmentDialog = true;
+        },
+
 
     }
 

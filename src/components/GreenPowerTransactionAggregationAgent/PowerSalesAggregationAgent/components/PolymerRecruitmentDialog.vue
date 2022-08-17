@@ -1,11 +1,11 @@
 <template>
-    <el-dialog title="聚合体招募" :visible.sync="AddPolymerDialog" width=40% :close-on-click-modal="false"
-               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="getList">
+    <el-dialog title="聚合体招募" :visible.sync="PolymerRecruitmentDialog" width=40% :close-on-click-modal="false"
+               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="showAdd">
         <div class="visibleDiv">
-            <el-form ref="form" :model="ruleForm" :rules="rules" label-width="150px">
-                <el-form-item label="聚合代理商：" prop="couponCodeName">
+            <el-form ref="form" :model="ruleForm" :rules="rules" label-width="170px">
+                <el-form-item label="聚合体名称：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="聚合代理商">
+                               allow-create default-first-option placeholder="聚合体名称">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -14,9 +14,9 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="装机容量：" prop="provinceCode">
+                <el-form-item label="主体单位：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="装机容量">
+                               allow-create default-first-option placeholder="主体单位">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -25,9 +25,29 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="已供应负荷：" prop="provinceCode">
+                <el-form-item label="主体装机容量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="主体装机容量"></el-input>
+                </el-form-item>
+                <el-form-item label="计划招募数量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="计划招募数量"></el-input>
+                </el-form-item>
+                <el-form-item label="主体装机容量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="主体装机容量"></el-input>
+                </el-form-item>
+                <el-form-item label="聚合体装机计划容量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="聚合体装机计划容量"></el-input>
+                </el-form-item>
+                <el-form-item label="招募类型：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="已供应负荷">
+                               allow-create default-first-option placeholder="招募类型">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -36,36 +56,9 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="可供应负荷：" prop="provinceCode">
+                <el-form-item label="招募区域：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="可供应负荷">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="计划供应电量：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="计划供应电量">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="计划供应日期：" prop="provinceCode">
-                    <el-date-picker style="width: 250px" v-model="ruleForm.examineTime" type="daterange"
-                                    start-placeholder="开始日期" end-placeholder="结束日期" value-format="yyyy-MM-dd">
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item label="供应地区：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="供应地区">
+                               allow-create default-first-option placeholder="招募区域">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -78,7 +71,7 @@
             <div
                 style="width:100%;height:60px;margin-bottom: 50px;display: flex;align-items: center;justify-content: center">
                 <el-button @click="doAdd" type="primary" style="width: 100px;height: 35px;background-color: #05A696">
-                    发布
+                   完成
                 </el-button>
             </div>
         </div>
@@ -186,7 +179,7 @@ export default {
 
         //关闭对话框
         closeVisible() {
-            this.$emit('closeVisible', 'AddPolymerDialog')
+            this.$emit('closeVisible', 'PolymerRecruitmentDialog')
         },
 
 
@@ -195,7 +188,7 @@ export default {
         /**
          * 弹出框
          */
-        AddPolymerDialog: {
+        PolymerRecruitmentDialog: {
             type: Boolean,
             required: true
         }
@@ -217,3 +210,4 @@ export default {
 }
 
 </style>
+

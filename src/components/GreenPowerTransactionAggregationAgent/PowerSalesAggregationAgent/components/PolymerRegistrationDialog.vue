@@ -1,38 +1,126 @@
 <template>
-    <el-dialog title="聚合体注册" :visible.sync="dataHashDialog" width=60% :close-on-click-modal="false"
-               :show-close="true"  :close-on-press-escape="false" @close="closeVisible"  @open="getList">
+    <el-dialog title="聚合体注册" :visible.sync="PolymerRegistrationDialog" width=40% :close-on-click-modal="false"
+               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="showAdd">
         <div class="visibleDiv">
-            <div class="visibleTable">
-                <el-table class="tb-edit" :data="tableData"
-                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
-                          :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
-                          border
-                          :height="320"
-                          id="rebateSetTable"
-                          ref="moviesTable"
-                          highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="输入功率" prop="srgl" align="center" ></el-table-column>
-                    <el-table-column label="当天峰值功率" prop="dtfzgl" align="center"></el-table-column>
-                    <el-table-column label="有功功率" prop="yggl" align="center"></el-table-column>
-                    <el-table-column label="无功功率" prop="wggl" align="center"></el-table-column>
-                    <el-table-column label="功率" prop="xl" align="center"></el-table-column>
-                    <el-table-column label="发电量" prop="fdl" align="center"></el-table-column>
-                    <el-table-column label="当天累计电量" prop="dtljdl" align="center"></el-table-column>
-                </el-table>
+            <el-form ref="form" :model="ruleForm" :rules="rules" label-width="170px">
+                <el-form-item label="主体单位：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="主体单位">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="聚合体名称：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="聚合体名称">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="主体光伏类型：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="主体光伏类型">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="主体装机容量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="主体装机容量"></el-input>
+                </el-form-item>
+                <el-form-item label="聚合体装机计划容量：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="聚合体装机计划容量"></el-input>
+                </el-form-item>
+                <el-form-item label="接纳区域范围：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="接纳区域范围">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="接纳个体数量：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="接纳个体数量">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-form>
+            <div
+                style="width:100%;height:60px;margin-bottom: 50px;display: flex;align-items: center;justify-content: center">
+                <el-button @click="doAdd" type="primary" style="width: 100px;height: 35px;background-color: #05A696">
+                    注册
+                </el-button>
             </div>
         </div>
     </el-dialog>
 </template>
 
 <script type="text/ecmascript-6">
-import {dataHash} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
 
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:[],
+            ruleForm: {
+                couponCodeName: "",
+                provinceCode: "",
+                provinceName: "",
+                date1: "",
+                date2: "",
+                fileId: "",
+                describe: "",
+
+
+            },
+            rules: {
+                couponCodeName: [
+                    {required: true, message: '请输入券码池名称(20个字以内)', trigger: 'blur'},
+                    {min: 1, max: 20, message: '券码池名称在 1 到 20 个字符'}
+                ],
+                date1: [
+                    {required: true, message: '请选择开始时间', trigger: 'change'},
+                ],
+
+                date2: [
+                    {required: true, message: '请选择结束时间', trigger: 'change'},
+                ],
+                provinceCode: [
+                    {required: true, message: '请选择奖池网省', trigger: 'change'}
+                ],
+                describe: [
+                    {required: true, message: '请输入券码描述', trigger: 'blur'},
+                    {min: 1, max: 200, message: '券码描述名称在 1 到 200 个字符'}
+                ],
+
+
+            },
+            orgNoOptions: [],
         }
     },
     mounted() {
@@ -44,29 +132,55 @@ export default {
     },
     methods: {
 
-        //查詢
-        doSearch() {
 
-            this.getList();
+        //显示新增
+        showAdd() {
+            this.addVisible = true;
+            this.ruleForm.couponCodeName = "";
+            this.ruleForm.provinceCode = "";
+            this.ruleForm.provinceName = "";
+            this.ruleForm.fileId = "";
+            this.ruleForm.describe = "";
+            this.ruleForm.date1 = "";
+            this.ruleForm.date2 = "";
+            if (this.$refs['form'] !== undefined) {
+                this.$nextTick(this.$refs['form'].clearValidate());
+            }
+
+            if (this.$refs['upload']) {
+                this.$refs['upload'].clearFiles();
+            }
         },
 
-        //查询
-        getList() {
-            let that = this;
-            const getListData = async () => {
-                const result = await dataHash({
-                    "rowId":that.rowId
-                })
-                that.tableData = result.data.data.data;
-            }
-            getListData();
+
+        //进行新增
+        doAdd() {
+            this.$refs.form.validate((valid) => {
+                if (valid) {
+                    let that = this;
+                    const getListData = async () => {
+                        const result = await greenCardHistory({
+                            "region": that.region,
+                            "startTime": that.examineTime[0],
+                            "endTime": that.examineTime[1]
+                        })
+                        that.tableData = result.data.data.data;
+                    }
+                    getListData();
+
+
+                } else {
+                    return this.$message.warning("信息填写不正确");
+
+                }
+            });
 
         },
 
 
         //关闭对话框
-        closeVisible(){
-            this.$emit('closeVisible','dataHashDialog')
+        closeVisible() {
+            this.$emit('closeVisible', 'PolymerRegistrationDialog')
         },
 
 
@@ -75,14 +189,10 @@ export default {
         /**
          * 弹出框
          */
-        dataHashDialog: {
+        PolymerRegistrationDialog: {
             type: Boolean,
             required: true
-        },
-        rowId: {
-            type: String,
-            required: true
-        },
+        }
     },
 }
 </script>
@@ -92,18 +202,10 @@ export default {
 .visibleDiv {
     width: 100%;
     height: 400px;
-
-    .visibleDivSelect {
-        height: 80px;
-        background-color: #EDF4F4;
-        line-height: 80px;
-
-    }
-
-    .visibleTable {
-        height: 320px;
-
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
 
 }
