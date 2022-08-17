@@ -25,7 +25,7 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="主体装机容量：" prop="provinceCode">
+                <el-form-item label="主体需求负荷：" prop="provinceCode">
                     <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
                               maxlength="20"
                               placeholder="主体装机容量"></el-input>
@@ -35,19 +35,14 @@
                               maxlength="20"
                               placeholder="计划招募数量"></el-input>
                 </el-form-item>
-                <el-form-item label="主体装机容量：" prop="provinceCode">
-                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
-                              maxlength="20"
-                              placeholder="主体装机容量"></el-input>
-                </el-form-item>
                 <el-form-item label="聚合体装机计划容量：" prop="provinceCode">
                     <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
                               maxlength="20"
                               placeholder="聚合体装机计划容量"></el-input>
                 </el-form-item>
-                <el-form-item label="招募类型：" prop="provinceCode">
+                <el-form-item label="招募企业类型：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="招募类型">
+                               allow-create default-first-option placeholder="招募企业类型">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"

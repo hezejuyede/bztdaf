@@ -14,31 +14,9 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="光伏类型：" prop="provinceCode">
+                <el-form-item label="企业类型：" prop="provinceCode">
                     <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="光伏类型">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="电压：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="电压">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="装机总容量：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="装机总容量">
+                               allow-create default-first-option placeholder="企业类型">
                         <el-option
                             v-for="item in orgNoOptions"
                             :key="item.codeValue"
@@ -48,30 +26,47 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="区域：" prop="provinceCode">
-                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
-                              maxlength="20"
-                              placeholder="区域"></el-input>
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="区域">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
                 </el-form-item>
-                <el-form-item label="台区：" prop="provinceCode">
+                <el-form-item label="所属台区：" prop="provinceCode">
+                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                               allow-create default-first-option placeholder="所属台区">
+                        <el-option
+                            v-for="item in orgNoOptions"
+                            :key="item.codeValue"
+                            :label="item.codeName"
+                            :value="item.codeValue">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="需求最大负荷：" prop="provinceCode">
                     <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
                               maxlength="20"
-                              placeholder="台区"></el-input>
+                              placeholder="需求最大负荷"></el-input>
+                </el-form-item>
+                <el-form-item label="需求最小负荷：" prop="provinceCode">
+                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                              maxlength="20"
+                              placeholder="需求最小负荷"></el-input>
                 </el-form-item>
                 <el-form-item label="资产归属：" prop="provinceCode">
                     <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
                               maxlength="20"
                               placeholder="资产归属"></el-input>
                 </el-form-item>
-                <el-form-item label="实发容量：" prop="provinceCode">
-                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
-                              maxlength="20"
-                              placeholder="实发容量"></el-input>
-                </el-form-item>
             </el-form>
             <div
                 style="width:100%;height:60px;margin-bottom: 50px;display: flex;align-items: center;justify-content: center">
                 <el-button @click="doAdd" type="primary" style="width: 100px;height: 35px;background-color: #05A696">
-                    发布
+                   注册
                 </el-button>
             </div>
         </div>
