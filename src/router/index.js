@@ -27,6 +27,7 @@ import GreenPowerConsumptionCertification from '../components/GreenPowerConsumpt
 
 //绿电交易聚合代理示范
 import MarketInformationSynchronization from '../components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index'
+import PowerSalesAggregationAgent from '../components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index'
 
 
 Vue.use(Router);
@@ -75,6 +76,13 @@ export default new Router({
                     path: '/GreenPowerConsumptionCertification',
                     component: GreenPowerConsumptionCertification,
                     meta: {title: '绿电消费认证'}
+                },
+
+
+                {
+                    path: '/PowerSalesAggregationAgent',
+                    component: PowerSalesAggregationAgent,
+                    meta: {title: '聚合代理-售电'}
                 },
 
 

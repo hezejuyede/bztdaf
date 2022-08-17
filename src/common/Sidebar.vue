@@ -97,6 +97,10 @@
                                 index: 'MarketInformationSynchronization',
                                 title: '绿电市场信息同步'
                             },
+                            {
+                                index: 'PowerSalesAggregationAgent',
+                                title: '聚合代理-售电'
+                            }
                         ]
                     },
                     {
