@@ -1,106 +1,117 @@
 <template>
     <div class="templateDiv">
-        <div class="templateDivOne">
-            <div class="templateDivL fl">
+        <div class="templateDivL fl">
+            <div class="templateDivTTop">
+                <div class="templateDivTTopL fl">
+                    <div class="templateDivTTopLText">售电聚合代理</div>
+                    <div class="templateDivTTopLImg">
+                        <img src="../../../assets/img/dw/bt.png" alt="">
+                    </div>
+                </div>
+                <div class="templateDivTTopR fl">
+                </div>
+            </div>
+            <div class="templateDivLCenter">
+                <div class="">
+                    <el-button type="primary" @click="showUserRegistrationDialog"
+                               style="background-color: #DCB249;width: 100px;height: 35px">用户注册
+                    </el-button>
+                </div>
+                <div class="">
+                    <img src="../../../assets/img/dw/you.png" alt="">
+                </div>
+                <div class="">
+                    <div class="">
+                        <el-button type="primary" @click="showAddPolymerDialog"
+                                   style="background-color: #05A696;width: 100px;height: 35px">加入聚合体
+                        </el-button>
+                    </div>
+                    <div class="">
+                        <el-button type="primary" @click=""
+                                   style="background-color: #05A696;width: 100px;height: 35px">聚合体注册
+                        </el-button>
+                    </div>
+
+
+                </div>
+                <div class="">
+                    <img src="../../../assets/img/dw/zuo.png" alt="">
+
+                </div>
+                <div class="">
+                    <el-button type="primary" @click=""
+                               style="background-color: #05A696;width: 100px;height: 35px">聚合体招募
+                    </el-button>
+                </div>
+            </div>
+            <div class="templateDivLBottom">
+                <agent-list></agent-list>
+            </div>
+        </div>
+        <div class="templateDivR fl">
+            <div class="templateDivT1">
                 <div class="templateDivTTop">
                     <div class="templateDivTTopL fl">
-                        <div class="templateDivTTopLText">售电聚合代理</div>
+                        <div class="templateDivTTopLText">聚合代理售电信息发布</div>
                         <div class="templateDivTTopLImg">
                             <img src="../../../assets/img/dw/bt.png" alt="">
                         </div>
                     </div>
                     <div class="templateDivTTopR fl">
+
                     </div>
                 </div>
-                <div class="templateDivLCenter">
-                    <div class="">
-                        <el-button type="primary" @click=""
-                                   style="background-color: #DCB249;width: 100px;height: 35px">用户注册
-                        </el-button>
-                    </div>
-                    <div class="">
-                        <img src="../../../assets/img/dw/you.png" alt="">
-                    </div>
-                    <div class="">
-                        <div class="">
-                            <el-button type="primary" @click=""
-                                       style="background-color: #05A696;width: 100px;height: 35px">加入聚合体
-                            </el-button>
-                        </div>
-                        <div class="">
-                            <el-button type="primary" @click=""
-                                       style="background-color: #05A696;width: 100px;height: 35px">聚合体注册
-                            </el-button>
-                        </div>
-
-
-                    </div>
-                    <div class="">
-                        <img src="../../../assets/img/dw/zuo.png" alt="">
-
-                    </div>
-                    <div class="">
-                        <el-button type="primary" @click=""
-                                   style="background-color: #05A696;width: 100px;height: 35px">聚合体招募
-                        </el-button>
-                    </div>
-                </div>
-                <div class="templateDivLBottom">
-                    <agent-list></agent-list>
+                <div class="Bottom">
+                    <AddPolymer></AddPolymer>
                 </div>
             </div>
-            <div class="templateDivR fl">
-                <div class="templateDivT">
-                    <div class="templateDivTTop">
-                        <div class="templateDivTTopL fl">
-                            <div class="templateDivTTopLText">聚合代理售电信息发布</div>
-                            <div class="templateDivTTopLImg">
-                                <img src="../../../assets/img/dw/bt.png" alt="">
-                            </div>
-                        </div>
-                        <div class="templateDivTTopR fl">
-
+            <div class="templateDivT2">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">受电侧查询</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../../assets/img/dw/bt.png" alt="">
                         </div>
                     </div>
-                    <div class="Bottom">
+                    <div class="templateDivTTopR fl">
+
                     </div>
                 </div>
-                <div class="templateDivT">
-                    <div class="templateDivTTop">
-                        <div class="templateDivTTopL fl">
-                            <div class="templateDivTTopLText">受电侧查询</div>
-                            <div class="templateDivTTopLImg">
-                                <img src="../../../assets/img/dw/bt.png" alt="">
-                            </div>
-                        </div>
-                        <div class="templateDivTTopR fl">
-
-                        </div>
-                    </div>
-                    <div class="Bottom">
-                        <ElectricitySalesInquiry></ElectricitySalesInquiry>
-                    </div>
+                <div class="Bottom">
+                    <ElectricitySalesInquiry></ElectricitySalesInquiry>
                 </div>
             </div>
         </div>
 
         <shadinLayer></shadinLayer>
+        <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
+                          @closeVisible="closeVisible"></AddPolymerDialog>
+        <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
+                                @closeVisible="closeVisible"></UserRegistrationDialog>
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 
 <script>
-import agentList from './components/agentList'
 import shadinLayer from "../../../common/shadinLayer";
+import agentList from './components/agentList'
 import ElectricitySalesInquiry from './components/ElectricitySalesInquiry'
+import AddPolymer from './components/AddPolymer'
+import UserRegistrationDialog from './components/UserRegistrationDialog'
 
+import AddPolymerDialog from './components/AddPolymerDialog'
 export default {
     name: "index",
     data() {
-        return {}
+        return {
+            AddPolymerDialog:false,
+            UserRegistrationDialog:false,
+            manufactorDialog:false,
+        }
     },
 
 
-    components: {shadinLayer,agentList,ElectricitySalesInquiry},
+    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog},
 
     mounted() {
 
@@ -109,7 +120,41 @@ export default {
 
 
     },
-    methods: {}
+    methods: {
+
+        //关闭弹出框
+        closeVisible(type) {
+            if (type === 'AddPolymerDialog') {
+                this.AddPolymerDialog = false;
+            } else if (type === 'UserRegistrationDialog') {
+                this.UserRegistrationDialog = false;
+            } else if (type === 'manufactorDialog') {
+                this.manufactorDialog = false;
+            }
+        },
+
+        //显示用户注册
+        showUserRegistrationDialog (){
+            this.UserRegistrationDialog =true;
+        },
+
+        //显示加入聚合体
+        showAddPolymerDialog() {
+            this.AddPolymerDialog = true;
+
+        },
+
+
+        showException() {
+            this.exceptionDetailsDialog = true;
+
+        },
+
+        showManufactor() {
+            this.manufactorDialog = true;
+        }
+
+    }
 
 }
 </script>
@@ -216,9 +261,17 @@ export default {
 
     }
 
-    .templateDivT {
+    .templateDivT1 {
         width: 100%;
-        height: 420px;
+        height: 480px;
+        background-color: #ffffff;
+        margin-bottom: 1%;
+
+
+    }
+    .templateDivT2 {
+        width: 100%;
+        height: 360px;
         background-color: #ffffff;
         margin-bottom: 1%;
 

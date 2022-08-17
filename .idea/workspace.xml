@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/you.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/zuo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/ElectricitySalesInquiry.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PhotovoltaicIndividualRegistration.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PowerSalesRelease.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/agentList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRegistrationDialog.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/UserRegistrationDialog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PhotovoltaicIndividualRegistration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRecruitmentDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PowerSalesRelease.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymerDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img/dw" />
+    <property name="last_opened_file_path" value="D:/文档资料/前端/osg-omgmt-html" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -70,7 +66,7 @@
       <workItem from="1660116489970" duration="44877000" />
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
-      <workItem from="1660531347548" duration="43406000" />
+      <workItem from="1660531347548" duration="51357000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1660115614507</created>
@@ -345,14 +341,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660638274698</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="10点19分">
+      <created>1660702794314</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1660702794314</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="17点20分" />
     <MESSAGE value="15点19分" />
     <MESSAGE value="10点52分" />
     <MESSAGE value="11点11分" />
@@ -377,6 +379,7 @@
     <MESSAGE value="14点38分" />
     <MESSAGE value="15点41分" />
     <MESSAGE value="16点24分" />
-    <option name="LAST_COMMIT_MESSAGE" value="16点24分" />
+    <MESSAGE value="10点19分" />
+    <option name="LAST_COMMIT_MESSAGE" value="10点19分" />
   </component>
 </project>
