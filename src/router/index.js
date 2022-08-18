@@ -30,6 +30,10 @@ import MarketInformationSynchronization from '../components/GreenPowerTransactio
 import PowerSalesAggregationAgent from '../components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index'
 import AggregationAgentPowerPurchase from '../components/GreenPowerTransactionAggregationAgent/AggregationAgentPowerPurchase/index'
 import TransactionContractFeedback from '../components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/index'
+import AggregateDisplay from '../components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index'
+
+
+
 
 //绿电过程溯源
 import TransactionContractAnalysis from '../components/TransactionContractAnalysis/index'
@@ -109,6 +113,14 @@ export default new Router({
                     path: '/TransactionContractAnalysis',
                     component: TransactionContractAnalysis,
                     meta: {title: '绿电交易合同分析'}
+                },
+
+
+
+                {
+                    path: '/AggregateDisplay',
+                    component: AggregateDisplay,
+                    meta: {title: '售电聚合体展示'}
                 },
 
 

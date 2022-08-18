@@ -110,6 +110,11 @@
                                 index: 'TransactionContractFeedback',
                                 title: '绿电交易合同反馈'
                             }
+                            ,
+                            {
+                                index: 'AggregateDisplay',
+                                title: '售电聚合体展示'
+                            }
                         ]
                     },
                     {
