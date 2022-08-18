@@ -30,6 +30,11 @@ import MarketInformationSynchronization from '../components/GreenPowerTransactio
 import PowerSalesAggregationAgent from '../components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index'
 import AggregationAgentPowerPurchase from '../components/GreenPowerTransactionAggregationAgent/AggregationAgentPowerPurchase/index'
 
+
+//绿电过程溯源
+import TransactionContractAnalysis from '../components/TransactionContractAnalysis/index'
+
+
 Vue.use(Router);
 
 export default new Router({
@@ -90,6 +95,19 @@ export default new Router({
                     component: AggregationAgentPowerPurchase,
                     meta: {title: '聚合代理-购电'}
                 },
+                {
+                    path: '/TransactionContractAnalysis',
+                    component: TransactionContractAnalysis,
+                    meta: {title: '绿电交易合同分析'}
+                },
+
+
+
+
+
+
+
+
 
 
 

@@ -111,6 +111,12 @@
                         icon: 'iconfont el-icon-s-data',
                         index: '3',
                         title: '绿电过程溯源',
+                        subs: [
+                            {
+                                index: 'TransactionContractAnalysis',
+                                title: '绿电交易合同分析'
+                            }
+                        ]
 
                     },
 
