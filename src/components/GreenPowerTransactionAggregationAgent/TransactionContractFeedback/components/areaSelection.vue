@@ -1,10 +1,6 @@
 <template>
     <div class="visibleDiv">
         <div class="visibleDivSelect">
-            <div class="TableTitle fl" style="margin-top: 15px">
-                <div class="TableTitleL"></div>
-                <div class="TableTitleR">台区选择</div>
-            </div>
             <label style="margin-right: 50px;margin-left: 5px" class="fr">
                 <el-button type="primary" @click="getList" icon="el-icon-search"
                            style="background-color: #05A696;width: 100px;height: 35px">查询
@@ -25,7 +21,7 @@
                     multiple
                     collapse-tags
                     default-first-option
-                    placeholder="选择地区">
+                    placeholder="选择完成情况">
                     <el-option
                         v-for="item in manufactoreOptions"
                         :key="item.id"
@@ -44,7 +40,7 @@
                     multiple
                     collapse-tags
                     default-first-option
-                    placeholder="选择地区">
+                    placeholder="选择合同额度">
                     <el-option
                         v-for="item in manufactoreOptions"
                         :key="item.id"
@@ -55,10 +51,6 @@
             </label>
         </div>
         <div class="visibleTable">
-            <div class="TableTitle">
-                <div class="TableTitleL"></div>
-                <div class="TableTitleR">发电合同</div>
-            </div>
             <el-table class="tb-edit" :data="tableData"
                       :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'40px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                       :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
@@ -67,32 +59,32 @@
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
                 <el-table-column label="合同编号" prop="htbh" align="center"></el-table-column>
-                <el-table-column label="售电主体" prop="sdzt" align="center"></el-table-column>
-                <el-table-column label="购电主体" prop="gdzt" align="center"></el-table-column>
-                <el-table-column label="合同开始时间" prop="kssj" align="center"></el-table-column>
-                <el-table-column label="合同结束时间" prop="jssj" align="center"></el-table-column>
-                <el-table-column label="合同实际履约开始时间" prop="lykssj" align="center"  width="165"></el-table-column>
-                <el-table-column label="合同实际履约结束时间" prop="lvjssj" align="center" width="165"></el-table-column>
-                <el-table-column label="履约绿电量" prop="lyldl" align="center"></el-table-column>
-                <el-table-column label="企业用电总量" prop="qyydzl" align="center"></el-table-column>
+                <el-table-column label="买方主体" prop="sdzt" align="center"></el-table-column>
+                <el-table-column label="卖方主体" prop="kssj" align="center"></el-table-column>
+                <el-table-column label="合同结算金额" prop="jssj" align="center"></el-table-column>
+                <el-table-column label="合同量" prop="htdl" align="center"></el-table-column>
+                <el-table-column label="实际应量" prop="lydl" align="center"></el-table-column>
+                <el-table-column label="响应度" prop="lydl" align="center"></el-table-column>
+                <el-table-column label="合同开始时间" prop="lydl" align="center"></el-table-column>
+                <el-table-column label="合同结束时间" prop="lydl" align="center"></el-table-column>
+                <el-table-column label="实际结束时间" prop="lydl" align="center"></el-table-column>
+                <el-table-column label="电力市场结算情况" prop="lydl" align="center" width="150"></el-table-column>
             </el-table>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
 
 export default {
     name: 'modal',
     data() {
         return {
             tableData:  [
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
+                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
+                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
+                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
             ],
             manufactor: "",
             manufactoreOptions: [],
@@ -137,41 +129,17 @@ export default {
 
 .visibleDiv {
     width: 100%;
-
-
+    background-color: #ffffff;
     .visibleDivSelect {
         height: 80px;
-        background-color: #EDF4F4;
+        background-color: #ffffff;
         line-height: 80px;
     }
 
     .visibleTable {
-        height: 400px;
-        background-color: #ffffff;
-    }
-    .TableTitle{
-        width: 200px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding-left: 20px;
-        .TableTitleL{
-            width: 5px;
-            height: 15px;
-            background-color: #05A696;
-        }
-        .TableTitleR{
-            width: 100px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content:flex-start;
-            padding-left: 10px;
-
-        }
 
     }
+
 }
 
 </style>

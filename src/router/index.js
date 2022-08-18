@@ -29,7 +29,7 @@ import GreenPowerConsumptionCertification from '../components/GreenPowerConsumpt
 import MarketInformationSynchronization from '../components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/index'
 import PowerSalesAggregationAgent from '../components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index'
 import AggregationAgentPowerPurchase from '../components/GreenPowerTransactionAggregationAgent/AggregationAgentPowerPurchase/index'
-
+import TransactionContractFeedback from '../components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/index'
 
 //绿电过程溯源
 import TransactionContractAnalysis from '../components/TransactionContractAnalysis/index'
@@ -95,6 +95,16 @@ export default new Router({
                     component: AggregationAgentPowerPurchase,
                     meta: {title: '聚合代理-购电'}
                 },
+
+                {
+                    path: '/TransactionContractFeedback',
+                    component: TransactionContractFeedback,
+                    meta: {title: '绿电交易合同反馈'}
+                },
+
+
+
+
                 {
                     path: '/TransactionContractAnalysis',
                     component: TransactionContractAnalysis,

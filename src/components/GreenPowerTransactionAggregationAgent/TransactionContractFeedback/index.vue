@@ -3,9 +3,9 @@
         <div class="templateDivT">
             <div class="templateDivTTop">
                 <div class="templateDivTTopL fl">
-                    <div class="templateDivTTopLText">聚合体绿电交易合同统计</div>
+                    <div class="templateDivTTopLText">绿电交易合同目录</div>
                     <div class="templateDivTTopLImg">
-                        <img src="../../assets/img/dw/bt.png" alt="">
+                        <img src="../../../assets/img/dw/bt.png" alt="">
                     </div>
                 </div>
                 <div class="templateDivTTopR fl">
@@ -15,15 +15,11 @@
                 <areaSelection></areaSelection>
             </div>
         </div>
-        <div class="templateDivB" >
-            <div class="TableTitle" style="margin-top: 15px">
-                <div class="TableTitleL"></div>
-                <div class="TableTitleR">企业</div>
+        <div class="templateDivB">
+            <div class="templateDivBL">
+
             </div>
             <div class="templateDivBR">
-                <div class="">
-                    <img src="../../assets/img/dw/qysbs.png" alt="">
-                </div>
 
             </div>
         </div>
@@ -32,13 +28,14 @@
 </template>
 
 <script>
-import shadinLayer from "../../common/shadinLayer";
+import shadinLayer from "../../../common/shadinLayer";
 import areaSelection from "./components/areaSelection";
 
 export default {
     name: "index",
     data() {
         return {
+
         };
     },
 
@@ -71,7 +68,6 @@ export default {
     background-color: #EDF4F4;
     padding-top: 10px;
     padding-bottom: 20px;
-
     .templateDivTTop {
         height: 50px;
         padding-left: 20px;
@@ -126,26 +122,9 @@ export default {
 
     }
     .templateDivB{
-        background-color: #ffffff;
+
+
     }
-    .templateDivBR{
-        width:100%;
-        height:600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #ffffff;
-         div{
-             width: 95%;
-             height: 500px;
-             img{
-                 width: 100%;
-             }
-         }
-    }
-
-
-
 }
 
 </style>
