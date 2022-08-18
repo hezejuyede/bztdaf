@@ -16,11 +16,35 @@
             </div>
         </div>
         <div class="templateDivB">
-            <div class="templateDivBL">
-
+            <div class="templateDivBL fl">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">绿电交易合同履约情况</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../../assets/img/dw/bt.png" alt="">
+                        </div>
+                    </div>
+                    <div class="templateDivTTopR fl">
+                    </div>
+                </div>
+                <div class="">
+                    <performance-list></performance-list>
+                </div>
             </div>
-            <div class="templateDivBR">
-
+            <div class="templateDivBR fl">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">单个体履约量占比</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../../assets/img/dw/bt.png" alt="">
+                        </div>
+                    </div>
+                    <div class="templateDivTTopR fl">
+                    </div>
+                </div>
+                <div class="">
+                    <performance-pie></performance-pie>
+                </div>
             </div>
         </div>
         <shadinLayer></shadinLayer>
@@ -30,7 +54,8 @@
 <script>
 import shadinLayer from "../../../common/shadinLayer";
 import areaSelection from "./components/areaSelection";
-
+import PerformanceList from "./components/PerformanceList";
+import PerformancePie from "./components/PerformancePie";
 export default {
     name: "index",
     data() {
@@ -41,6 +66,8 @@ export default {
 
     components: {
         shadinLayer,
+        PerformanceList,
+        PerformancePie,
         areaSelection
     },
 
@@ -121,7 +148,25 @@ export default {
         }
 
     }
+    .templateDivT{
+        width: 98%;
+        margin: 10px auto;
+    }
     .templateDivB{
+        height: 450px;
+        background-color: #F4F8F8;
+        .templateDivBL{
+            width: 59%;
+            height: 400px;
+            margin-left: 1%;
+            margin-right: 1%;
+            background-color: #ffffff;
+        }
+        .templateDivBR{
+            width: 39%;
+            height:400px;
+            background-color: #ffffff;
+        }
 
 
     }

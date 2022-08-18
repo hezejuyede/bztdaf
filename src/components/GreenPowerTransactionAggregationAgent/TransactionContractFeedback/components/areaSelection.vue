@@ -137,6 +137,7 @@ export default {
     }
 
     .visibleTable {
+        height: 350px;
 
     }
 
