@@ -18,12 +18,9 @@
                     </el-popover>
                 </template>
             </el-table-column>
-            <el-table-column label="补贴" prop="bt" align="center">
-                <template slot-scope="scope">
-                    <span>核发张数：{{scope.row.bt}}张</span>
-                </template>
-            </el-table-column>
-            <el-table-column label="绿电" prop="ld" align="center"></el-table-column>
+            <el-table-column label="单价" prop="dj" align="center" width="60"></el-table-column>
+            <el-table-column label="补贴" prop="bt" align="center" width="80"></el-table-column>
+            <el-table-column label="绿电" prop="ld" align="center" width="90"></el-table-column>
         </el-table>
     </div>
 </template>
