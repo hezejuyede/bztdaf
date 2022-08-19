@@ -40,7 +40,27 @@ export default {
         getList() {
             const getListData = async () => {
                 const result = await PowerSupplyCapacity({})
-                let data = result.data.data.data;
+               /* let data = result.data.data.data;*/
+                let data =  [
+                    ['单元', '单元体1', '单元体2', '单元体3', '单元体4'],
+                        ['6.25', 494.12, 595.47, 795.47, 895.47],
+                        ['6.27', 461.18, 562.44, 795.47, 895.47],
+                        ['6.29', 433.95, 635.13, 795.47, 895.47],
+                        ['7.01', 414.95, 716.08, 795.47, 595.47],
+                        ['7.03', 403.64, 804.74, 795.47, 895.47],
+                        ['7.05', 458.21, 959.47, 795.47, 895.47],
+                        ['7.07', 469.41, 270.70, 795.47, 895.47],
+                        ['7.09', 516.96, 318.37, 795.47, 895.47],
+                        ['7.11', 501.26, 802.63, 795.47, 895.47],
+                        ['7.13', 488.08, 789.41, 795.47, 895.47],
+                        ['7.15', 483.91, 685.23, 795.47, 895.47],
+                        ['7.17', 535.84, 137.31, 795.47, 895.47],
+                        ['7.19', 816.96, 318.37, 795.47, 895.47],
+                        ['7.21', 201.26, 502.63, 795.47, 895.47],
+                        ['7.23', 788.08, 289.41, 795.47, 895.47],
+                        ['7.25', 583.91, 785.23, 795.47, 895.47]
+                    ];
+
                 let myChart1 = this.$echarts.init(document.getElementById('line1'));
                 let myChart2 = this.$echarts.init(document.getElementById('line2'));
                 let myChart3 = this.$echarts.init(document.getElementById('line3'));
@@ -108,7 +128,7 @@ export default {
                         series: [{
                             type: 'bar', smooth: true, itemStyle: {
                                 normal: {
-                                    color: '#FFC657', areaStyle: {
+                                    color: '#088B86', areaStyle: {
                                         type: 'default',
                                         opacity: 0.1
                                     }
@@ -118,7 +138,27 @@ export default {
                             {
                                 type: 'bar', smooth: true, itemStyle: {
                                     normal: {
-                                        color: '#80D555', areaStyle: {
+                                        color: '#FFC657', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#78D44B', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#0EA3F7', areaStyle: {
                                             type: 'default',
                                             opacity: 0.1
                                         }
@@ -189,7 +229,7 @@ export default {
                         series: [{
                             type: 'bar', smooth: true, itemStyle: {
                                 normal: {
-                                    color: '#FFC657', areaStyle: {
+                                    color: '#088B86', areaStyle: {
                                         type: 'default',
                                         opacity: 0.1
                                     }
@@ -199,7 +239,27 @@ export default {
                             {
                                 type: 'bar', smooth: true, itemStyle: {
                                     normal: {
-                                        color: '#80D555', areaStyle: {
+                                        color: '#FFC657', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#78D44B', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#0EA3F7', areaStyle: {
                                             type: 'default',
                                             opacity: 0.1
                                         }
@@ -270,7 +330,7 @@ export default {
                         series: [{
                             type: 'bar', smooth: true, itemStyle: {
                                 normal: {
-                                    color: '#FFC657', areaStyle: {
+                                    color: '#088B86', areaStyle: {
                                         type: 'default',
                                         opacity: 0.1
                                     }
@@ -280,7 +340,27 @@ export default {
                             {
                                 type: 'bar', smooth: true, itemStyle: {
                                     normal: {
-                                        color: '#80D555', areaStyle: {
+                                        color: '#FFC657', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#78D44B', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                type: 'bar', smooth: true, itemStyle: {
+                                    normal: {
+                                        color: '#0EA3F7', areaStyle: {
                                             type: 'default',
                                             opacity: 0.1
                                         }

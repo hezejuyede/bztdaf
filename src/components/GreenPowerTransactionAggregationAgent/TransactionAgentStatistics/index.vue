@@ -13,7 +13,24 @@
                     </div>
                 </div>
                 <div class="">
-                    
+                    <div class="statisticsTemplate fl" v-for="(item,index) in listData">
+                        <div class="statisticsTemplateTop">
+                            {{item.name}}
+                            <img src="../../../assets/img/dw/heng.png" alt="" style="width: 50px">
+                        </div>
+                        <div class="statisticsTemplateBottom">
+                            <div class="">
+                                <div class="">履约合同数量：</div>
+                                <div class="">履约发电量：</div>
+                                <div class="">履约完成率：</div>
+                            </div>
+                            <div class="">
+                                <div class="LN">{{ item.lyhtsl }}</div>
+                                <div class="LN">{{ item.lyfdl }}</div>
+                                <div class="LN">{{ item.lyhtsl }}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="templateDivBR fl">
@@ -59,6 +76,12 @@ export default {
     name: "index",
     data() {
         return {
+            listData: [
+                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
+                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
+                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
+                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"}
+            ]
 
         };
     },
@@ -168,6 +191,45 @@ export default {
             background-color: #ffffff;
         }
 
+
+    }
+    .statisticsTemplate{
+        width: 47%;
+        height: 150px;
+        border: 1px solid #EBF5F5;
+        margin-left: 2%;
+        margin-top: 10px;
+        box-shadow: 2.5px 2.5px 2.5px #E6F3F3;
+        .statisticsTemplateTop{
+            height:40px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 10px;
+            flex-direction: column;
+        }
+        .statisticsTemplateBottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                div{
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+                .LN{
+                    margin-top: 5px;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+            }
+
+        }
 
     }
 }

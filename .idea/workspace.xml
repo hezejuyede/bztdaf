@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/heng.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" afterDir="false" />
@@ -40,15 +41,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/DataServer" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\TransactionAgentStatistics" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw" />
+      <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\TransactionAgentStatistics" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\AggregateDisplay" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\TransactionContractFeedback" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent" />
@@ -408,14 +409,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660872440042</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="9点52分">
+      <created>1660873987008</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1660873987008</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="06点30分" />
     <MESSAGE value="10点48分" />
     <MESSAGE value="13点24分" />
     <MESSAGE value="09点22分" />
@@ -440,6 +447,7 @@
     <MESSAGE value="16点53分" />
     <MESSAGE value="17点06分" />
     <MESSAGE value="9点27分" />
-    <option name="LAST_COMMIT_MESSAGE" value="9点27分" />
+    <MESSAGE value="9点52分" />
+    <option name="LAST_COMMIT_MESSAGE" value="9点52分" />
   </component>
 </project>
