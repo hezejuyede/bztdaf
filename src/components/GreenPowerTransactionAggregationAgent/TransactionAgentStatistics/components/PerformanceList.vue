@@ -53,13 +53,17 @@
                       :height="250"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="单元体" prop="htbh" align="center"></el-table-column>
-                <el-table-column label="履约合同数量" prop=dgt" align="center"></el-table-column>
-                <el-table-column label="履约发电量" prop="htzb" align="center"></el-table-column>
-                <el-table-column label="履约完成率" prop="htxyd" align="center"></el-table-column>
-                <el-table-column label="环比增量" prop="jhfpzb" align="center" ></el-table-column>
-                <el-table-column label="同比增量" prop="sjzb" align="center"></el-table-column>
-                <el-table-column label="详情" prop="sjzb" align="center"></el-table-column>
+                <el-table-column label="单元体" prop="dyt" align="center"></el-table-column>
+                <el-table-column label="履约合同数量" prop="lyhtsl" align="center"></el-table-column>
+                <el-table-column label="履约发电量" prop="lyfdl" align="center"></el-table-column>
+                <el-table-column label="履约完成率" prop="lywcl" align="center"></el-table-column>
+                <el-table-column label="环比增量" prop="hbzl" align="center" ></el-table-column>
+                <el-table-column label="同比增量" prop="tbzl" align="center"></el-table-column>
+                <el-table-column label="详情" align="center">
+                    <template slot-scope="scope">
+                        <span style="color:#409EFF;cursor: pointer">详情</span>
+                    </template>
+                </el-table-column>
             </el-table>
         </div>
     </div>
@@ -73,12 +77,12 @@ export default {
     data() {
         return {
             tableData:  [
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
+                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
             ],
         }
     },
