@@ -31,7 +31,7 @@ import PowerSalesAggregationAgent from '../components/GreenPowerTransactionAggre
 import AggregationAgentPowerPurchase from '../components/GreenPowerTransactionAggregationAgent/AggregationAgentPowerPurchase/index'
 import TransactionContractFeedback from '../components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/index'
 import AggregateDisplay from '../components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index'
-
+import TransactionAgentStatistics from '../components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index'
 
 
 
@@ -121,6 +121,13 @@ export default new Router({
                     path: '/AggregateDisplay',
                     component: AggregateDisplay,
                     meta: {title: '售电聚合体展示'}
+                },
+
+
+                {
+                    path: '/TransactionAgentStatistics',
+                    component: TransactionAgentStatistics,
+                    meta: {title: '绿电交易代理统计'}
                 },
 
 

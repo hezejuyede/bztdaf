@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/img/dw/jh-zs_03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformanceList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformancePie.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/areaSelection.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformanceList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformancePie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformancePie.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/areaSelection.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,18 +46,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img/dw" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\TransactionAgentStatistics" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\assets\img\dw" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\AggregateDisplay" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\TransactionContractFeedback" />
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent" />
-      <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\GreenPowerTransactionAggregationAgent\PowerSalesAggregationAgent" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\滨州市分布式光伏聚合运营平台\src\components\DataTrustworthinessSupervision\SourceDataRangeStatistics" />
