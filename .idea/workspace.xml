@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/LabelPreview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerConsumptionCertification/components/LabelPreview.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +70,6 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-    </task>
-    <task id="LOCAL-00003" summary="11">
-      <created>1660115897707</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1660115897707</updated>
     </task>
     <task id="LOCAL-00004" summary="15点41分">
       <created>1660117287170</created>
@@ -414,14 +407,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660889243607</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="14点52分">
+      <created>1660891965110</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1660891965110</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="09点22分" />
     <MESSAGE value="12点" />
     <MESSAGE value="10点47分" />
     <MESSAGE value="15点12分" />
@@ -446,6 +445,7 @@
     <MESSAGE value="9点52分" />
     <MESSAGE value="11点30分" />
     <MESSAGE value="14点07分" />
-    <option name="LAST_COMMIT_MESSAGE" value="14点07分" />
+    <MESSAGE value="14点52分" />
+    <option name="LAST_COMMIT_MESSAGE" value="14点52分" />
   </component>
 </project>
