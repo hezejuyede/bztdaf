@@ -4,7 +4,22 @@
             <div class="templateDivBL fl">
                 <div class="templateDivTTop">
                     <div class="templateDivTTopL fl">
-                        <div class="templateDivTTopLText">售电聚合体展示</div>
+                        <div class="templateDivTTopLText">聚合体绿电交易合同统计</div>
+                        <div class="templateDivTTopLImg">
+                            <img src="../../../assets/img/dw/bt.png" alt="">
+                        </div>
+                    </div>
+                    <div class="templateDivTTopR fl">
+                    </div>
+                </div>
+                <div class="">
+                    
+                </div>
+            </div>
+            <div class="templateDivBR fl">
+                <div class="templateDivTTop">
+                    <div class="templateDivTTopL fl">
+                        <div class="templateDivTTopLText">单元体绿电交易合同统计</div>
                         <div class="templateDivTTopLImg">
                             <img src="../../../assets/img/dw/bt.png" alt="">
                         </div>
@@ -15,9 +30,6 @@
                 <div class="">
                     <performance-list></performance-list>
                 </div>
-            </div>
-            <div class="templateDivBR fl">
-                <img src="../../../assets/img/dw/jh-zs_03.png" alt="" style="height:  300px">
             </div>
         </div>
         <div class="templateDivT">
@@ -145,18 +157,15 @@ export default {
         height: 420px;
         background-color: #F4F8F8;
         .templateDivBL{
-            width: 59%;
+            width: 40%;
             height: 400px;
             margin-left: 1%;
             background-color: #ffffff;
         }
         .templateDivBR{
-            width: 40%;
+            width: 59%;
             height:400px;
             background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
 

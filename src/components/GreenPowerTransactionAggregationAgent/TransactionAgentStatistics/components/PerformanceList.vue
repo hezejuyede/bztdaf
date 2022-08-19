@@ -53,12 +53,13 @@
                       :height="250"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="聚合体名称" prop="htbh" align="center"></el-table-column>
-                <el-table-column label="区域分布" prop=dgt" align="center"></el-table-column>
-                <el-table-column label="单光伏核电站数量" prop="htzb" align="center"></el-table-column>
-                <el-table-column label="装机总容量" prop="htxyd" align="center"></el-table-column>
-                <el-table-column label="单电站最小装机容量" prop="jhfpzb" align="center" ></el-table-column>
-                <el-table-column label="单电站最大装机容量" prop="sjzb" align="center"></el-table-column>
+                <el-table-column label="单元体" prop="htbh" align="center"></el-table-column>
+                <el-table-column label="履约合同数量" prop=dgt" align="center"></el-table-column>
+                <el-table-column label="履约发电量" prop="htzb" align="center"></el-table-column>
+                <el-table-column label="履约完成率" prop="htxyd" align="center"></el-table-column>
+                <el-table-column label="环比增量" prop="jhfpzb" align="center" ></el-table-column>
+                <el-table-column label="同比增量" prop="sjzb" align="center"></el-table-column>
+                <el-table-column label="详情" prop="sjzb" align="center"></el-table-column>
             </el-table>
         </div>
     </div>

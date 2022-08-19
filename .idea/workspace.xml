@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformanceList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformancePie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformancePie.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/areaSelection.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,14 +401,20 @@
       <option name="project" value="LOCAL" />
       <updated>1660813591093</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="9点27分">
+      <created>1660872440042</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1660872440042</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="22点03分" />
     <MESSAGE value="06点30分" />
     <MESSAGE value="10点48分" />
     <MESSAGE value="13点24分" />
@@ -439,6 +439,7 @@
     <MESSAGE value="14点33分" />
     <MESSAGE value="16点53分" />
     <MESSAGE value="17点06分" />
-    <option name="LAST_COMMIT_MESSAGE" value="17点06分" />
+    <MESSAGE value="9点27分" />
+    <option name="LAST_COMMIT_MESSAGE" value="9点27分" />
   </component>
 </project>
