@@ -93,6 +93,10 @@
         <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
                                   @closeVisible="closeVisible"></PolymerRecruitmentDialog>
         <shadinLayer></shadinLayer>
+        <detailsDialog :detailsDialog="detailsDialog"
+                       @closeVisible="closeVisible">
+
+        </detailsDialog>
     </div>
 </template>
 
@@ -105,6 +109,7 @@ import UserRegistrationDialog from './components/UserRegistrationDialog'
 import AddPolymerDialog from './components/AddPolymerDialog'
 import PolymerRegistrationDialog from './components/PolymerRegistrationDialog'
 import PolymerRecruitmentDialog from './components/PolymerRecruitmentDialog'
+import detailsDialog from './components/detailsDialog'
 
 export default {
     name: "index",
@@ -114,11 +119,12 @@ export default {
             UserRegistrationDialog:false,
             PolymerRecruitmentDialog:false,
             PolymerRegistrationDialog:false,
+            detailsDialog:true
         }
     },
 
 
-    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog,PolymerRegistrationDialog,PolymerRecruitmentDialog},
+    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog,PolymerRegistrationDialog,PolymerRecruitmentDialog,detailsDialog},
 
     mounted() {
 
@@ -140,6 +146,9 @@ export default {
             }
             else if (type === 'PolymerRecruitmentDialog') {
                 this.PolymerRecruitmentDialog = false;
+            }
+            else if (type === 'detailsDialog') {
+                this.detailsDialog = false;
             }
         },
 

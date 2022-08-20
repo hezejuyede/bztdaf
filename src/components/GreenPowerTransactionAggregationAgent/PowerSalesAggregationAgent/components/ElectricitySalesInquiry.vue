@@ -21,13 +21,13 @@
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="名称" prop="lzbh" align="center" width="80"></el-table-column>
-                <el-table-column label="装机容量" prop="time" align="center"></el-table-column>
-                <el-table-column label="实发容量" prop="fddw" align="center"></el-table-column>
-                <el-table-column label="已售电量" prop="cydw" align="center"></el-table-column>
-                <el-table-column label="可售电量" prop="cydw" align="center"></el-table-column>
-                <el-table-column label="计划开始日期" prop="cydw" align="center"></el-table-column>
-                <el-table-column label="计划结束日期" prop="cydw" align="center"></el-table-column>
+                <el-table-column label="名称" prop="name" align="center" width="80"></el-table-column>
+                <el-table-column label="装机容量" prop="zjrl" align="center" width="80"></el-table-column>
+                <el-table-column label="实发容量" prop="sfrl" align="center" width="80"></el-table-column>
+                <el-table-column label="已售电量" prop="ysdl" align="center" width="80"></el-table-column>
+                <el-table-column label="可售电量" prop="ksdl" align="center" width="80"></el-table-column>
+                <el-table-column label="计划开始日期" prop="jhksrq" align="center"></el-table-column>
+                <el-table-column label="计划结束日期" prop="jhjsrq" align="center"></el-table-column>
             </el-table>
         </div>
     </div>
@@ -39,7 +39,13 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData:[],
+            tableData:[
+                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
+                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
+                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
+                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
+                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
+            ],
             examineTime:[]
         }
     },
@@ -63,7 +69,7 @@ export default {
                     "startTime":that.examineTime[0],
                     "endTime":that.examineTime[1]
                 })
-                that.tableData = result.data.data.data;
+               /* that.tableData = result.data.data.data;*/
             }
             getListData();
         },
@@ -101,7 +107,7 @@ export default {
             padding: 0 ;
         }
         /deep/ td {
-            padding: 0 ;
+            padding: 2.5px;
         }
     }
 }

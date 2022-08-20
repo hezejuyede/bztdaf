@@ -89,11 +89,17 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="聚合体" prop="srgl" align="center" ></el-table-column>
-                    <el-table-column label="聚合体总容量" prop="dtfzgl" align="center"></el-table-column>
-                    <el-table-column label="聚合体余量" prop="yggl" align="center"></el-table-column>
-                    <el-table-column label="聚合体资产主体数量" prop="wggl" align="center"></el-table-column>
-                    <el-table-column label="申请加入" prop="xl" align="center"></el-table-column>
+                    <el-table-column label="聚合体" prop="jht" align="center" ></el-table-column>
+                    <el-table-column label="聚合体总容量" prop="jhtzrl" align="center"></el-table-column>
+                    <el-table-column label="聚合体余量" prop="jhtyl" align="center"></el-table-column>
+                    <el-table-column label="聚合体资产主体数量" prop="jhtzcztrl" align="center"></el-table-column>
+                    <el-table-column label="申请加入" align="center">
+                        <template slot-scope="scope">
+                            <el-button type="primary" @click="applyJoin(scope.row)"
+                                       style="background-color: #05A696;width: 100px;height: 35px">申请
+                            </el-button>
+                        </template>
+                    </el-table-column>
                 </el-table>
             </div>
         </div>
@@ -108,7 +114,11 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData:[],
+            tableData:[
+                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
+                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
+                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"}
+            ],
         }
     },
     mounted() {
@@ -131,7 +141,7 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await dataHash({})
-                that.tableData = result.data.data.data;
+               /* that.tableData = result.data.data.data;*/
             }
             getListData();
 
@@ -142,6 +152,11 @@ export default {
         closeVisible(){
             this.$emit('closeVisible','AddPolymerDialog')
         },
+
+        //申请加入
+        applyJoin(){
+
+        }
 
 
     },
