@@ -9,6 +9,7 @@ const URL = {
     TerminalEquipmentManufacturer: '/SourceDataRangeStatistics/TerminalEquipmentManufacturer',          //终端设备厂商                                        //终端设备厂商
     TerminalEquipmentType: '/SourceDataRangeStatistics/TerminalEquipmentType',                          //终端设备类型
     DetailsList: '/SourceDataRangeStatistics/DetailsList',                                              //详情列表
+    NumberOfEquipment: '/SourceDataRangeStatistics/NumberOfEquipment',                                  //终端设备数量
 };
 
 
@@ -99,6 +100,16 @@ export const TerminalEquipmentType = data => {
 export const DetailsList = data => {
     return request({
         url: URL.DetailsList,
+        method: 'POST',
+        data
+    })
+}
+/**
+ * 终端设备数量
+ */
+export const NumberOfEquipment = data => {
+    return request({
+        url: URL.RegionalData,
         method: 'POST',
         data
     })

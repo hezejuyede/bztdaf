@@ -308,6 +308,10 @@
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备个数" prop="zdsbgs" align="center">
+                                <template slot-scope="scope">
+                                    <span style="color: #409EFF;cursor: pointer"
+                                          @click="showSL(scope.row)">{{ scope.row.zdsbgs }}</span>
+                                </template>
                             </el-table-column>
                             <el-table-column label="监测指标" prop="jkzb" align="center"></el-table-column>
                             <el-table-column label="异常指标" prop="yczb" align="center">
@@ -336,6 +340,10 @@
         <terminalEquipmentType :terminalEquipmentType="terminalEquipmentType" :rowId="rowId"
                                @closeVisible="closeVisible"></terminalEquipmentType>
         <shadinLayer></shadinLayer>
+
+        <NumberOfEquipment :NumberOfEquipment="NumberOfEquipment" :rowId="rowId"
+                               @closeVisible="closeVisible"></NumberOfEquipment>
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -344,6 +352,11 @@ import equipment from './components/equipment'
 import abnormalIndicators from './components/abnormalIndicators'
 import terminalEquipmentManufacturer from './components/terminalEquipmentManufacturer'
 import terminalEquipmentType from './components/terminalEquipmentType'
+
+import NumberOfEquipment from './components/NumberOfEquipment'
+
+
+
 
 import {regionOptions, streetOptions, communityOptions} from "../../../utils/options";
 import {
@@ -387,12 +400,13 @@ export default {
             equipmentVisible: false,
             abnormalIndicators: false,
             terminalEquipmentManufacturer: false,
-            terminalEquipmentType: false
+            terminalEquipmentType: false,
+            NumberOfEquipment: false,
         }
     },
 
 
-    components: {shadinLayer, equipment, abnormalIndicators, terminalEquipmentManufacturer, terminalEquipmentType},
+    components: {shadinLayer, equipment,NumberOfEquipment, abnormalIndicators, terminalEquipmentManufacturer, terminalEquipmentType},
 
     mounted() {
         this.doSearch();
@@ -499,6 +513,9 @@ export default {
                 this.terminalEquipmentManufacturer = false;
             } else if (type === 'terminalEquipmentType') {
                 this.terminalEquipmentType = false;
+            }
+            else if (type === 'NumberOfEquipment') {
+                this.NumberOfEquipment = false;
             }
         },
 
@@ -655,6 +672,12 @@ export default {
         showYC(row) {
             this.rowId = row.id;
             this.abnormalIndicators = true;
+        },
+
+        //显示数量
+        showSL(row) {
+            this.rowId = row.id;
+            this.NumberOfEquipment = true;
         }
 
 
