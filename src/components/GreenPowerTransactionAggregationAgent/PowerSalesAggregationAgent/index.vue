@@ -119,7 +119,7 @@ export default {
             UserRegistrationDialog:false,
             PolymerRecruitmentDialog:false,
             PolymerRegistrationDialog:false,
-            detailsDialog:true
+            detailsDialog: false
         }
     },
 
