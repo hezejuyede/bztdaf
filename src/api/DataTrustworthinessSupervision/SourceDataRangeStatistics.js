@@ -109,7 +109,7 @@ export const DetailsList = data => {
  */
 export const NumberOfEquipment = data => {
     return request({
-        url: URL.RegionalData,
+        url: URL.NumberOfEquipment,
         method: 'POST',
         data
     })
