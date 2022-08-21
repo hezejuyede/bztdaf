@@ -25,29 +25,13 @@
                         <el-container>
                             <el-header>
                                 <el-row>
-                                    <el-col :span="4">
-                                        <el-select v-model="querySelect.diqu" placeholder="地区">
-                                            <el-option
-                                                v-for="item in options1"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                            </el-option>
-                                        </el-select>
-                                    </el-col>
-                                    <el-col :span="4">
-                                        <el-select v-model="querySelect.cunzhen" placeholder="村镇">
-                                            <el-option
-                                                v-for="item in options2"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                            </el-option>
-                                        </el-select>
+                                    <el-col :span="8">
+                                        <el-cascader v-model="diqu" :options="options1" clearable
+                                                     placeholder="地区"></el-cascader>
                                     </el-col>
 
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.type" placeholder="类型">
+                                        <el-select v-model="querySelect.type" placeholder="终端编号">
                                             <el-option
                                                 v-for="item in options3"
                                                 :key="item.value"
@@ -71,7 +55,7 @@
                                         </el-date-picker>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-button class="search-button" type="primary" icon="el-icon-search">搜索
+                                        <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">搜索
                                         </el-button>
                                     </el-col>
                                 </el-row>
@@ -81,12 +65,11 @@
                                     :data="tableData"
                                     border
                                     :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'15px',fontWeight:'800'}"
-                                    style="width: 100%;border-radius: 0px">
-                                    <el-table-column prop="source" label="数据" width="180"></el-table-column>
-                                    <el-table-column prop="date" label="时间" width="180"
-                                                     :formatter="formatDate"></el-table-column>
-                                    <el-table-column prop="state" label="可信存证状态" width="180"></el-table-column>
-                                    <el-table-column prop="high" label="区块高度"></el-table-column>
+                                    style="width: 100%;border-radius: 0">
+                                    <el-table-column prop="source" label="数据"  align="center"></el-table-column>
+                                    <el-table-column prop="date" label="时间"  align="center"></el-table-column>
+                                    <el-table-column prop="state" label="可信存证状态"  align="center"></el-table-column>
+                                    <el-table-column prop="high" label="区块高度"  align="center"></el-table-column>
                                 </el-table>
                             </el-main>
                         </el-container>
@@ -123,7 +106,17 @@
                                         </el-select>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.cunzhen" placeholder="村镇">
+                                        <el-select v-model="querySelect.cunzhen" placeholder="街道">
+                                            <el-option
+                                                v-for="item in options2"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                            </el-option>
+                                        </el-select>
+                                    </el-col>
+                                    <el-col :span="4">
+                                        <el-select v-model="querySelect.cunzhen" placeholder="社区">
                                             <el-option
                                                 v-for="item in options2"
                                                 :key="item.value"
@@ -142,8 +135,8 @@
                                             </el-option>
                                         </el-select>
                                     </el-col>
-                                    <el-col :span="8">
-                                        <el-select v-model="querySelect.num" placeholder="终端设备编号">
+                                    <el-col :span="4">
+                                        <el-select v-model="querySelect.num" placeholder="设备编号">
                                             <el-option
                                                 v-for="item in options3"
                                                 :key="item.value"
@@ -180,7 +173,7 @@
                                     </el-col>
                                     <el-col :span="4"></el-col>
                                     <el-col :span="4">
-                                        <el-button class="search-button" type="primary" icon="el-icon-search">搜索
+                                        <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">搜索
                                         </el-button>
                                     </el-col>
                                 </el-row>
@@ -214,26 +207,22 @@
                     <div class="border-top-quarantine">
                         <div style="position: relative;float: right;margin-bottom: 10px">
                             <el-button class="normal-button">任务发起</el-button>
-                            <el-button class="search-button" type="primary" icon="el-icon-search">进度检查</el-button>
+                            <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">进度检查</el-button>
                         </div>
-                        <div>
+                        <div  >
                             <el-table
                                 :data="tableData2"
                                 border
-                                :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'15px',fontWeight:'800'}"
-                                style="width: 100%;border-radius: 0px">
-                                <el-table-column prop="num" label="任务序列" width="90"></el-table-column>
-                                <el-table-column prop="date" label="执行时间" width="150"
-                                                 :formatter="formatDate"></el-table-column>
-                                <el-table-column prop="diqu" label="地区" width="80"></el-table-column>
-                                <el-table-column prop="cunzhen" label="村镇"></el-table-column>
-                                <el-table-column prop="guangfu" label="光伏"></el-table-column>
-                                <el-table-column prop="number" label="逆变器编号" width="100"></el-table-column>
-                                <el-table-column prop="count" label="数据总数" width="90"></el-table-column>
-                                <el-table-column label="详情" fixed="right">
-                                    <template slot-scope="scope">
-                                        <u style="color: #037469" @click="taskProgressMath">查看</u>
-                                    </template>
+                                :height="100"
+                                :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'12px',fontWeight:'800'}"
+                                style="width: 100%;border-radius: 0">
+                                <el-table-column prop="num" label="任务序列" width="80"  align="center"></el-table-column>
+                                <el-table-column prop="date" label="执行时间" width="120"  align="center"></el-table-column>
+                                <el-table-column prop="diqu" label="地区" width="80"  align="center"></el-table-column>
+                                <el-table-column prop="cunzhen" label="村镇" width="80"  align="center"></el-table-column>
+                                <el-table-column prop="guangfu" label="光伏" width="80"  align="center"></el-table-column>
+                                <el-table-column prop="number" label="逆变器编号" width="90"  align="center"></el-table-column>
+                                <el-table-column prop="count" label="可信状态异常链数"  align="center">
                                 </el-table-column>
                             </el-table>
                         </div>
@@ -246,14 +235,7 @@
                         </div>
                         <el-row style="height: calc(100% - 40px)">
                             <el-col :span="6">
-                                <el-tree class="modal-style-3-3-el-col-son"
-                                         :data="data"
-                                         show-checkbox
-                                         node-key="id"
-                                         :default-expanded-keys="[2, 3]"
-                                         :default-checked-keys="[5]"
-                                         :props="defaultProps">
-                                </el-tree>
+                                <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
                             </el-col>
                             <el-col :span="12">
                                 <div class="modal-style-3-3-el-col-son">
@@ -266,19 +248,19 @@
                                             数据hash
                                         </div>
                                         <el-button class="normal-button" type="primary"
-                                                   style="position: absolute;right: 0px;top: 0px;"
+                                                   style="position: absolute;right: 0px;top: 0px;background-color: #05A696"
                                                    @click="fileUplod = true;">文件导入
                                         </el-button>
                                     </div>
                                     <div style="height: calc(100% - 80px);overflow: auto">
                                         <div v-for="(item,index ) in hashlist" :key="index"
-                                             style="background: #fff;height: 50px;margin-bottom: 3px">
+                                             style="background: #fff;height: 170px;margin-bottom: 3px;word-wrap:break-word;padding: 10px">
                                             {{ item }}
                                         </div>
 
                                     </div>
                                     <div style="text-align: center;padding-top: 10px">
-                                        <el-button style="float: none" class="search-button" type="primary"
+                                        <el-button style="float: none;background-color: #05A696" class="search-button" type="primary"
                                                    icon="el-icon-search">查询
                                         </el-button>
                                     </div>
@@ -411,49 +393,70 @@ export default {
             querySelect: {},
             startDate: null,
             endDate: null,
-            options1: [],
+            diqu:[],
+            options1: [
+                {
+                    value: 'zhinan',
+                    label: '滨城区',
+                    children: [{
+                        value: 'shejiyuanze',
+                        label: '市东街道',
+                        children: [{
+                            value: 'yizhi',
+                            label: '郭集'
+                        }, {
+                            value: 'fankui',
+                            label: '西宋社区'
+                        }, {
+                            value: 'xiaolv',
+                            label: '北杨社区'
+                        }, {
+                            value: 'kekong',
+                            label: '赵家社区'
+                        }]
+                    }]}
+            ],
             options2: [],
             options3: [],
             optionsTime: [],
-            tableData: [],
-            tableData2: [],
+            tableData: [
+                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
+                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
+                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
+                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
+                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
+            ],
+            tableData2: [
+                {"num":"任务1","date":"2022-07-03 12:13","diqu":"郭集","cunzhen":"村庄1","guangfu":"屋顶","number":"6NB-9","count":"23"},
+                {"num":"任务1","date":"2022-07-03 12:13","diqu":"郭集","cunzhen":"村庄1","guangfu":"屋顶","number":"6NB-9","count":"23"},
+            ],
             data: [
                 {
                     id: 1,
-                    label: '一级 1',
-                    children: [{
+                    label: '滨州',
+                    children: [
+                        {
                         id: 4,
-                        label: '二级 1-1',
+                        label: '滨城地区',
                         children: [{
                             id: 9,
-                            label: '三级 1-1-1'
-                        }, {
-                            id: 10,
-                            label: '三级 1-1-2'
-                        }]
+                            label: '市东街道',
+                            children: [{
+                                id: 111,
+                                label: '郭集'
+                            }, {
+                                id: 121,
+                                label: '西宋社区'
+                            }, {
+                                id: 131,
+                                label: '天王堂社区'
+                            }
+                            ]
+                        }
+                        ]
                     }]
-                }, {
-                    id: 2,
-                    label: '一级 2',
-                    children: [{
-                        id: 5,
-                        label: '二级 2-1'
-                    }, {
-                        id: 6,
-                        label: '二级 2-2'
-                    }]
-                }, {
-                    id: 3,
-                    label: '一级 3',
-                    children: [{
-                        id: 7,
-                        label: '二级 3-1'
-                    }, {
-                        id: 8,
-                        label: '二级 3-2'
-                    }]
-                }],
-            hashlist: [],
+                },],
+            hashlist: ["rrdfdgguiu7766tgvgfddetrghhjeddfftyyuytreeedddsswee4566665455f"],
             defaultProps: {
                 children: 'children',
                 label: 'label'
@@ -467,76 +470,10 @@ export default {
         }
     },
     created() {
-        this.init();
+        /*this.init();*/
     },
     methods: {
-        init() {
-            /**
-             *
-             * @type {[{label: string, value: string},{label: string, value: string},{label: string, value: string}]}
-             */
-            var options = [
-                {
-                    label: "魏家庄",
-                    value: "1"
-                },
-                {
-                    label: "德云社",
-                    value: "2"
-                },
-                {
-                    label: "马戏团",
-                    value: "3"
-                },
-            ];
-            this.options1 = options;
-            this.options2 = options;
-            this.options3 = options;
-            /**
-             *
-             * @type {*[]}
-             */
-            var tableData = [];
-            this.optionsTime = [];
-            this.hashlist = [];
-            for (var i = 0; i < 9; i++) {
-                tableData.push({
-                    source: "AHJDHAJHJDHDJHAJDJ",
-                    date: new Date(),
-                    state: "正常",
-                    high: 45154 + 44 * i
-                });
-                this.optionsTime.push({
-                    label: i + 1 + 'h',
-                    value: i + 1
-                })
-                this.hashlist.push("asidhyuiashdjhajksdhuah")
-            }
-            this.tableData = tableData;
-            /**
-             *
-             */
-            var tableData2 = [];
-            this.tableDataAbnormalInfo = [];
-            for (var i = 0; i < 2; i++) {
-                tableData2.push({
-                    num: i + 1,
-                    date: new Date(),
-                    diqu: "郭集",
-                    cunzhen: '村庄' + i + 1,
-                    guangfu: '屋顶',
-                    number: Math.round(Math.random(1000) * 236665654),
-                    count: 1000 * 54 * i
-                });
-                this.tableDataAbnormalInfo.push({
-                    hash: "S5D47F5S4D5F45SD4FSD",
-                    date: new Date(),
-                    state: '异常',
-                    address: "沾化县***村***号"
-                })
-            }
-            this.tableData2 = tableData2;
-        },
+
         taskProgressMath() {
             this.taskProgress = true;
         },
@@ -545,9 +482,11 @@ export default {
             this.fileUplod = false;
             this.abnormalInfo = false;
         },
-        formatDate(row) {
-            return this.$formatDate(row.date);
+
+        handleNodeClick(){
+
         }
+
     }
 }
 </script>
@@ -728,6 +667,17 @@ export default {
     display: none; /*隐藏滚动条*/
 }
 
+
+.el-table {
+    // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    // 深度选择器，去除默认的padding
+    /deep/ th {
+        padding: 0 ;
+    }
+    /deep/ td {
+        padding: 0 ;
+    }
+}
 
 </style>
 
