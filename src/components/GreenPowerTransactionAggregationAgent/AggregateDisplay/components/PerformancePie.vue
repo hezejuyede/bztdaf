@@ -6,7 +6,7 @@
 
 
 <script type="text/ecmascript-6">
-import {PowerSupplyCapacity} from "../../../../api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization";
+import { PowerGeneration} from "../../../../api/GreenPowerTransactionAggregationAgent/AggregateDisplay";
 
 export default {
     name: 'modal',
@@ -28,7 +28,7 @@ export default {
         //查询
         getList() {
             const getListData = async () => {
-                const result = await PowerSupplyCapacity({})
+                const result = await PowerGeneration({})
                 let data = result.data.data.data;
                 let myChart = this.$echarts.init(document.getElementById('line'));
                 // 绘制图表

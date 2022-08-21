@@ -7,19 +7,20 @@
                                style="background-color: #05A696;width: 100px;height: 35px">查询
                     </el-button>
                 </label>
+
                 <label style="margin-right: 5px;margin-left: 5px" class="fr">
                     <el-select
                         style="width:200px"
-                        v-model="manufactor"
+                        v-model="capacity"
                         clearable
                         filterable
                         allow-create
                         multiple
                         collapse-tags
                         default-first-option
-                        placeholder="地区">
+                        placeholder="容量">
                         <el-option
-                            v-for="item in manufactoreOptions"
+                            v-for="item in capacityOptions"
                             :key="item.id"
                             :label="item.name"
                             :value="item.id">
@@ -29,16 +30,16 @@
                 <label style="margin-right: 5px;margin-left: 5px" class="fr">
                     <el-select
                         style="width:200px"
-                        v-model="manufactor"
+                        v-model="region"
                         clearable
                         filterable
                         allow-create
                         multiple
                         collapse-tags
                         default-first-option
-                        placeholder="容量">
+                        placeholder="地区">
                         <el-option
-                            v-for="item in manufactoreOptions"
+                            v-for="item in regionOptions"
                             :key="item.id"
                             :label="item.name"
                             :value="item.id">
@@ -65,20 +66,19 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {  PolymerDisplay} from "../../../../api/GreenPowerTransactionAggregationAgent/AggregateDisplay";
+import {regionOptions} from "../../../../utils/options";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:  [
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-            ],
+            tableData:  [],
+            region:"",
+            regionOptions:regionOptions,
+            capacity:"",
+            capacityOptions:[]
+
         }
     },
     mounted() {
@@ -97,12 +97,11 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
+                const result = await  PolymerDisplay({
+                    "capacity": this.capacity,
+                    "region":this.region,
                 })
-                /*  that.tableData1 = result.data.data.data;
-                  that.tableData2 = result.data.data.data;*/
+                  that.tableData = result.data.data.data;
             }
             getListData();
 
