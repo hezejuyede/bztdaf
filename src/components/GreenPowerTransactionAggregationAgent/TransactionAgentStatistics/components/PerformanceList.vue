@@ -46,7 +46,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {UnitStatistics} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
+import {UnitStatistics} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics";
 
 export default {
     name: 'modal',

@@ -72,7 +72,7 @@
 import shadinLayer from "../../../common/shadinLayer";
 import PerformanceList from "./components/PerformanceList";
 import PerformancePie from "./components/PerformancePie";
-import {PolymerStatistics} from "../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
+import {PolymerStatistics} from "../../../api/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics";
 
 export default {
     name: "index",

@@ -1,65 +1,42 @@
 import request from '../../utils/http.js'
 
 const URL = {
-    PolymerStatistics: '/TransactionContractFeedback/PolymerStatistics',                //聚合体绿电交易合同统计
-    UnitStatistics: '/TransactionContractFeedback/UnitStatistics',                      //单元体绿电交易合同统计
-    PowerGeneration: '/TransactionContractFeedback/PowerGeneration',                    //发电量
-    PerformanceElectricity: '/TransactionContractFeedback/PerformanceElectricity',      //履约电量
-    SettlementAmount: '/TransactionContractFeedback/SettlementAmount',                  //结算金额
+    ContractCatalogue: '/TransactionContractFeedback/ContractCatalogue',                //绿电交易合同目录
+    ContractPerformance: '/TransactionContractFeedback/ContractPerformance',            //绿电交易合同履约情况
+    VolumeProportion: '/TransactionContractFeedback/VolumeProportion',                  //单个体履约量占比
 };
 
 
 /**
- * 聚合体绿电交易合同统计
+ * 绿电交易合同目录
  */
-export const PolymerStatistics = data => {
+export const ContractCatalogue = data => {
     return request({
-        url: URL.PolymerStatistics,
+        url: URL.ContractCatalogue,
         method: 'POST',
         data
     })
 }
 
 /**
- * 单元体绿电交易合同统计
+ * 绿电交易合同履约情况
  */
-export const UnitStatistics = data => {
+export const  ContractPerformance = data => {
     return request({
-        url: URL.UnitStatistics,
+        url: URL.ContractPerformance,
         method: 'POST',
         data
     })
 }
 
 /**
- * 发电量
+ * 单个体履约量占比
  */
-export const PowerGeneration = data => {
+export const VolumeProportion = data => {
     return request({
-        url: URL.PowerGeneration,
+        url: URL.VolumeProportion,
         method: 'POST',
         data
     })
 }
 
-/**
- *履约电量
- */
-export const PerformanceElectricity = data => {
-    return request({
-        url: URL.PerformanceElectricity,
-        method: 'POST',
-        data
-    })
-}
-
-/**
- *结算金额
- */
-export const SettlementAmount = data => {
-    return request({
-        url: URL.SettlementAmount,
-        method: 'POST',
-        data
-    })
-}

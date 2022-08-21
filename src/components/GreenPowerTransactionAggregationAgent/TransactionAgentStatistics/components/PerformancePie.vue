@@ -21,7 +21,7 @@ import {
     PowerGeneration,
     PerformanceElectricity,
     SettlementAmount
-} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
+} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics";
 
 export default {
     name: 'modal',

@@ -5,7 +5,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import { VolumeProportion} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
 
 export default {
     name: 'modal',
@@ -30,21 +30,9 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
-                })
-                /*  that.tableData1 = result.data.data.data;
-                  that.tableData2 = result.data.data.data;*/
+                const result = await VolumeProportion({})
 
-                var data =  [
-                    { value: 1048, name: '单个体1' },
-                    { value: 735, name: '单个体2' },
-                    { value: 580, name: '单个体3' },
-                    { value: 484, name: '单个体4' },
-                    { value: 300, name: '单个体5' },
-                    { value: 500, name: '单个体6' }
-                ];
+                var data = result.data.data.data;
                 let myChart = this.$echarts.init(document.getElementById('enterpriseBar'));
                 // 绘制图表
                 myChart.setOption({
@@ -100,6 +88,7 @@ export default {
     },
 
     props: {
+
     },
 }
 </script>

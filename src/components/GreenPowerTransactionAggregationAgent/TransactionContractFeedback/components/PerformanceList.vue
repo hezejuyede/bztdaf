@@ -23,20 +23,13 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import { ContractPerformance} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:  [
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-                {"htbh": "1111", "dgt":"郭集", "htzb": "5%", "htxyd":"77%","jhfpzb":"45%","sjzb":"56%","fped":"66万","bt":"34万","zj":"100万"},
-            ],
+            tableData:  [],
         }
     },
     mounted() {
@@ -55,12 +48,9 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
-                })
-                /*  that.tableData1 = result.data.data.data;
-                  that.tableData2 = result.data.data.data;*/
+                const result = await ContractPerformance({})
+                  that.tableData = result.data.data.data;
+
             }
             getListData();
 

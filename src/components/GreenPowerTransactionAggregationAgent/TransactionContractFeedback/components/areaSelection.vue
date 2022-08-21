@@ -14,7 +14,7 @@
             <label style="margin-right: 5px;margin-left: 5px" class="fr">
                 <el-select
                     style="width:200px"
-                    v-model="manufactor"
+                    v-model="situation"
                     clearable
                     filterable
                     allow-create
@@ -23,7 +23,7 @@
                     default-first-option
                     placeholder="选择完成情况">
                     <el-option
-                        v-for="item in manufactoreOptions"
+                        v-for="item in situationOptions"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -33,7 +33,7 @@
             <label style="margin-right: 5px;margin-left: 5px" class="fr">
                 <el-select
                     style="width:200px"
-                    v-model="manufactor"
+                    v-model="quota"
                     clearable
                     filterable
                     allow-create
@@ -42,7 +42,7 @@
                     default-first-option
                     placeholder="选择合同额度">
                     <el-option
-                        v-for="item in manufactoreOptions"
+                        v-for="item in quotaOptions"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -75,20 +75,17 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import { ContractCatalogue} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:  [
-                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "kssj": "2022-07-02", "jssj": "2022-08-02", "htdl": "5345GW", "lydl": "44532GW",},
-            ],
-            manufactor: "",
-            manufactoreOptions: [],
-            hashData: "",
+            tableData:  [],
+            quota:"",
+            quotaOptions:[],
+            situation:"",
+            situationOptions:[],
             examineTime:[]
         }
     },
@@ -108,12 +105,13 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
+                const result = await ContractCatalogue({
+                    "quota": this.quota,
+                    "situation":this.situation,
+                    "startTime":this.examineTime[0],
+                    "endTime":this.examineTime[1]
                 })
-              /*  that.tableData1 = result.data.data.data;
-                that.tableData2 = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
 
