@@ -15,7 +15,7 @@
                 <div class="">
                     <div class="statisticsTemplate fl" v-for="(item,index) in listData">
                         <div class="statisticsTemplateTop">
-                            {{item.name}}
+                            {{ item.name }}
                             <img src="../../../assets/img/dw/heng.png" alt="" style="width: 50px">
                         </div>
                         <div class="statisticsTemplateBottom">
@@ -72,16 +72,13 @@
 import shadinLayer from "../../../common/shadinLayer";
 import PerformanceList from "./components/PerformanceList";
 import PerformancePie from "./components/PerformancePie";
+import {PolymerStatistics} from "../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
+
 export default {
     name: "index",
     data() {
         return {
-            listData: [
-                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
-                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
-                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"},
-                {"name": "单元体1", "lyhtsl": "4", "lyfdl": "2346GW", "lywcl": "100%"}
-            ]
+            listData: []
 
         };
     },
@@ -93,14 +90,23 @@ export default {
     },
 
     mounted() {
-
+        this.getList()
     },
     created() {
 
 
     },
     methods: {
+        //查询
+        getList() {
+            let that = this;
+            const getListData = async () => {
+                const result = await PolymerStatistics({})
+                that.listData = result.data.data.data;
+            }
+            getListData();
 
+        },
 
     }
 
@@ -116,6 +122,7 @@ export default {
     background-color: #EDF4F4;
     padding-top: 10px;
     padding-bottom: 20px;
+
     .templateDivTTop {
         height: 50px;
         padding-left: 20px;
@@ -145,7 +152,8 @@ export default {
 
         }
     }
-    .TableTitle{
+
+    .TableTitle {
         width: 200px;
         height: 50px;
         display: flex;
@@ -153,75 +161,86 @@ export default {
         justify-content: flex-start;
         padding-left: 20px;
 
-        .TableTitleL{
+        .TableTitleL {
             width: 5px;
             height: 15px;
             background-color: #05A696;
         }
-        .TableTitleR{
+
+        .TableTitleR {
             width: 100px;
             height: 20px;
             display: flex;
             align-items: center;
-            justify-content:flex-start;
+            justify-content: flex-start;
             padding-left: 10px;
 
         }
 
     }
-    .templateDivT{
+
+    .templateDivT {
         width: 98%;
         margin: 10px auto;
         background-color: #ffffff;
         height: 400px;
 
     }
-    .templateDivB{
+
+    .templateDivB {
         height: 420px;
         background-color: #F4F8F8;
-        .templateDivBL{
+
+        .templateDivBL {
             width: 40%;
             height: 400px;
             margin-left: 1%;
             background-color: #ffffff;
         }
-        .templateDivBR{
+
+        .templateDivBR {
             width: 59%;
-            height:400px;
+            height: 400px;
             background-color: #ffffff;
         }
 
 
     }
-    .statisticsTemplate{
+
+    .statisticsTemplate {
         width: 47%;
         height: 150px;
         border: 1px solid #EBF5F5;
         margin-left: 2%;
         margin-top: 10px;
         box-shadow: 2.5px 2.5px 2.5px #E6F3F3;
-        .statisticsTemplateTop{
-            height:40px;
+
+        .statisticsTemplateTop {
+            height: 40px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
             padding-left: 10px;
             flex-direction: column;
         }
-        .statisticsTemplateBottom{
+
+        .statisticsTemplateBottom {
             display: flex;
             align-items: center;
             justify-content: center;
-            div{
+
+            div {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                div{
+
+                div {
                     margin-top: 5px;
                     font-size: 12px;
                 }
-                .LN{
+
+                .LN {
                     margin-top: 5px;
                     font-size: 14px;
                     font-weight: bold;

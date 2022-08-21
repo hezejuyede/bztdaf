@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/TransactionAgentStatistics/TransactionAgentStatistics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TransactionContractAnalysis/components/areaSelection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TransactionContractAnalysis/components/areaSelection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformanceList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformanceList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/components/PerformancePie.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionAgentStatistics/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +73,6 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-    </task>
-    <task id="LOCAL-00013" summary="10点52分">
-      <created>1660272773006</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1660272773006</updated>
     </task>
     <task id="LOCAL-00014" summary="11点11分">
       <created>1660273922567</created>
@@ -416,14 +410,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661065661091</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="17点57fen">
+      <created>1661076081986</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1661076081986</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="14点38分" />
     <MESSAGE value="15点41分" />
     <MESSAGE value="16点24分" />
     <MESSAGE value="10点19分" />
@@ -448,6 +448,7 @@
     <MESSAGE value="11点01分" />
     <MESSAGE value="11点39分" />
     <MESSAGE value="15dian07" />
-    <option name="LAST_COMMIT_MESSAGE" value="15dian07" />
+    <MESSAGE value="17点57fen" />
+    <option name="LAST_COMMIT_MESSAGE" value="17点57fen" />
   </component>
 </project>

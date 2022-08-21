@@ -1,0 +1,65 @@
+import request from '../../utils/http.js'
+
+const URL = {
+    PolymerStatistics: '/TransactionContractFeedback/PolymerStatistics',                //聚合体绿电交易合同统计
+    UnitStatistics: '/TransactionContractFeedback/UnitStatistics',                      //单元体绿电交易合同统计
+    PowerGeneration: '/TransactionContractFeedback/PowerGeneration',                    //发电量
+    PerformanceElectricity: '/TransactionContractFeedback/PerformanceElectricity',      //履约电量
+    SettlementAmount: '/TransactionContractFeedback/SettlementAmount',                  //结算金额
+};
+
+
+/**
+ * 聚合体绿电交易合同统计
+ */
+export const PolymerStatistics = data => {
+    return request({
+        url: URL.PolymerStatistics,
+        method: 'POST',
+        data
+    })
+}
+
+/**
+ * 单元体绿电交易合同统计
+ */
+export const UnitStatistics = data => {
+    return request({
+        url: URL.UnitStatistics,
+        method: 'POST',
+        data
+    })
+}
+
+/**
+ * 发电量
+ */
+export const PowerGeneration = data => {
+    return request({
+        url: URL.PowerGeneration,
+        method: 'POST',
+        data
+    })
+}
+
+/**
+ *履约电量
+ */
+export const PerformanceElectricity = data => {
+    return request({
+        url: URL.PerformanceElectricity,
+        method: 'POST',
+        data
+    })
+}
+
+/**
+ *结算金额
+ */
+export const SettlementAmount = data => {
+    return request({
+        url: URL.SettlementAmount,
+        method: 'POST',
+        data
+    })
+}

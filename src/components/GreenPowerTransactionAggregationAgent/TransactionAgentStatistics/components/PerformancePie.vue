@@ -17,7 +17,11 @@
 
 
 <script type="text/ecmascript-6">
-import {PowerSupplyCapacity} from "../../../../api/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization";
+import {
+    PowerGeneration,
+    PerformanceElectricity,
+    SettlementAmount
+} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
 
 export default {
     name: 'modal',
@@ -25,9 +29,11 @@ export default {
         return {}
     },
     mounted() {
-        setTimeout(()=>{
-            this.getList()
-        },1000)
+        setTimeout(() => {
+            this.getList1();
+            this.getList2();
+            this.getList3();
+        }, 1000)
     },
     watch: {},
     created() {
@@ -37,33 +43,12 @@ export default {
     methods: {
 
         //查询
-        getList() {
+        getList1() {
             const getListData = async () => {
-                const result = await PowerSupplyCapacity({})
-               /* let data = result.data.data.data;*/
-                let data =  [
-                    ['单元', '单元体1', '单元体2', '单元体3', '单元体4'],
-                        ['6.25', 494.12, 595.47, 795.47, 895.47],
-                        ['6.27', 461.18, 562.44, 795.47, 895.47],
-                        ['6.29', 433.95, 635.13, 795.47, 895.47],
-                        ['7.01', 414.95, 716.08, 795.47, 595.47],
-                        ['7.03', 403.64, 804.74, 795.47, 895.47],
-                        ['7.05', 458.21, 959.47, 795.47, 895.47],
-                        ['7.07', 469.41, 270.70, 795.47, 895.47],
-                        ['7.09', 516.96, 318.37, 795.47, 895.47],
-                        ['7.11', 501.26, 802.63, 795.47, 895.47],
-                        ['7.13', 488.08, 789.41, 795.47, 895.47],
-                        ['7.15', 483.91, 685.23, 795.47, 895.47],
-                        ['7.17', 535.84, 137.31, 795.47, 895.47],
-                        ['7.19', 816.96, 318.37, 795.47, 895.47],
-                        ['7.21', 201.26, 502.63, 795.47, 895.47],
-                        ['7.23', 788.08, 289.41, 795.47, 895.47],
-                        ['7.25', 583.91, 785.23, 795.47, 895.47]
-                    ];
+                const result = await PowerGeneration({})
+                let data = result.data.data.data;
 
                 let myChart1 = this.$echarts.init(document.getElementById('line1'));
-                let myChart2 = this.$echarts.init(document.getElementById('line2'));
-                let myChart3 = this.$echarts.init(document.getElementById('line3'));
                 // 绘制图表
                 myChart1.setOption(
                     {
@@ -166,6 +151,20 @@ export default {
                                 }
                             }]
                     }, true);
+            }
+            getListData();
+
+        },
+
+
+        //查询
+        getList2() {
+            const getListData = async () => {
+                const result = await PerformanceElectricity({})
+                let data = result.data.data.data;
+                let myChart2 = this.$echarts.init(document.getElementById('line2'));
+
+                // 绘制图表
                 myChart2.setOption(
                     {
                         legend: {
@@ -267,6 +266,19 @@ export default {
                                 }
                             }]
                     }, true);
+            }
+            getListData();
+
+        },
+
+
+        //查询
+        getList3() {
+            const getListData = async () => {
+                const result = await SettlementAmount({})
+                let data = result.data.data.data;
+                let myChart3 = this.$echarts.init(document.getElementById('line3'));
+                // 绘制图表
                 myChart3.setOption(
                     {
                         legend: {
@@ -384,11 +396,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-     div{
-         flex: 1;
-         height: 100%;
-     }
-    .BarText{
+
+    div {
+        flex: 1;
+        height: 100%;
+    }
+
+    .BarText {
         width: 100%;
         height: 30px;
         display: flex;

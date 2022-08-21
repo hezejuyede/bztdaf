@@ -8,42 +8,18 @@
                     </el-button>
                 </label>
                 <label style="margin-right: 5px;margin-left: 5px" class="fr">
-                    <el-select
-                        style="width:200px"
-                        v-model="manufactor"
-                        clearable
-                        filterable
-                        allow-create
-                        multiple
-                        collapse-tags
-                        default-first-option
-                        placeholder="地区">
-                        <el-option
-                            v-for="item in manufactoreOptions"
-                            :key="item.id"
-                            :label="item.name"
-                            :value="item.id">
-                        </el-option>
-                    </el-select>
+                    <el-date-picker
+                        v-model="month"
+                        type="month"
+                        placeholder="选择月">
+                    </el-date-picker>
                 </label>
                 <label style="margin-right: 5px;margin-left: 5px" class="fr">
-                    <el-select
-                        style="width:200px"
-                        v-model="manufactor"
-                        clearable
-                        filterable
-                        allow-create
-                        multiple
-                        collapse-tags
-                        default-first-option
-                        placeholder="容量">
-                        <el-option
-                            v-for="item in manufactoreOptions"
-                            :key="item.id"
-                            :label="item.name"
-                            :value="item.id">
-                        </el-option>
-                    </el-select>
+                    <el-date-picker
+                        v-model="year"
+                        type="year"
+                        placeholder="选择年">
+                    </el-date-picker>
                 </label>
             </div>
             <el-table class="tb-edit" :data="tableData"
@@ -57,7 +33,7 @@
                 <el-table-column label="履约合同数量" prop="lyhtsl" align="center"></el-table-column>
                 <el-table-column label="履约发电量" prop="lyfdl" align="center"></el-table-column>
                 <el-table-column label="履约完成率" prop="lywcl" align="center"></el-table-column>
-                <el-table-column label="环比增量" prop="hbzl" align="center" ></el-table-column>
+                <el-table-column label="环比增量" prop="hbzl" align="center"></el-table-column>
                 <el-table-column label="同比增量" prop="tbzl" align="center"></el-table-column>
                 <el-table-column label="详情" align="center">
                     <template slot-scope="scope">
@@ -70,20 +46,15 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {UnitStatistics} from "../../../../api/GreenPowerTransactionAggregationAgent/TransactionContractFeedback";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:  [
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-                {"dyt": "单元体1", "lyhtsl":"4", "lyfdl": "2345GW", "lywcl":"77%","hbzl":"45%","tbzl":"56%","id":"2ww2w221"},
-            ],
+            tableData: [],
+            year: "",
+            month: ""
         }
     },
     mounted() {
@@ -94,7 +65,6 @@ export default {
     created() {
 
 
-
     },
     methods: {
 
@@ -102,20 +72,18 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
+                const result = await UnitStatistics({
+                    "year": this.year,
+                    "month": this.month
                 })
-                /*  that.tableData1 = result.data.data.data;
-                  that.tableData2 = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
 
         },
     },
 
-    props: {
-    },
+    props: {},
 }
 </script>
 <style scoped lang="less" rel="stylesheet/less">
@@ -124,6 +92,7 @@ export default {
 .visibleDiv {
     width: 100%;
     background-color: #ffffff;
+
     .visibleDivSelect {
         height: 80px;
         background-color: #ffffff;
@@ -141,10 +110,11 @@ export default {
     // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     // 深度选择器，去除默认的padding
     /deep/ th {
-        padding: 0 ;
+        padding: 0;
     }
+
     /deep/ td {
-        padding: 5px ;
+        padding: 5px;
     }
 }
 
