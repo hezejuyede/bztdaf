@@ -40,18 +40,9 @@
                                             </el-option>
                                         </el-select>
                                     </el-col>
-                                    <el-col :span="4">
-                                        <el-date-picker
-                                            v-model="startDate"
-                                            type="datetime"
-                                            placeholder="选择日期时间">
-                                        </el-date-picker>
-                                    </el-col>
-                                    <el-col :span="4">
-                                        <el-date-picker
-                                            v-model="endDate"
-                                            type="datetime"
-                                            placeholder="选择日期时间">
+                                    <el-col :span="8">
+                                        <el-date-picker  v-model="examineTime1" type="daterange"
+                                                        start-placeholder="开始日期" end-placeholder="结束日期" value-format="yyyy-MM-dd">
                                         </el-date-picker>
                                     </el-col>
                                     <el-col :span="4">
@@ -158,24 +149,11 @@
                                         </div>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-date-picker
-                                            v-model="startDate"
-                                            type="datetime"
-                                            placeholder="选择日期时间">
-                                        </el-date-picker>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-date-picker
-                                            v-model="endDate"
-                                            type="datetime"
-                                            placeholder="选择日期时间">
+                                        <el-date-picker style="width: 250px" v-model="examineTime2" type="daterange"
+                                                        start-placeholder="开始日期" end-placeholder="结束日期" value-format="yyyy-MM-dd">
                                         </el-date-picker>
                                     </el-col>
                                     <el-col :span="4"></el-col>
-                                    <el-col :span="4">
-                                        <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">搜索
-                                        </el-button>
-                                    </el-col>
                                 </el-row>
                             </div>
                             <div>
@@ -206,10 +184,10 @@
 
                     <div class="border-top-quarantine">
                         <div style="position: relative;float: right;margin-bottom: 10px">
-                            <el-button class="normal-button">任务发起</el-button>
-                            <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">进度检查</el-button>
+                            <el-button class="normal-button"  >任务发起</el-button>
+                            <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696" @click="taskProgressMath">进度检查</el-button>
                         </div>
-                        <div  >
+                        <div  id="timing">
                             <el-table
                                 :data="tableData2"
                                 border
@@ -366,18 +344,50 @@
         <el-dialog
             title="异常详情"
             :visible.sync="abnormalInfo"
-            width="40%"
+            width="60%"
             :before-close="handleClose">
-            <div>
+            <div style="height: 400px">
                 <el-table
                     :data="tableDataAbnormalInfo"
                     border
+                    :height="400"
                     :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'15px',fontWeight:'800'}"
-                    style="width: 100%;border-radius: 0px">
-                    <el-table-column prop="hash" label="数据hash" width="180"></el-table-column>
-                    <el-table-column prop="date" label="时间" width="180" :formatter="formatDate"></el-table-column>
-                    <el-table-column prop="state" label="可信存证状态" width="180"></el-table-column>
-                    <el-table-column prop="address" label="地址"></el-table-column>
+                    style="width: 100%;border-radius: 0">
+                    <el-table-column label="数据hash" align="center" >
+                        <template slot-scope="scope">
+                            <el-popover placement="top-start" title="地址" width="350" trigger="hover"
+                                        :content="scope.row.hash">
+                                <div slot="reference"
+                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                    {{scope.row.hash}}
+                                </div>
+                            </el-popover>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                    <el-table-column label="可信存证状态"align="center">
+                        <template slot-scope="scope">
+                            <div v-if="scope.row.status==='1'" style="display: flex;align-items: center;justify-content: center">
+                                <div style="width: 10px;height: 10px;background-color:#409EFF;border-radius: 50%"></div>
+                                <div style="color: #409EFF;cursor: pointer;margin-left: 5px" >正常</div>
+                            </div>
+                            <div v-if="scope.row.status==='2'" style="display: flex;align-items: center;justify-content: center">
+                                <div style="width: 10px;height: 10px;background-color:#F56C6C;border-radius: 50%"></div>
+                                <div style="color: #F56C6C;cursor: pointer;margin-left: 5px" >异常</div>
+                            </div>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="地址"  align="center">
+                        <template slot-scope="scope">
+                            <el-popover placement="top-start" title="地址" width="350" trigger="hover"
+                                        :content="scope.row.address">
+                                <div slot="reference"
+                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                    {{scope.row.address}}
+                                </div>
+                            </el-popover>
+                        </template>
+                    </el-table-column>
                 </el-table>
             </div>
 
@@ -390,6 +400,8 @@ export default {
     name: "Index",
     data() {
         return {
+            examineTime1:[],
+            examineTime2:[],
             querySelect: {},
             startDate: null,
             endDate: null,
@@ -465,7 +477,11 @@ export default {
             fileUplod: false,
             reask: [50, 100, 100, 50, 0],
             abnormalInfo: false,
-            tableDataAbnormalInfo: []
+            tableDataAbnormalInfo: [
+                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
+                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
+                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
+            ]
 
         }
     },
@@ -668,7 +684,7 @@ export default {
 }
 
 
-.el-table {
+#timing .el-table {
     // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     // 深度选择器，去除默认的padding
     /deep/ th {
