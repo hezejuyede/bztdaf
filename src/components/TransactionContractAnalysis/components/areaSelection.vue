@@ -18,16 +18,16 @@
             <label style="margin-right: 5px;margin-left: 5px" class="fr">
                 <el-select
                     style="width:200px"
-                    v-model="manufactor"
+                    v-model="platformArea"
                     clearable
                     filterable
                     allow-create
                     multiple
                     collapse-tags
                     default-first-option
-                    placeholder="选择地区">
+                    placeholder="选择台区">
                     <el-option
-                        v-for="item in manufactoreOptions"
+                        v-for="item in platformAreaOptions"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -37,7 +37,7 @@
             <label style="margin-right: 5px;margin-left: 5px" class="fr">
                 <el-select
                     style="width:200px"
-                    v-model="manufactor"
+                    v-model="region"
                     clearable
                     filterable
                     allow-create
@@ -46,7 +46,7 @@
                     default-first-option
                     placeholder="选择地区">
                     <el-option
-                        v-for="item in manufactoreOptions"
+                        v-for="item in regionOptions"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -81,22 +81,17 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { dataLinkDetails} from "../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
-
+import { TransactionAgentStatistics} from "../../../api/TransactionAgentStatistics/TransactionAgentStatistics";
+import {regionOptions,platformAreaOptions} from "../../../utils/options";
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:  [
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-                {"htbh": "1111", "sdzt":"郭集", "gdzt":"沾化","kssj": "2022-07-02", "jssj": "2022-08-02", "lykssj": "2022-07-02", "lvjssj": "2022-08-02","lyldl": "5345GW", "qyydzl": "44532GW",},
-            ],
-            manufactor: "",
-            manufactoreOptions: [],
-            hashData: "",
+            tableData: [],
+            platformArea:"",
+            platformAreaOptions:platformAreaOptions,
+            region:"",
+            regionOptions:regionOptions,
             examineTime:[]
         }
     },
@@ -107,8 +102,6 @@ export default {
     },
     created() {
 
-
-
     },
     methods: {
 
@@ -116,12 +109,13 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataLinkDetails({
-                    "manufactor": this.manufactor,
-                    "hashData":this.hashData
+                const result = await TransactionAgentStatistics({
+                    "platformArea": this.platformArea,
+                    "region":this.region,
+                    "startTime":this.examineTime[0],
+                    "endTime":this.examineTime[1]
                 })
-              /*  that.tableData1 = result.data.data.data;
-                that.tableData2 = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
 

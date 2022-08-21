@@ -15,6 +15,14 @@ export const communityOptions  = [
     {"name": "张家社区", "id": "05"},
 ];
 
+
+export const platformAreaOptions=[
+    {"name": "", "id": "1"},
+    {"name": "", "id": "2"},
+    {"name": "", "id": "3"},
+    {"name": "", "id": "4"},
+];
+
 export const regionOptions = [
     {"name": "滨城区", "id": "1"},
     {"name": "无棣县", "id": "2"},
