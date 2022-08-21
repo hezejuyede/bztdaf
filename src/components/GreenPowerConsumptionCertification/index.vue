@@ -10,9 +10,9 @@
                 </el-input>
                 <el-tree
                     class="filter-tree"
-                    :data="data"
+                    :data="treeData"
                     :props="defaultProps"
-                    default-expand-all
+                    @node-click="nodeClick"
                     :filter-node-method="filterNode"
                     ref="tree">
                 </el-tree>
@@ -73,7 +73,11 @@
                                   highlight-current-row style="width: 95%;margin: auto">
                             <el-table-column label="时间" prop="time" align="center"></el-table-column>
                             <el-table-column label="耗电量(MWH)" prop="MWH" align="center"></el-table-column>
-                            <el-table-column label="绿电占比(%)" prop="ldzb" align="center"></el-table-column>
+                            <el-table-column label="绿电占比(%)" prop="cydw" align="center">
+                                <template slot-scope="scope">
+                                   <div class="">{{scope.row.cydw}}%</div>
+                                </template>
+                            </el-table-column>
                         </el-table>
                     </div>
                 </div>
@@ -99,37 +103,9 @@ export default {
         return {
             count: "",
             tableData: [],
-            treeData: [],
 
             filterText: '',
-            data: [{
-                id: 1,
-                label: '邹平地区企业',
-                children: [{
-                    id: 4,
-                    label: '邹平XXXX公司',
-                }]
-            }, {
-                id: 2,
-                label: '沾化地区企业',
-                children: [{
-                    id: 5,
-                    label: '沾化XXXX公司'
-                }, {
-                    id: 6,
-                    label: '沾化XXXX公司'
-                }]
-            }, {
-                id: 3,
-                label: '滨城地区企业',
-                children: [{
-                    id: 7,
-                    label: '滨城XXXX公司'
-                }, {
-                    id: 8,
-                    label: '滨城XXXX公司'
-                }]
-            }],
+            treeData: [],
             defaultProps: {
                 children: 'children',
                 label: 'label'
@@ -271,15 +247,24 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await getTreeList({})
-                that.tableData = result.data.data.data;
+                that.treeData = result.data.data.data;
             }
             getListData();
         },
 
 
+        //过滤
         filterNode(value, data) {
             if (!value) return true;
             return data.label.indexOf(value) !== -1;
+        },
+
+        //点击数
+        nodeClick(data, node, item) {
+            if (data.children === undefined) {
+                this.setLine();
+                this.getList();
+            }
         }
 
 

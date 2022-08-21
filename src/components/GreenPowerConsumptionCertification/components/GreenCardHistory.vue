@@ -18,7 +18,6 @@
                     clearable
                     filterable
                     allow-create
-                    multiple
                     collapse-tags
                     default-first-option
                     placeholder="地区">
@@ -40,10 +39,40 @@
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="绿证编号" prop="lzbh" align="center" width="150"></el-table-column>
+                <el-table-column label="绿证编号" prop="lzbh" align="center" width="150">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="绿证编号" width="350" trigger="hover"
+                                    :content="scope.row.lzbh">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                {{scope.row.lzbh}}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
                 <el-table-column label="生成日期" prop="time" align="center"></el-table-column>
-                <el-table-column label="发电单位" prop="fddw" align="center"></el-table-column>
-                <el-table-column label="持有单位" prop="cydw" align="center"></el-table-column>
+                <el-table-column label="发电单位" prop="fddw" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="发电单位" width="350" trigger="hover"
+                                    :content="scope.row.fddw">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                {{scope.row.fddw}}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
+                <el-table-column label="持有单位" prop="cydw" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="持有单位" width="350" trigger="hover"
+                                    :content="scope.row.cydw">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                {{scope.row.cydw}}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
             </el-table>
         </div>
     </div>
