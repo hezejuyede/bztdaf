@@ -26,14 +26,14 @@
                             <el-header>
                                 <el-row>
                                     <el-col :span="8">
-                                        <el-cascader v-model="diqu" :options="options1" clearable
+                                        <el-cascader v-model="diqu" :options="diquOptions" clearable
                                                      placeholder="地区"></el-cascader>
                                     </el-col>
 
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.type" placeholder="终端编号">
+                                        <el-select v-model="number" placeholder="终端编号">
                                             <el-option
-                                                v-for="item in options3"
+                                                v-for="item in numberOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -87,9 +87,9 @@
                                         </div>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.diqu" placeholder="地区">
+                                        <el-select v-model="diqu2" placeholder="地区">
                                             <el-option
-                                                v-for="item in options1"
+                                                v-for="item in diquOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -97,9 +97,9 @@
                                         </el-select>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.cunzhen" placeholder="街道">
+                                        <el-select v-model="jiedao" placeholder="街道">
                                             <el-option
-                                                v-for="item in options2"
+                                                v-for="item in jiedaoOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -107,9 +107,9 @@
                                         </el-select>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.cunzhen" placeholder="社区">
+                                        <el-select v-model="shequ" placeholder="社区">
                                             <el-option
-                                                v-for="item in options2"
+                                                v-for="item in shequOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -117,9 +117,9 @@
                                         </el-select>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.type" placeholder="类型">
+                                        <el-select v-model="typeS" placeholder="类型">
                                             <el-option
-                                                v-for="item in options3"
+                                                v-for="item in typeSOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -127,9 +127,9 @@
                                         </el-select>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.num" placeholder="设备编号">
+                                        <el-select v-model="number2" placeholder="设备编号">
                                             <el-option
-                                                v-for="item in options3"
+                                                v-for="item in numberOptions"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -167,9 +167,9 @@
                                         </div>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-select v-model="querySelect.diqu" placeholder="7h">
+                                        <el-select v-model="dingshi" placeholder="7h">
                                             <el-option
-                                                v-for="item in optionsTime"
+                                                v-for="item in dingshiOptionsTime"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
@@ -213,7 +213,7 @@
                         </div>
                         <el-row style="height: calc(100% - 40px)">
                             <el-col :span="6">
-                                <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+                                <el-tree :data="treeData" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
                             </el-col>
                             <el-col :span="12">
                                 <div class="modal-style-3-3-el-col-son">
@@ -396,6 +396,7 @@
 </template>
 
 <script>
+import { TrustedStatusQuery,TaskQuery,RegionalTree,NumberOfAbnormalChains,TaskProgress} from "../../../api/DataTrustworthinessSupervision/dataTrustworthinessVerification";
 export default {
     name: "Index",
     data() {
@@ -405,8 +406,9 @@ export default {
             querySelect: {},
             startDate: null,
             endDate: null,
-            diqu:[],
-            options1: [
+
+            diqu: "",
+            diquOptions: [
                 {
                     value: 'zhinan',
                     label: '滨城区',
@@ -426,48 +428,30 @@ export default {
                             value: 'kekong',
                             label: '赵家社区'
                         }]
-                    }]}
-            ],
-            options2: [],
-            options3: [],
-            optionsTime: [],
-            tableData: [
-                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
-                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
-                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
-                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
-                {"source":"9765473yhsjjjw443ed","date":"2022-07-03","state":"1","high":"1853268"},
-            ],
-            tableData2: [
-                {"num":"任务1","date":"2022-07-03 12:13","diqu":"郭集","cunzhen":"村庄1","guangfu":"屋顶","number":"6NB-9","count":"23"},
-                {"num":"任务1","date":"2022-07-03 12:13","diqu":"郭集","cunzhen":"村庄1","guangfu":"屋顶","number":"6NB-9","count":"23"},
-            ],
-            data: [
-                {
-                    id: 1,
-                    label: '滨州',
-                    children: [
-                        {
-                        id: 4,
-                        label: '滨城地区',
-                        children: [{
-                            id: 9,
-                            label: '市东街道',
-                            children: [{
-                                id: 111,
-                                label: '郭集'
-                            }, {
-                                id: 121,
-                                label: '西宋社区'
-                            }, {
-                                id: 131,
-                                label: '天王堂社区'
-                            }
-                            ]
-                        }
-                        ]
                     }]
-                },],
+                }
+            ],
+            number: "",
+            numberOptions: [],
+
+
+            diqu2:"",
+            jiedao:"",
+            jiedaoOptions:[],
+            shequ:"",
+            shequOptions:[],
+            typeS:"",
+            typeSOptions:[],
+            number2:"",
+            dingshi:"",
+            dingshiOptionsTime:[],
+
+
+
+            tableData: [],
+            tableData2: [],
+
+            treeData: [],
             hashlist: ["rrdfdgguiu7766tgvgfddetrghhjeddfftyyuytreeedddsswee4566665455f"],
             defaultProps: {
                 children: 'children',
@@ -477,18 +461,83 @@ export default {
             fileUplod: false,
             reask: [50, 100, 100, 50, 0],
             abnormalInfo: false,
-            tableDataAbnormalInfo: [
-                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
-                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
-                {"hash": "EDDDWWSDDWSEEEE67876EEEEE9876788E7E",  "time": "2022-07-25 12:12", "status": "1", "address": "山东省滨州市沾化县郭集村李家社区6号"},
-            ]
+            tableDataAbnormalInfo: []
 
         }
     },
+    mounted() {
+        this.init();
+
+    },
     created() {
-        /*this.init();*/
+
     },
     methods: {
+
+        //初始化
+        init() {
+            this.getTrustedStatusQuery();
+            this.getTaskQuery();
+            this.getRegionalTree();
+        },
+
+        //可信状态查询
+        getTrustedStatusQuery() {
+            let that = this;
+            const getListData = async () => {
+                const result = await TrustedStatusQuery({
+                    "number": this.number,
+                    "region": this.diqu,
+                    "startTime": this.examineTime1[0],
+                    "endTime": this.examineTime1[1]
+                })
+                that.tableData1 = result.data.data.data;
+            }
+            getListData();
+        },
+
+        //任务查询
+        getTaskQuery() {
+            let that = this;
+            const getListData = async () => {
+                const result = await TaskQuery({
+                    "number": this.number,
+                    "jiedao": this.jiedao,
+                    "shequ": this.shequ,
+                    "typeS": this.typeS,
+                    "region": this.region,
+                    "dingshi": this.dingshi,
+                    "startTime": this.examineTime2[0],
+                    "endTime": this.examineTime2[1]
+                })
+                that.tableData2 = result.data.data.data;
+            }
+            getListData();
+
+        },
+
+        //地区树
+        getRegionalTree() {
+            let that = this;
+            const getListData = async () => {
+                const result = await RegionalTree({})
+                that.treeData = result.data.data.data;
+            }
+            getListData();
+        },
+
+        //异常链数
+        getNumberOfAbnormalChains() {
+
+        },
+
+        //任务进度
+        getTaskProgress() {
+
+        },
+
+
+
 
         taskProgressMath() {
             this.taskProgress = true;
@@ -499,6 +548,8 @@ export default {
             this.abnormalInfo = false;
         },
 
+
+        //点击树
         handleNodeClick(){
 
         }

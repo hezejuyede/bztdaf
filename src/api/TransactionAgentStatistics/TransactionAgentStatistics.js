@@ -1,7 +1,7 @@
 import request from '../../utils/http.js'
 
 const URL = {
-    TransactionAgentStatistics: '/TransactionAgentStatistics/list',      //发电合同
+    TransactionAgentStatistics: '/TransactionContractAnalysis/list',      //发电合同
 };
 
 

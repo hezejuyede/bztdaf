@@ -22,7 +22,6 @@
                     clearable
                     filterable
                     allow-create
-                    multiple
                     collapse-tags
                     default-first-option
                     placeholder="选择台区">
@@ -41,7 +40,6 @@
                     clearable
                     filterable
                     allow-create
-                    multiple
                     collapse-tags
                     default-first-option
                     placeholder="选择地区">
