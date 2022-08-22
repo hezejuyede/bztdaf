@@ -46,20 +46,29 @@
                                         </el-date-picker>
                                     </el-col>
                                     <el-col :span="4">
-                                        <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696">搜索
+                                        <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696" @click="getTrustedStatusQuery">搜索
                                         </el-button>
                                     </el-col>
                                 </el-row>
                             </el-header>
                             <el-main>
                                 <el-table
-                                    :data="tableData"
+                                    :data="tableData1"
                                     border
                                     :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'15px',fontWeight:'800'}"
                                     style="width: 100%;border-radius: 0">
                                     <el-table-column prop="source" label="数据"  align="center"></el-table-column>
                                     <el-table-column prop="date" label="时间"  align="center"></el-table-column>
-                                    <el-table-column prop="state" label="可信存证状态"  align="center"></el-table-column>
+                                    <el-table-column prop="state" label="可信存证状态"  align="center">
+                                        <template slot-scope="scope">
+                                            <div v-if="scope.row.state==='1'">
+                                               正常
+                                            </div>
+                                            <div v-if="scope.row.state==='2'" >
+                                               异常
+                                            </div>
+                                        </template>
+                                    </el-table-column>
                                     <el-table-column prop="high" label="区块高度"  align="center"></el-table-column>
                                 </el-table>
                             </el-main>
@@ -254,7 +263,7 @@
                                     </div>
 
                                 </div>
-                                <div class="modal-style-3-3-el-col-img" @click="abnormalInfo = true;">
+                                <div class="modal-style-3-3-el-col-img" @click="showAbnormalInfo">
                                     <img src="../../../../static/img/dataTrustworthinessVerification/yz-index_15.png"
                                          style="width: 100%">
                                     <div class="modal-style-3-3-el-col-text">
@@ -275,6 +284,7 @@
             title="任务进度"
             :visible.sync="taskProgress"
             width="30%"
+            :close-on-press-escape="false"
             :before-close="handleClose">
             <div>
                 <div style="height: 32px">
@@ -345,6 +355,7 @@
             title="异常详情"
             :visible.sync="abnormalInfo"
             width="60%"
+            :close-on-press-escape="false"
             :before-close="handleClose">
             <div style="height: 400px">
                 <el-table
@@ -392,10 +403,14 @@
             </div>
 
         </el-dialog>
+
+
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 
 <script>
+import shadinLayer from '../../../common/shadinLayer'
 import { TrustedStatusQuery,TaskQuery,RegionalTree,NumberOfAbnormalChains,TaskProgress} from "../../../api/DataTrustworthinessSupervision/dataTrustworthinessVerification";
 export default {
     name: "Index",
@@ -448,7 +463,7 @@ export default {
 
 
 
-            tableData: [],
+            tableData1: [],
             tableData2: [],
 
             treeData: [],
@@ -459,7 +474,7 @@ export default {
             },
             taskProgress: false,
             fileUplod: false,
-            reask: [50, 100, 100, 50, 0],
+            reask: [],
             abnormalInfo: false,
             tableDataAbnormalInfo: []
 
@@ -472,6 +487,8 @@ export default {
     created() {
 
     },
+    components: {shadinLayer},
+
     methods: {
 
         //初始化
@@ -526,22 +543,39 @@ export default {
             getListData();
         },
 
+
         //异常链数
         getNumberOfAbnormalChains() {
-
+            let that = this;
+            const getListData = async () => {
+                const result = await NumberOfAbnormalChains({})
+                that.tableDataAbnormalInfo = result.data.data.data;
+            }
+            getListData();
         },
 
         //任务进度
         getTaskProgress() {
-
+            let that = this;
+            const getListData = async () => {
+                const result = await TaskProgress({})
+                that.reask = result.data.data.data;
+            }
+            getListData();
         },
 
+        //打开异常链数
+        showAbnormalInfo(){
+            this.getNumberOfAbnormalChains();
+            this.abnormalInfo=true;
+        },
 
-
-
+        //打开任务弹框
         taskProgressMath() {
+            this.getTaskProgress();
             this.taskProgress = true;
         },
+
         handleClose() {
             this.taskProgress = false;
             this.fileUplod = false;
@@ -550,8 +584,11 @@ export default {
 
 
         //点击树
-        handleNodeClick(){
+        handleNodeClick(data, node, item) {
+            if (data.children === undefined) {
+                this.getTrustedStatusQuery();
 
+            }
         }
 
     }
