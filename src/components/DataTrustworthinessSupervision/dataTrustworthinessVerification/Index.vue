@@ -109,9 +109,9 @@
                                         <el-select v-model="jiedao" placeholder="街道">
                                             <el-option
                                                 v-for="item in jiedaoOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id">
                                             </el-option>
                                         </el-select>
                                     </el-col>
@@ -119,9 +119,9 @@
                                         <el-select v-model="shequ" placeholder="社区">
                                             <el-option
                                                 v-for="item in shequOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id">
                                             </el-option>
                                         </el-select>
                                     </el-col>
@@ -193,8 +193,8 @@
 
                     <div class="border-top-quarantine">
                         <div style="position: relative;float: right;margin-bottom: 10px">
-                            <el-button class="normal-button"  >任务发起</el-button>
-                            <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696" @click="taskProgressMath">进度检查</el-button>
+                            <el-button class="normal-button"  @click="taskProgressMath">任务发起</el-button>
+                            <el-button class="search-button" type="primary" icon="el-icon-search" style="background-color: #05A696" @click="getTaskQuery">进度检查</el-button>
                         </div>
                         <div  id="timing">
                             <el-table
@@ -452,14 +452,47 @@ export default {
 
             diqu2:"",
             jiedao:"",
-            jiedaoOptions:[],
-            shequ:"",
-            shequOptions:[],
+            jiedaoOptions:[
+                {
+                    "id": "01",
+                    "name": "市东街道"
+                }
+            ],
+            shequ: "",
+            shequOptions: [
+                {
+                    "id": '01',
+                    "name": '郭集'
+                }, {
+                    "id": '02',
+                    "name": '西宋社区'
+                }, {
+                    "id": '03',
+                    "name": '北杨社区'
+                }, {
+                    "id": '04',
+                    "name": '赵家社区'
+                }
+            ],
             typeS:"",
             typeSOptions:[],
             number2:"",
             dingshi:"",
-            dingshiOptionsTime:[],
+            dingshiOptionsTime:[
+                {
+                    value: 'yizhi',
+                    label: '1小时'
+                }, {
+                    value: 'fankui',
+                    label: '2小时'
+                }, {
+                    value: 'xiaolv',
+                    label: '3小时'
+                }, {
+                    value: 'kekong',
+                    label: '4小时'
+                }
+            ],
 
 
 
