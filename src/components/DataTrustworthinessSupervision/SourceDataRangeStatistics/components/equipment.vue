@@ -28,7 +28,7 @@
                     <label style="margin-right: 5px;margin-left: 5px" class="fl">
                         <el-select
                             style="width:80px"
-                            v-model="type"
+                            v-model="county"
                             clearable
                             filterable
                             allow-create
@@ -37,7 +37,7 @@
                             default-first-option
                             placeholder="区域">
                             <el-option
-                                v-for="item in typeOptions"
+                                v-for="item in countyOptions"
                                 :key="item.id"
                                 :label="item.name"
                                 :value="item.id">
@@ -47,26 +47,7 @@
                     <label style="margin-right: 5px;margin-left: 5px" class="fl">
                         <el-select
                             style="width:80px"
-                            v-model="type"
-                            clearable
-                            filterable
-                            allow-create
-                            multiple
-                            collapse-tags
-                            default-first-option
-                            placeholder="曲线">
-                            <el-option
-                                v-for="item in typeOptions"
-                                :key="item.id"
-                                :label="item.name"
-                                :value="item.id">
-                            </el-option>
-                        </el-select>
-                    </label>
-                    <label style="margin-right: 5px;margin-left: 5px" class="fl">
-                        <el-select
-                            style="width:80px"
-                            v-model="type"
+                            v-model="community"
                             clearable
                             filterable
                             allow-create
@@ -75,7 +56,26 @@
                             default-first-option
                             placeholder="村镇">
                             <el-option
-                                v-for="item in typeOptions"
+                                v-for="item in communityOptions"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </label>
+                    <label style="margin-right: 5px;margin-left: 5px" class="fl">
+                        <el-select
+                            style="width:80px"
+                            v-model="curve"
+                            clearable
+                            filterable
+                            allow-create
+                            multiple
+                            collapse-tags
+                            default-first-option
+                            placeholder="曲线">
+                            <el-option
+                                v-for="item in curveOptions"
                                 :key="item.id"
                                 :label="item.name"
                                 :value="item.id">
@@ -85,7 +85,7 @@
                     <label style="margin-right: 5px;margin-left: 5px" class="fl">
                         <el-select
                             style="width:100px"
-                            v-model="type"
+                            v-model="equipment"
                             clearable
                             filterable
                             allow-create
@@ -94,7 +94,7 @@
                             default-first-option
                             placeholder="设备编号">
                             <el-option
-                                v-for="item in typeOptions"
+                                v-for="item in equipmentOptions"
                                 :key="item.id"
                                 :label="item.name"
                                 :value="item.id">
@@ -118,6 +118,23 @@ export default {
     data() {
         return {
             tableData:[],
+            community:"",
+            communityOptions: [
+                {"name": "郭集", "value": "01"}
+            ],
+            county:"",
+            countyOptions: [
+                {"name": "滨城区", "value": "01"}
+            ],
+
+            curve:"",
+            curveOptions: [
+                {"name": "曲线", "value": "01"}
+            ],
+            equipment:"",
+            equipmentOptions: [
+                {"name": "型号1", "value": "01"}
+            ],
         }
     },
     mounted() {
