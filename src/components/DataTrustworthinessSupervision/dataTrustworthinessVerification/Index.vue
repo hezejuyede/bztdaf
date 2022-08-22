@@ -271,7 +271,7 @@
                                     </div>
                                     <div style="height: calc(100% - 80px);overflow: auto">
                                         <div v-for="(item,index ) in hashlist" :key="index"
-                                             style="background: #fff;height: 170px;margin-bottom: 3px;word-wrap:break-word;padding: 10px">
+                                             style="background: #fff;word-wrap:break-word;padding: 5px">
                                             {{ item }}
                                         </div>
 
@@ -289,7 +289,7 @@
                                          style="width: 100%">
                                     <div class="modal-style-3-3-el-col-text">
                                         <div style="color: #05a696">验证链数</div>
-                                        <div class="modal-style-3-3-el-col-text-num">241561</div>
+                                        <div class="modal-style-3-3-el-col-text-num">{{chains}}</div>
                                     </div>
 
                                 </div>
@@ -298,7 +298,7 @@
                                          style="width: 100%">
                                     <div class="modal-style-3-3-el-col-text">
                                         <div style="color: #05a696">异常链数</div>
-                                        <div class="modal-style-3-3-el-col-text-num">32</div>
+                                        <div class="modal-style-3-3-el-col-text-num">{{abnormal}}</div>
                                     </div>
 
                                 </div>
@@ -441,7 +441,7 @@
 
 <script>
 import shadinLayer from '../../../common/shadinLayer'
-import { TrustedStatusQuery,TaskQuery,RegionalTree,NumberOfAbnormalChains,TaskProgress} from "../../../api/DataTrustworthinessSupervision/dataTrustworthinessVerification";
+import { TrustedStatusQuery,TaskQuery,RegionalTree,NumberOfAbnormalChains,TaskProgress,ManualVerification} from "../../../api/DataTrustworthinessSupervision/dataTrustworthinessVerification";
 export default {
     name: "Index",
     data() {
@@ -537,7 +537,11 @@ export default {
             tableData2: [],
 
             treeData: [],
-            hashlist: ["rrdfdgguiu7766tgvgfddetrghhjeddfftyyuytreeedddsswee4566665455f"],
+            hashlist: [],
+            chains:"",
+            abnormal:"",
+
+
             defaultProps: {
                 children: 'children',
                 label: 'label'
@@ -566,6 +570,7 @@ export default {
             this.getTrustedStatusQuery();
             this.getTaskQuery();
             this.getRegionalTree();
+            this.manualVerification('111')
         },
 
         //可信状态查询
@@ -656,9 +661,22 @@ export default {
         //点击树
         handleNodeClick(data, node, item) {
             if (data.children === undefined) {
-                this.getTrustedStatusQuery();
-
+                this.manualVerification(data.id);
             }
+        },
+
+        //手动验证
+        manualVerification(id) {
+            let that = this;
+            const getListData = async () => {
+                const result = await ManualVerification({
+                    "id": id
+                });
+                that.hashlist = result.data.data.data.hashlist;
+                that.chains = result.data.data.data.chains;
+                that.abnormal = result.data.data.data.abnormal;
+            }
+            getListData()
         }
 
     }

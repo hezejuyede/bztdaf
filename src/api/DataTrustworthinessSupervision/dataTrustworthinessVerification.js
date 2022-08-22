@@ -1,11 +1,12 @@
 import request from '../../utils/http.js'
 
 const URL = {
-    TrustedStatusQuery: '/DataTrustworthinessVerification/TrustedStatusQuery',                     //可信状态查询
-    TaskQuery: '/SourceDataRangeStatistics/TaskQuery',                                            //任务查询
-    RegionalTree: '/DataTrustworthinessVerification/RegionalTree',                                //地区树
+    TrustedStatusQuery: '/DataTrustworthinessVerification/TrustedStatusQuery',                    //可信状态查询
+    TaskQuery: '/SourceDataRangeStatistics/TaskQuery',                                           //任务查询
+    RegionalTree: '/DataTrustworthinessVerification/RegionalTree',                               //地区树
     NumberOfAbnormalChains: '/DataTrustworthinessVerification/NumberOfAbnormalChains',           //异常链数
-    TaskProgress: '/DataTrustworthinessVerification/TaskProgress',                                //任务进度
+    TaskProgress: '/DataTrustworthinessVerification/TaskProgress',                               //任务进度
+    ManualVerification: '/DataTrustworthinessVerification/ManualVerification',                   //手动验证
 
 };
 
@@ -66,3 +67,13 @@ export const TaskProgress = data => {
     })
 }
 
+/**
+ * 任务进度
+ */
+export const ManualVerification = data => {
+    return request({
+        url: URL.ManualVerification,
+        method: 'POST',
+        data
+    })
+}
