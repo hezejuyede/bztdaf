@@ -38,10 +38,12 @@
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
                     <el-table-column label="终端设备类型" prop="name" align="center" ></el-table-column>
-                    <el-table-column label="最大输入电流" prop="zdsrdl" align="center"></el-table-column>
-                    <el-table-column label="最小输入电流" prop="zxsrdl" align="center"></el-table-column>
-                    <el-table-column label="额定输出功率" prop="edscgk" align="center"></el-table-column>
-                    <el-table-column label="额定输入功率" prop="zdscgl" align="center"></el-table-column>
+                    <el-table-column label="最大输入电压" prop="zdsrdl" align="center"></el-table-column>
+                    <el-table-column label="最大数据电流" prop="zxsrdl" align="center"></el-table-column>
+                    <el-table-column label="额定输入电压" prop="edscgk" align="center"></el-table-column>
+                    <el-table-column label="额定输出电流" prop="zdscgl" align="center"></el-table-column>
+                    <el-table-column label="额定输出功率" prop="zdscgl" align="center"></el-table-column>
+                    <el-table-column label="最大逆变效率" prop="zdscgl" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>

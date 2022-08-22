@@ -11,9 +11,9 @@
                     </div>
                     <div class="templateDivTopTTopR fl"
                          style="display: flex;align-items: center;justify-content: center">
-                        <el-radio-group v-model="radio1" @change="changeRadio">
-                            <el-radio-button label="区域"></el-radio-button>
-                            <el-radio-button label="设备"></el-radio-button>
+                        <el-radio-group v-model="radio" @change="changeRadio">
+                            <el-radio-button :label="1">区域</el-radio-button>
+                            <el-radio-button :label="2">设备</el-radio-button>
                         </el-radio-group>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                             style="width: 100px;height: 100px;border-radius: 50%;border:5px solid ;border-color:#3ED0B7;display: flex;align-items: center;justify-content: center">
                             <div
                                 style="width: 80px;height:80px;border-radius: 50%;border:2px solid;border-color: #52B7AF;display: flex;align-items: center;justify-content: center">
-                                郭集
+                               {{ selectData.cunzhen}}
                             </div>
                         </div>
 
@@ -219,7 +219,6 @@
                                 clearable
                                 filterable
                                 allow-create
-                                multiple
                                 collapse-tags
                                 default-first-option
                                 placeholder="请选择社区">
@@ -238,7 +237,6 @@
                                 clearable
                                 filterable
                                 allow-create
-                                multiple
                                 collapse-tags
                                 default-first-option
                                 placeholder="请选择街道">
@@ -257,7 +255,6 @@
                                 clearable
                                 filterable
                                 allow-create
-                                multiple
                                 collapse-tags
                                 default-first-option
                                 placeholder="请选择地区">
@@ -308,12 +305,17 @@
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备个数" prop="zdsbgs" align="center">
-                                <template slot-scope="scope">
+<!--                                <template slot-scope="scope">
                                     <span style="color: #409EFF;cursor: pointer"
                                           @click="showSL(scope.row)">{{ scope.row.zdsbgs }}</span>
+                                </template>-->
+                            </el-table-column>
+                            <el-table-column label="监测指标" prop="jkzb" align="center">
+                                <template slot-scope="scope">
+                                    <span style="color: #409EFF;cursor: pointer"
+                                          @click="showJC(scope.row)">{{ scope.row.yczb }}</span>
                                 </template>
                             </el-table-column>
-                            <el-table-column label="监测指标" prop="jkzb" align="center"></el-table-column>
                             <el-table-column label="异常指标" prop="yczb" align="center">
                                 <template slot-scope="scope">
                                     <span style="color: #409EFF;cursor: pointer"
@@ -373,7 +375,7 @@ export default {
     name: 'WorkingProcedure',
     data() {
         return {
-            radio1: "区域",
+            radio: "1",
             region: "1",
             rowId: "",
             regionOptions: regionOptions,
@@ -423,7 +425,6 @@ export default {
             this.getRegion();
             this.getSelectData();
             this.getList();
-
         },
 
 
@@ -489,18 +490,10 @@ export default {
 
         },
 
-
-
         //选择类型
         changeRadio(type) {
-            if (type === '设备') {
-                this.equipmentVisible = true;
-            } else {
-                this.equipmentVisible = false;
-            }
-
+            this.getRegion(type);
         },
-
 
         //关闭弹出框
         closeVisible(type) {
@@ -520,15 +513,19 @@ export default {
         },
 
         //滨州区域数据
-        getRegion() {
+        getRegion(type) {
+            let that = this;
             const getListData = async () => {
-                const result = await RegionalData({})
+                const result = await RegionalData({
+                    "type":type
+                })
                 var data = result.data.data.data;
 
                 let arr =[]
                 for (let i = 0; i < data.length; i++) {
+
                     let json = {
-                        "name": data[i].name, "value": data[i].value, "label": {
+                        "name": data[i].name, "value": data[i].value, "id": data[i].id,"label": {
                             normal: {
                                 show: true,
                                 formatter: function (params) {
@@ -540,6 +537,11 @@ export default {
                     arr.push(json)
                 }
                 var myChart = this.$echarts.init(document.getElementById('chart_map'));
+                myChart.on('click', function (params) {
+                    that.region=params.data.id;
+                    that.getSelectData();
+
+                });
                 myChart.setOption({
                     title: {
                         text: ''
@@ -579,7 +581,7 @@ export default {
                                 x: 'left'
                             },
                             zoom: 1.2,
-                            roam: true,
+                           /* roam: true,*/ //可移动可缩小
                             show: true,
                             itemStyle: {
                                 normal: {
@@ -613,7 +615,6 @@ export default {
                             data:arr
                         }],
                 });
-
                 window.addEventListener("resize", function () {
                     myChart.resize();
                 });
@@ -622,9 +623,9 @@ export default {
         },
 
 
+        //下拉列表显示
         changeSelect() {
             this.getSelectData();
-
         },
 
         //区域选择数据
@@ -678,6 +679,12 @@ export default {
         showSL(row) {
             this.rowId = row.id;
             this.NumberOfEquipment = true;
+        },
+
+        //显示检测
+        showJC(row){
+            this.rowId = row.id;
+            this.equipmentVisible = true;
         }
 
 
@@ -770,7 +777,7 @@ export default {
             .templateDivTopTTopLImgText {
                 position: absolute;
                 top: 80px;
-                left: 130px;
+                left: 150px;
                 font-size: 42px;
                 color: #35C4AE;
                 z-index: 9;
