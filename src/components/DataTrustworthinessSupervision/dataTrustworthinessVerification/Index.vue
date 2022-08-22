@@ -34,9 +34,9 @@
                                         <el-select v-model="number" placeholder="终端编号">
                                             <el-option
                                                 v-for="item in numberOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id">
                                             </el-option>
                                         </el-select>
                                     </el-col>
@@ -51,13 +51,23 @@
                                     </el-col>
                                 </el-row>
                             </el-header>
-                            <el-main>
+                            <el-main id="tableData1">
                                 <el-table
                                     :data="tableData1"
                                     border
                                     :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'15px',fontWeight:'800'}"
                                     style="width: 100%;border-radius: 0">
-                                    <el-table-column prop="source" label="数据"  align="center"></el-table-column>
+                                    <el-table-column prop="source" label="数据"  align="center">
+                                        <template slot-scope="scope">
+                                            <el-popover placement="top-start" title="数据" width="350" trigger="hover"
+                                                        :content="scope.row.source">
+                                                <div slot="reference"
+                                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                                    {{scope.row.source}}
+                                                </div>
+                                            </el-popover>
+                                        </template>
+                                    </el-table-column>
                                     <el-table-column prop="date" label="时间"  align="center"></el-table-column>
                                     <el-table-column prop="state" label="可信存证状态"  align="center">
                                         <template slot-scope="scope">
@@ -129,9 +139,9 @@
                                         <el-select v-model="typeS" placeholder="类型">
                                             <el-option
                                                 v-for="item in typeSOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id">
                                             </el-option>
                                         </el-select>
                                     </el-col>
@@ -139,9 +149,9 @@
                                         <el-select v-model="number2" placeholder="设备编号">
                                             <el-option
                                                 v-for="item in numberOptions"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
+                                                :key="item.id"
+                                                :label="item.name"
+                                                :value="item.id">
                                             </el-option>
                                         </el-select>
                                     </el-col>
@@ -203,12 +213,32 @@
                                 :height="100"
                                 :header-cell-style="{background:'#edf4f4',color:'black',fontSize:'12px',fontWeight:'800'}"
                                 style="width: 100%;border-radius: 0">
-                                <el-table-column prop="num" label="任务序列" width="80"  align="center"></el-table-column>
+                                <el-table-column prop="num" label="任务序列" width="70"  align="center"></el-table-column>
                                 <el-table-column prop="date" label="执行时间" width="120"  align="center"></el-table-column>
-                                <el-table-column prop="diqu" label="地区" width="80"  align="center"></el-table-column>
-                                <el-table-column prop="cunzhen" label="村镇" width="80"  align="center"></el-table-column>
-                                <el-table-column prop="guangfu" label="光伏" width="80"  align="center"></el-table-column>
-                                <el-table-column prop="number" label="逆变器编号" width="90"  align="center"></el-table-column>
+                                <el-table-column prop="diqu" label="地区" width="70"  align="center"></el-table-column>
+                                <el-table-column prop="cunzhen" label="村镇" width="70"  align="center"></el-table-column>
+                                <el-table-column prop="guangfu" label="光伏" width="95"  align="center">
+                                    <template slot-scope="scope">
+                                        <el-popover placement="top-start" title="数据" width="350" trigger="hover"
+                                                    :content="scope.row.guangfu">
+                                            <div slot="reference"
+                                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                                {{scope.row.guangfu}}
+                                            </div>
+                                        </el-popover>
+                                    </template>
+                                </el-table-column>
+                                <el-table-column prop="number" label="逆变器编号" width="90"  align="center">
+                                    <template slot-scope="scope">
+                                        <el-popover placement="top-start" title="数据" width="350" trigger="hover"
+                                                    :content="scope.row.number">
+                                            <div slot="reference"
+                                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                                                {{scope.row.number}}
+                                            </div>
+                                        </el-popover>
+                                    </template>
+                                </el-table-column>
                                 <el-table-column prop="count" label="可信状态异常链数"  align="center">
                                 </el-table-column>
                             </el-table>
@@ -331,7 +361,7 @@
             :before-close="handleClose">
             <div style="position: relative;height: 36px">
                 <div style="position: absolute;bottom: 0px">文件放入虚线内</div>
-                <el-button type="primary" class="search-button" style="position: absolute;right: 3px" round>模板下载
+                <el-button type="primary" class="search-button" style="position: absolute;right: 3px;background-color: #05A696" round>模板下载
                 </el-button>
             </div>
 
@@ -346,7 +376,7 @@
             </el-upload>
             <div style="text-align: center;margin-top: 10px">
                 <el-button type="primary" class="search-button"
-                           style="padding-left: 25px !important;padding-right: 25px !important;">确认
+                           style="padding-left: 25px !important;padding-right: 25px !important;background-color: #05A696">确认
                 </el-button>
             </div>
 
@@ -447,7 +477,11 @@ export default {
                 }
             ],
             number: "",
-            numberOptions: [],
+            numberOptions: [
+                {"name": "BZSDGJWD-01", "id": "01"},
+                {"name": "BZSDGJWD-02", "id": "02"},
+                {"name": "BZSDGJWD-03", "id": "03"}
+            ],
 
 
             diqu2:"",
@@ -475,7 +509,10 @@ export default {
                 }
             ],
             typeS:"",
-            typeSOptions:[],
+            typeSOptions:[
+                {"name": "10kV", "id": "01"},
+                {"name": "0.4kV", "id": "02"},
+            ],
             number2:"",
             dingshi:"",
             dingshiOptionsTime:[
@@ -815,6 +852,18 @@ export default {
         padding: 0 ;
     }
 }
+
+#tableData1 .el-table {
+    // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    // 深度选择器，去除默认的padding
+    /deep/ th {
+        padding: 0 ;
+    }
+    /deep/ td {
+        padding: 2.5px ;
+    }
+}
+
 
 </style>
 
