@@ -837,8 +837,8 @@ export default {
                 width: 150px;
                 height: 100px;
                 position: absolute;
-                top: 20%;
-                left: 27%;
+                top: 23%;
+                left: 30%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;

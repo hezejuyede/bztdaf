@@ -11,10 +11,14 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column type="index" label="序号" align="center" width="100"></el-table-column>
                     <el-table-column label="监测指标" prop="jczb" align="center"></el-table-column>
                     <el-table-column label="数据类型" prop="type" align="center"></el-table-column>
                     <el-table-column label="采集频度" prop="cjed" align="center"></el-table-column>
+                    <el-table-column label="查看曲线" prop="cjed" align="center">
+                        <template slot-scope="scope">
+                          <span style="color: #4b8df8;cursor: pointer">查看</span>
+                        </template>
+                    </el-table-column>
                 </el-table>
 
             </div>
