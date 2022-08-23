@@ -1,6 +1,5 @@
 <template>
-    <el-dialog title="聚合体注册" :visible.sync="PolymerRegistrationDialog" width=40% :close-on-click-modal="false"
-               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="showAdd">
+    <div class="visibleDiv" v-if="PolymerRegistrationDialog===true">
         <div class="visibleDiv">
             <el-form ref="form" :model="ruleForm" :rules="rules" label-width="170px">
                 <el-form-item label="主体单位：" prop="provinceCode">
@@ -76,7 +75,7 @@
                 </el-button>
             </div>
         </div>
-    </el-dialog>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">

@@ -1,6 +1,5 @@
 <template>
-    <el-dialog title="用户注册" :visible.sync="UserRegistrationDialog" width=40% :close-on-click-modal="false"
-               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="showAdd">
+    <div class="visibleDiv" v-if="UserRegistrationDialog===true">
         <div class="visibleDiv">
             <el-form ref="form" :model="ruleForm" :rules="rules" label-width="150px">
                 <el-form-item label="单位名称：" prop="provinceCode">
@@ -75,7 +74,7 @@
                 </el-button>
             </div>
         </div>
-    </el-dialog>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">

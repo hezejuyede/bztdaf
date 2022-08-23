@@ -1,6 +1,5 @@
 <template>
-    <el-dialog title="聚合体招募" :visible.sync="PolymerRecruitmentDialog" width=40% :close-on-click-modal="false"
-               :show-close="true" :close-on-press-escape="false" @close="closeVisible" @open="showAdd">
+    <div class="visibleDiv" v-if="PolymerRecruitmentDialog===true">
         <div class="visibleDiv">
             <el-form ref="form" :model="ruleForm" :rules="rules" label-width="170px">
                 <el-form-item label="聚合体名称：" prop="provinceCode">
@@ -71,11 +70,11 @@
             <div
                 style="width:100%;height:60px;margin-bottom: 50px;display: flex;align-items: center;justify-content: center">
                 <el-button @click="doAdd" type="primary" style="width: 100px;height: 35px;background-color: #05A696">
-                   完成
+                    完成
                 </el-button>
             </div>
         </div>
-    </el-dialog>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">

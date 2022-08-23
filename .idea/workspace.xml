@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/agentList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/agentList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +71,7 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-      <workItem from="1661235773182" duration="3545000" />
-    </task>
-    <task id="LOCAL-00033" summary="11点13分">
-      <created>1660619648612</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1660619648612</updated>
+      <workItem from="1661235773182" duration="4319000" />
     </task>
     <task id="LOCAL-00034" summary="14点17分">
       <created>1660630645272</created>
@@ -414,14 +409,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661235543187</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="15点27分">
+      <created>1661239668561</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1661239668562</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15点30" />
     <MESSAGE value="15点47分" />
     <MESSAGE value="11点01分" />
     <MESSAGE value="11点39分" />
@@ -446,6 +447,7 @@
     <MESSAGE value="13点51分" />
     <MESSAGE value="14点30分" />
     <MESSAGE value="15点18分" />
-    <option name="LAST_COMMIT_MESSAGE" value="15点18分" />
+    <MESSAGE value="15点27分" />
+    <option name="LAST_COMMIT_MESSAGE" value="15点27分" />
   </component>
 </project>

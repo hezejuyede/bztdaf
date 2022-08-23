@@ -1,6 +1,5 @@
 <template>
-    <el-dialog title="加入聚合体" :visible.sync="AddPolymerDialog" width=60% :close-on-click-modal="false"
-               :show-close="true"  :close-on-press-escape="false" @close="closeVisible"  @open="getList">
+    <div class="visibleDiv" v-if="AddPolymerDialog===true">
         <div class="visibleDiv">
             <div class="visibleDivSelect">
                 <label style="margin-right: 5px;margin-left: 5px" class="fr">
@@ -89,7 +88,7 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="聚合体" prop="jht" align="center" ></el-table-column>
+                    <el-table-column label="聚合体" prop="jht" align="center"></el-table-column>
                     <el-table-column label="聚合体总容量" prop="jhtzrl" align="center"></el-table-column>
                     <el-table-column label="聚合体余量" prop="jhtyl" align="center"></el-table-column>
                     <el-table-column label="聚合体资产主体数量" prop="jhtzcztrl" align="center"></el-table-column>
@@ -103,7 +102,7 @@
                 </el-table>
             </div>
         </div>
-    </el-dialog>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -114,10 +113,10 @@ export default {
     name: 'modal',
     data() {
         return {
-            tableData:[
-                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
-                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
-                {"jht": "聚合体1","jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"}
+            tableData: [
+                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
+                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
+                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"}
             ],
         }
     },
@@ -141,7 +140,7 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await dataHash({})
-               /* that.tableData = result.data.data.data;*/
+                /* that.tableData = result.data.data.data;*/
             }
             getListData();
 
@@ -149,12 +148,12 @@ export default {
 
 
         //关闭对话框
-        closeVisible(){
-            this.$emit('closeVisible','AddPolymerDialog')
+        closeVisible() {
+            this.$emit('closeVisible', 'AddPolymerDialog')
         },
 
         //申请加入
-        applyJoin(){
+        applyJoin() {
 
         }
 

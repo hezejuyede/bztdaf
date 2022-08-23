@@ -43,7 +43,22 @@
                 </div>
             </div>
             <div class="templateDivLBottom">
-                <agent-list></agent-list>
+                <div class="">
+                    <agent-list :agentList="agentList" @closeVisible="closeVisible"></agent-list>
+                    <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
+                                      @closeVisible="closeVisible"></AddPolymerDialog>
+                    <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
+                                            @closeVisible="closeVisible"></UserRegistrationDialog>
+
+                    <PolymerRegistrationDialog :PolymerRegistrationDialog="PolymerRegistrationDialog"
+                                               @closeVisible="closeVisible"></PolymerRegistrationDialog>
+
+                    <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
+                                              @closeVisible="closeVisible"></PolymerRecruitmentDialog>
+
+                    <detailsDialog :detailsDialog="detailsDialog"
+                                   @closeVisible="closeVisible"></detailsDialog>
+                </div>
             </div>
         </div>
         <div class="templateDivR fl">
@@ -82,21 +97,9 @@
         </div>
 
         <shadinLayer></shadinLayer>
-        <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
-                          @closeVisible="closeVisible"></AddPolymerDialog>
-        <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
-                                @closeVisible="closeVisible"></UserRegistrationDialog>
 
-        <PolymerRegistrationDialog :PolymerRegistrationDialog="PolymerRegistrationDialog"
-                                   @closeVisible="closeVisible"></PolymerRegistrationDialog>
 
-        <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
-                                  @closeVisible="closeVisible"></PolymerRecruitmentDialog>
         <shadinLayer></shadinLayer>
-        <detailsDialog :detailsDialog="detailsDialog"
-                       @closeVisible="closeVisible">
-
-        </detailsDialog>
     </div>
 </template>
 
@@ -115,16 +118,27 @@ export default {
     name: "index",
     data() {
         return {
-            AddPolymerDialog:false,
-            UserRegistrationDialog:false,
-            PolymerRecruitmentDialog:false,
-            PolymerRegistrationDialog:false,
+            agentList: true,
+            AddPolymerDialog: false,
+            UserRegistrationDialog: false,
+            PolymerRecruitmentDialog: false,
+            PolymerRegistrationDialog: false,
             detailsDialog: false
         }
     },
 
 
-    components: {shadinLayer,agentList,ElectricitySalesInquiry,AddPolymer,AddPolymerDialog,UserRegistrationDialog,PolymerRegistrationDialog,PolymerRecruitmentDialog,detailsDialog},
+    components: {
+        shadinLayer,
+        agentList,
+        ElectricitySalesInquiry,
+        AddPolymer,
+        AddPolymerDialog,
+        UserRegistrationDialog,
+        PolymerRegistrationDialog,
+        PolymerRecruitmentDialog,
+        detailsDialog
+    },
 
     mounted() {
 
@@ -143,18 +157,16 @@ export default {
                 this.UserRegistrationDialog = false;
             } else if (type === 'PolymerRegistrationDialog') {
                 this.PolymerRegistrationDialog = false;
-            }
-            else if (type === 'PolymerRecruitmentDialog') {
+            } else if (type === 'PolymerRecruitmentDialog') {
                 this.PolymerRecruitmentDialog = false;
-            }
-            else if (type === 'detailsDialog') {
+            } else if (type === 'detailsDialog') {
                 this.detailsDialog = false;
             }
         },
 
         //显示用户注册
-        showUserRegistrationDialog (){
-            this.UserRegistrationDialog =true;
+        showUserRegistrationDialog() {
+            this.UserRegistrationDialog = true;
         },
 
         //显示加入聚合体
@@ -291,6 +303,7 @@ export default {
 
 
     }
+
     .templateDivT2 {
         width: 100%;
         height: 360px;

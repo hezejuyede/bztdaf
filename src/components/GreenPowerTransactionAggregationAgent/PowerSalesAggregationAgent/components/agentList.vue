@@ -1,5 +1,5 @@
 <template>
-    <div class="visibleDiv">
+    <div class="visibleDiv" v-if="agentList===true">
         <div class="visibleDivSelect">
             <label style="margin-right: 20px;margin-left: 5px" class="fr">
                 <el-button type="primary" @click="getList" icon="el-icon-search"
@@ -28,19 +28,21 @@
                             是
                         </div>
                         <div v-if="scope.row.zmqk==='2'">
-                           否
+                            否
                         </div>
                     </template>
                 </el-table-column>
                 <el-table-column label="招募情况" prop="zmqk" align="center">
                     <template slot-scope="scope">
-                        <div v-if="scope.row.zmqk==='1'" style="width:100%;height:100%;display: flex;align-items: center;justify-content: flex-start">
+                        <div v-if="scope.row.zmqk==='1'"
+                             style="width:100%;height:100%;display: flex;align-items: center;justify-content: flex-start">
                             <div style="width: 8px;height: 8px;background-color:#2FC25B;border-radius: 50%"></div>
-                            <div style="cursor: pointer;margin-left: 5px" >完成</div>
+                            <div style="cursor: pointer;margin-left: 5px">完成</div>
                         </div>
-                        <div v-if="scope.row.zmqk==='2'" style="width:100%;height:100%;display: flex;align-items: center;justify-content: flex-start">
+                        <div v-if="scope.row.zmqk==='2'"
+                             style="width:100%;height:100%;display: flex;align-items: center;justify-content: flex-start">
                             <div style="width: 8px;height: 8px;background-color:#F56C6C;border-radius: 50%"></div>
-                            <div style="cursor: pointer;margin-left: 5px" >未完成</div>
+                            <div style="cursor: pointer;margin-left: 5px">未完成</div>
                         </div>
                     </template>
                 </el-table-column>
@@ -48,23 +50,25 @@
                 <el-table-column label="缺口容量" prop="qkrl" align="center"></el-table-column>
             </el-table>
         </div>
+
     </div>
 </template>
 
 <script type="text/ecmascript-6">
 import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
+
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:[
-                {"gfzt": "郭集李家社区光伏","jhdls": "1", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏","jhdls": "2", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏","jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏","jhdls": "2", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏","jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
+            tableData: [
+                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
+                {"gfzt": "郭集李家社区光伏", "jhdls": "2", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
+                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
+                {"gfzt": "郭集李家社区光伏", "jhdls": "2", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
+                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
             ],
-            examineTime:[]
+            examineTime: []
         }
     },
     mounted() {
@@ -84,10 +88,10 @@ export default {
             const getListData = async () => {
                 const result = await greenCardHistory({
                     "region": that.region,
-                    "startTime":that.examineTime[0],
-                    "endTime":that.examineTime[1]
+                    "startTime": that.examineTime[0],
+                    "endTime": that.examineTime[1]
                 })
-               /* that.tableData = result.data.data.data;*/
+                /* that.tableData = result.data.data.data;*/
             }
             getListData();
         },
@@ -95,7 +99,10 @@ export default {
 
     },
     props: {
-
+        agentList: {
+            type: Boolean,
+            required: true
+        }
     },
 }
 </script>
@@ -122,10 +129,11 @@ export default {
         // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
         // 深度选择器，去除默认的padding
         /deep/ th {
-            padding: 0 ;
+            padding: 0;
         }
+
         /deep/ td {
-            padding:5px ;
+            padding: 5px;
         }
     }
 }
