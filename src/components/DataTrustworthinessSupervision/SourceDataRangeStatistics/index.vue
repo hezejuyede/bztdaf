@@ -294,14 +294,26 @@
                             </el-table-column>
                             <el-table-column label="终端设备厂家" prop="zdsbcj" align="center">
                                 <template slot-scope="scope">
-                                    <span style="color: #409EFF;cursor: pointer"
-                                          @click="showCJ(scope.row)">{{ scope.row.zdsbcj }}</span>
+                                    <el-popover placement="top-start" title="终端设备厂家" width="350" trigger="hover"
+                                                :content="scope.row.zdsbcj">
+                                        <div slot="reference"
+                                             @click="showCJ(scope.row)"
+                                             style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #409EFF;cursor: pointer">
+                                            {{ scope.row.zdsbcj }}
+                                        </div>
+                                    </el-popover>
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备类型" prop="zdsblx" align="center">
                                 <template slot-scope="scope">
-                                    <span style="color: #409EFF;cursor: pointer"
-                                          @click="showType(scope.row)">{{ scope.row.zdsblx }}</span>
+                                    <el-popover placement="top-start" title="终端设备厂家" width="350" trigger="hover"
+                                                :content="scope.row.zdsblx">
+                                        <div slot="reference"
+                                             @click="showType(scope.row)"
+                                             style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #409EFF;cursor: pointer">
+                                            {{ scope.row.zdsblx }}
+                                        </div>
+                                    </el-popover>
                                 </template>
                             </el-table-column>
                             <el-table-column label="终端设备个数" prop="zdsbgs" align="center">

@@ -64,9 +64,39 @@
                       :height="320"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="合同编号" prop="htbh" align="center"></el-table-column>
-                <el-table-column label="售电主体" prop="sdzt" align="center"></el-table-column>
-                <el-table-column label="购电主体" prop="gdzt" align="center"></el-table-column>
+                <el-table-column label="合同编号" prop="htbh" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="合同编号" width="350" trigger="hover"
+                                    :content="scope.row.htbh">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.htbh }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
+                <el-table-column label="售电主体" prop="sdzt" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="售电主体" width="350" trigger="hover"
+                                    :content="scope.row.sdzt">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.sdzt }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
+                <el-table-column label="购电主体" prop="gdzt" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="购电主体" width="350" trigger="hover"
+                                    :content="scope.row.gdzt">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.gdzt }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
                 <el-table-column label="合同开始时间" prop="kssj" align="center"></el-table-column>
                 <el-table-column label="合同结束时间" prop="jssj" align="center"></el-table-column>
                 <el-table-column label="合同实际履约开始时间" prop="lykssj" align="center"  width="165"></el-table-column>
