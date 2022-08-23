@@ -105,11 +105,11 @@
                                 index: 'PowerSalesAggregationAgent',
                                 title: '聚合代理-售电'
                             },
-                            {
+                          /*  {
                                 index: 'AggregationAgentPowerPurchase',
                                 title: '聚合代理-购电'
                             }
-                            ,
+                            ,*/
                             {
                                 index: 'TransactionContractFeedback',
                                 title: '绿电交易合同反馈'

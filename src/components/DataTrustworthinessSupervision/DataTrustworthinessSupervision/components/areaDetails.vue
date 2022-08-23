@@ -138,20 +138,20 @@ export default {
             streetOptions: streetOptions,
             community: "",
             communityOptions: communityOptions,
-            examineTime:[]
+            examineTime:[],
+            countList:[],
         }
     },
     mounted() {
 
         this.timer=setInterval(()=>{
-            this.getList()
+            this.setList();
         },3000)
 
 
     },
     created() {
-
-        this.getList()
+        this.getList();
 
     },
     beforeDestroy(){
@@ -168,12 +168,56 @@ export default {
                     "type": this.type,
                     "region":this.region
                 })
-                that.tableData = result.data.data.data;
+                that.countList=result.data.data.data;
+                let arr = result.data.data.data;
+                let list =[];
+                for (let i = 0; i < 6; i++) {
+                     let json={
+                         "dq": arr[i].dq,
+                         "bsqy":  arr[i].bsqy,
+                         "type":  arr[i].type,
+                         "address":  arr[i].address,
+                         "zdbh":  arr[i].zdbh,
+                         "hash":  arr[i].hash,
+                         "time":  arr[i].time,
+                         "status":  arr[i].status,
+                         "qkgd":  arr[i].qkgd,
+                         "data": arr[i].data
+                     }
+                     list.push(json)
+
+                }
+                that.tableData =  list;
             }
             getListData();
 
         },
 
+
+        //定时更新数据
+        setList(){
+            let list =this.countList;
+            let indexNum = 4;
+
+            let tableList=[];
+            let arr =[];
+            for (let i=0;i<list.length;i++){
+                if(i<=indexNum){
+                    let num = Math.round(Math.random()*list.length);
+                    arr.push(num)
+                }
+            }
+            for (let i=0;i<list.length;i++){
+                for (let j=0;j<arr.length;j++){
+                    if(i===arr[j]){
+                        tableList.push(list[i])
+                    }
+                }
+            }
+            this.tableData = tableList;
+        },
+
+        
         //显示哈希值
         showHash(){
             this.$emit('showHash','showHash')

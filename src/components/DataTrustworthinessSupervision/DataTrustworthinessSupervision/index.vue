@@ -107,7 +107,7 @@
                                 @closeVisible="closeVisible"></exceptionDetailsDialog>
         <manufactorDialog :manufactorDialog="manufactorDialog" :rowId="rowId"
                           @closeVisible="closeVisible"></manufactorDialog>
-<!--        <shadinLayer></shadinLayer>-->
+        <shadinLayer></shadinLayer>
 
     </div>
 </template>
