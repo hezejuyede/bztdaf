@@ -93,8 +93,8 @@ export default {
                                 }
                             }
                         },
-                        series: [{type: 'bar', itemStyle: {normal: {color: '#0EA3F7'}}},
-                            {type: 'bar', itemStyle: {normal: {color: '#78D44B'}}}]
+                        series: [{type: 'line', itemStyle: {normal: {color: '#0EA3F7'}}},
+                            {type: 'line', itemStyle: {normal: {color: '#78D44B'}}}]
                     }, true);
             }
             getListData();
