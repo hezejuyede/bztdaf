@@ -21,9 +21,10 @@
                 <div class="TableTitleR">企业</div>
             </div>
             <div class="templateDivBR">
-                <div class="">
+<!--                <div class="">
                     <img src="../../assets/img/dw/qysbs.png" alt="">
-                </div>
+                </div>-->
+                <greenPowerParent></greenPowerParent>
 
             </div>
         </div>
@@ -34,7 +35,7 @@
 <script>
 import shadinLayer from "../../common/shadinLayer";
 import areaSelection from "./components/areaSelection";
-
+import greenPowerParent from "./components/index";
 export default {
     name: "index",
     data() {
@@ -44,7 +45,8 @@ export default {
 
     components: {
         shadinLayer,
-        areaSelection
+        areaSelection,
+        greenPowerParent
     },
 
     mounted() {
