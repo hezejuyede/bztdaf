@@ -4,8 +4,6 @@
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/areaDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/areaDetails.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/sataLinkDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/sataLinkDetails.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/trustedStateStatistics.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/trustedStateStatistics.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,13 +71,6 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-    </task>
-    <task id="LOCAL-00025" summary="10点47分">
-      <created>1660531671723</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1660531671723</updated>
     </task>
     <task id="LOCAL-00026" summary="15点12分">
       <created>1660547534803</created>
@@ -417,14 +408,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661160853798</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="23号9点08分">
+      <created>1661216923249</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1661216923249</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="9点52分" />
     <MESSAGE value="11点30分" />
     <MESSAGE value="14点07分" />
     <MESSAGE value="14点52分" />
@@ -449,6 +446,7 @@
     <MESSAGE value="17点15分" />
     <MESSAGE value="17点23分" />
     <MESSAGE value="17点34" />
-    <option name="LAST_COMMIT_MESSAGE" value="17点34" />
+    <MESSAGE value="23号9点08分" />
+    <option name="LAST_COMMIT_MESSAGE" value="23号9点08分" />
   </component>
 </project>

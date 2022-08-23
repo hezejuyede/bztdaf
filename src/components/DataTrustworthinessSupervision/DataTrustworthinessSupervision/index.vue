@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="BottomRDiv">
-                        <div id="enterpriseBar" :style="{width: '100%', height: '100%'}"></div>
+                        <div id="enterpriseBar" :style="{width: '100%', height: '350px'}"></div>
                     </div>
                 </div>
 
@@ -180,7 +180,7 @@ export default {
                         trigger: 'item'
                     },
                     legend: {
-                        top: '80%',
+                        top: '85%',
                         left: 'center',
 
                     },
