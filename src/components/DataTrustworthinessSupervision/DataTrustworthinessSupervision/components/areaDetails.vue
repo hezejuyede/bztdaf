@@ -69,17 +69,17 @@
         </div>
         <div class="visibleTable">
             <el-table class="tb-edit" :data="tableData"
-                      :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
-                      :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                      :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'40px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
+                      :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                       border
                       :height="320"
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="地区" prop="dq" align="center"></el-table-column>
-                <el-table-column label="部署区域" prop="bsqy" align="center"></el-table-column>
-                <el-table-column label="类型" prop="type" align="center"></el-table-column>
-                <el-table-column label="地址" prop="address" align="center">
+                <el-table-column label="地区" prop="dq" align="center" width="80"></el-table-column>
+                <el-table-column label="部署区域" prop="bsqy" align="center" width="80"></el-table-column>
+                <el-table-column label="类型" prop="type" align="center" width="160"></el-table-column>
+                <el-table-column label="地址" prop="address" align="center" width="120">
                     <template slot-scope="scope">
                         <el-popover placement="top-start" title="地址" width="350" trigger="hover"
                                     :content="scope.row.address">
@@ -95,17 +95,16 @@
                         <el-popover placement="top-start" title="hash" width="350" trigger="hover"
                                     :content="scope.row.hash">
                             <div slot="reference"
+                                 @click="showHash"
                                  style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
                                 {{scope.row.hash}}
                             </div>
                         </el-popover>
                     </template>
                 </el-table-column>
-                <el-table-column label="时间" prop="zdbh" align="center"></el-table-column>
-                <el-table-column label="终端编号" prop="zdbh" align="center"></el-table-column>
-                <el-table-column label="上链数量" prop="slsl" align="center"></el-table-column>
-                <el-table-column label="异常数量" prop="ycsl" align="center"></el-table-column>
-                <el-table-column label="可信存证状态" prop="status" align="center">
+                <el-table-column label="时间" prop="time" align="center" width="130"></el-table-column>
+                <el-table-column label="终端编号" prop="zdbh" align="center" width="120"></el-table-column>
+                <el-table-column label="可信存证状态" prop="status" align="center" width="110">
                     <template slot-scope="scope">
                         <div v-if="scope.row.status==='1'" style="display: flex;align-items: center;justify-content: center">
                             <div style="width: 10px;height: 10px;background-color:#409EFF;border-radius: 50%"></div>
@@ -117,7 +116,7 @@
                         </div>
                     </template>
                 </el-table-column>
-                <el-table-column label="区块高度" prop="qkgd" align="center"></el-table-column>
+                <el-table-column label="区块高度" prop="qkgd" align="center" width="80"></el-table-column>
             </el-table>
         </div>
     </div>
@@ -131,6 +130,7 @@ export default {
     name: 'modal',
     data() {
         return {
+            timer:null,
             tableData: [],
             region: "",
             regionOptions: regionOptions,
@@ -142,13 +142,21 @@ export default {
         }
     },
     mounted() {
-         this.getList()
+
+        this.timer=setInterval(()=>{
+            this.getList()
+        },3000)
+
 
     },
     created() {
 
+        this.getList()
 
-
+    },
+    beforeDestroy(){
+        clearInterval(this.timer);
+        this.timer = null;
     },
     methods: {
 
@@ -163,6 +171,11 @@ export default {
                 that.tableData = result.data.data.data;
             }
             getListData();
+
+        },
+
+        //显示哈希值
+        showHash(){
 
         },
     },
@@ -191,7 +204,16 @@ export default {
         background-color: #ffffff;
 
     }
-
+    .el-table {
+        // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        // 深度选择器，去除默认的padding
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 2.5px ;
+        }
+    }
 
 }
 

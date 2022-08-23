@@ -52,20 +52,20 @@
         </div>
                 <div class="visibleTable">
                     <el-table class="tb-edit" :data="tableData"
-                              :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'10px',fontWeight: 'bold'}"
+                              :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'40px',borderColor:'#CAE5E4',fontSize:'10px',fontWeight: 'bold'}"
                               :cell-style="{fontSize:'10px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                               border
                               :height="320"
                               id="rebateSetTable"
                               ref="moviesTable"
                               highlight-current-row style="width: 95%;margin: auto">
-                        <el-table-column label="地区" prop="dq" align="center" width="80"></el-table-column>
+                        <el-table-column label="地区" prop="dq" align="center" width="60"></el-table-column>
                         <el-table-column label="当日上链数量" prop="drslsl" align="center"></el-table-column>
                         <el-table-column label="当日异常数据" prop="drycsl" align="center"></el-table-column>
                         <el-table-column label="本月上链数量" prop="byslsl" align="center"></el-table-column>
                         <el-table-column label="本月异常数据" prop="byycsl" align="center"></el-table-column>
                         <el-table-column label="年度上链数量" prop="ndslsl" align="center"></el-table-column>
-                        <el-table-column label="年度异常" prop="ndycsl" align="center" width="80"></el-table-column>
+                        <el-table-column label="年度异常" prop="ndycsl" align="center" width="70"></el-table-column>
                     </el-table>
                 </div>
     </div>
@@ -182,7 +182,16 @@ export default {
 
     }
 
-
+    .el-table {
+        // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        // 深度选择器，去除默认的padding
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 1px ;
+        }
+    }
 }
 
 </style>
