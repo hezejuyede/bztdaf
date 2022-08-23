@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="16点22">
+    <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymerDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/AddPolymerDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/UserRegistrationDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/UserRegistrationDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRecruitmentDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRecruitmentDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRegistrationDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent/components/PolymerRegistrationDialog.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +71,7 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-      <workItem from="1661235773182" duration="9206000" />
-    </task>
-    <task id="LOCAL-00035" summary="14点38分">
-      <created>1660631949394</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1660631949394</updated>
+      <workItem from="1661235773182" duration="11280000" />
     </task>
     <task id="LOCAL-00036" summary="14点38分">
       <created>1660634687821</created>
@@ -417,14 +409,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661240730338</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="17点05分">
+      <created>1661245531814</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1661245531814</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="11点39分" />
     <MESSAGE value="15dian07" />
     <MESSAGE value="17点57fen" />
     <MESSAGE value="18dian36" />
@@ -449,6 +447,7 @@
     <MESSAGE value="15点27分" />
     <MESSAGE value="15点45分" />
     <MESSAGE value="16点22" />
-    <option name="LAST_COMMIT_MESSAGE" value="16点22" />
+    <MESSAGE value="17点05分" />
+    <option name="LAST_COMMIT_MESSAGE" value="17点05分" />
   </component>
 </project>

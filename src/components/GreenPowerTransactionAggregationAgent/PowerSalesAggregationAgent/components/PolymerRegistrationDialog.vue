@@ -2,70 +2,52 @@
     <div class="visibleDiv" v-if="PolymerRegistrationDialog===true">
         <div class="visibleDiv">
             <el-form ref="form" :model="ruleForm" :rules="rules" label-width="170px">
-                <el-form-item label="主体单位：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="主体单位">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
+                <el-form-item label="主体单位：" prop="ztdw">
+                    <el-input v-model.trim="ruleForm.ztdw" style="width: 250px"
+                              maxlength="20"
+                              placeholder="主体单位"></el-input>
                 </el-form-item>
-                <el-form-item label="聚合体名称：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="聚合体名称">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
+                <el-form-item label="聚合体名称：" prop="jhtmc">
+                    <el-input v-model.trim="ruleForm.jhtmc" style="width: 250px"
+                              maxlength="20"
+                              placeholder="聚合体名称"></el-input>
                 </el-form-item>
-                <el-form-item label="主体光伏类型：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                <el-form-item label="主体光伏类型：" prop="gflx">
+                    <el-select style="width: 250px" v-model="ruleForm.gflx" clearable filterable
                                allow-create default-first-option placeholder="主体光伏类型">
                         <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
+                            v-for="item in gflxOptions"
+                            :key="item.id"
+                            :label="item.name"
+                            :value="item.id">
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="主体装机容量：" prop="provinceCode">
-                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                <el-form-item label="主体装机容量：" prop="ztzjrl">
+                    <el-input v-model.trim="ruleForm.ztzjrl" style="width: 250px"
                               maxlength="20"
                               placeholder="主体装机容量"></el-input>
                 </el-form-item>
-                <el-form-item label="聚合体装机计划容量：" prop="provinceCode">
-                    <el-input v-model.trim="ruleForm.couponCodeName" style="width: 250px"
+                <el-form-item label="聚合体装机计划容量：" prop="jhtzjjhrl">
+                    <el-input v-model.trim="ruleForm.jhtzjjhrl" style="width: 250px"
                               maxlength="20"
                               placeholder="聚合体装机计划容量"></el-input>
                 </el-form-item>
-                <el-form-item label="接纳区域范围：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
+                <el-form-item label="接纳区域范围：" prop="qy">
+                    <el-select style="width: 250px" v-model="ruleForm.qy" clearable filterable
                                allow-create default-first-option placeholder="接纳区域范围">
                         <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
+                            v-for="item in qyOptions"
+                            :key="item.id"
+                            :label="item.name"
+                            :value="item.id">
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="接纳个体数量：" prop="provinceCode">
-                    <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                               allow-create default-first-option placeholder="接纳个体数量">
-                        <el-option
-                            v-for="item in orgNoOptions"
-                            :key="item.codeValue"
-                            :label="item.codeName"
-                            :value="item.codeValue">
-                        </el-option>
-                    </el-select>
+                <el-form-item label="接纳个体数量：" prop="jngtsl">
+                    <el-input v-model.trim="ruleForm.jngtsl" style="width: 250px"
+                              maxlength="20"
+                              placeholder="接纳个体数量"></el-input>
                 </el-form-item>
             </el-form>
             <div
@@ -80,6 +62,7 @@
 
 <script type="text/ecmascript-6">
 import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
+import {regionOptions} from "../../../../utils/options";
 
 
 export default {
@@ -87,39 +70,53 @@ export default {
     data() {
         return {
             ruleForm: {
-                couponCodeName: "",
-                provinceCode: "",
-                provinceName: "",
-                date1: "",
-                date2: "",
-                fileId: "",
-                describe: "",
+                ztdw: "",
+                jhtmc: "",
+                gflx: "",
+                ztzjrl: "",
+                jhtzjjhrl: "",
+                qy: "",
+                jngtsl: "",
 
 
             },
             rules: {
-                couponCodeName: [
-                    {required: true, message: '请输入券码池名称(20个字以内)', trigger: 'blur'},
-                    {min: 1, max: 20, message: '券码池名称在 1 到 20 个字符'}
-                ],
-                date1: [
-                    {required: true, message: '请选择开始时间', trigger: 'change'},
+                ztdw: [
+                    {required: true, message: '请输入主体单位', trigger: 'blur'},
+                    {min: 1, max: 20, message: '主体单位在 1 到 20 个字符'}
                 ],
 
-                date2: [
-                    {required: true, message: '请选择结束时间', trigger: 'change'},
-                ],
-                provinceCode: [
-                    {required: true, message: '请选择奖池网省', trigger: 'change'}
-                ],
-                describe: [
-                    {required: true, message: '请输入券码描述', trigger: 'blur'},
-                    {min: 1, max: 200, message: '券码描述名称在 1 到 200 个字符'}
+                jhtmc: [
+                    {required: true, message: '请输入聚合体名称', trigger: 'blur'},
+                    {min: 1, max: 20, message: '聚合体名称在 1 到 20 个字符'}
                 ],
 
+                gflx: [
+                    {required: true, message: '请选择主体光伏类型', trigger: 'change'}
+                ],
+                ztzjrl: [
+                    {required: true, message: '请输入主体装机容量', trigger: 'blur'},
+                    {min: 1, max: 20, message: '主体装机容量在 1 到 20 个字符'}
+                ],
+                jhtzjjhrl: [
+                    {required: true, message: '请输入聚合体装机计划容量', trigger: 'blur'},
+                    {min: 1, max: 20, message: '聚合体装机计划容量在 1 到 20 个字符'}
+                ],
+                qy: [
+                    {required: true, message: '请选择区域', trigger: 'change'}
+                ],
+                jngtsl: [
+                    {required: true, message: '请输入接纳个体数量', trigger: 'blur'},
+                    {min: 1, max: 20, message: '接纳个体数量在 1 到 20 个字符'}
+                ],
 
             },
-            orgNoOptions: [],
+            qyOptions:regionOptions,
+            gflxOptions: [
+                {"name": "分部式光伏", "id": "01"},
+                {"name": "集中式光伏", "id": "02"},
+                {"name": "屋顶光伏", "id": "03"}
+            ],
         }
     },
     mounted() {
