@@ -46,7 +46,7 @@
                         </el-table>
                     </div>
                 </div>
-                <div class="BottomR fl">
+                <div class="BottomR  fl">
                     <div class="BottomTitle">
                         <div class="BottomTitleL">
                             <img src="../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_03.png" alt="">
@@ -64,7 +64,6 @@
                         <div id="enterpriseBar" :style="{width: '100%', height: '350px'}"></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -98,7 +97,7 @@
                 </div>
             </div>
             <div class="templateDivTopTBottom2" id="areaDetails">
-                <areaDetails></areaDetails>
+                <areaDetails  @showHash="showHashDialog"></areaDetails>
             </div>
         </div>
 
@@ -237,6 +236,14 @@ export default {
             } else if (type === 'manufactorDialog') {
                 this.manufactorDialog = false;
             }
+        },
+
+        //显示Hash
+        showHashDialog(showHash) {
+            if(showHash){
+                this.dataHashDialog = true;
+            }
+
         },
 
 

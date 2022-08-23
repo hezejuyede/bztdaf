@@ -90,7 +90,7 @@
                         </el-popover>
                     </template>
                 </el-table-column>
-                <el-table-column label="hash" prop="zdbh" align="center">
+                <el-table-column label="hash" prop="zdbh" align="center" >
                     <template slot-scope="scope">
                         <el-popover placement="top-start" title="hash" width="350" trigger="hover"
                                     :content="scope.row.hash">
@@ -176,6 +176,7 @@ export default {
 
         //显示哈希值
         showHash(){
+            this.$emit('showHash','showHash')
 
         },
     },
