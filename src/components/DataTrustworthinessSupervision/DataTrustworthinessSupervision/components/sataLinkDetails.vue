@@ -127,6 +127,8 @@ export default {
 
     .visibleTable {
         height: 320px;
+        background-color: #ffffff;
+
 
     }
 

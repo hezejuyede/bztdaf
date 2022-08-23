@@ -1,6 +1,6 @@
 <template>
     <div class="visibleDiv">
-        <div class="visibleDivSelect">
+        <div class="visibleDivSelect" style=" background-color: #ffffff;">
             <label style="margin-right: 50px;margin-left: 5px" class="fr">
                 <el-button type="primary" @click="getList" icon="el-icon-search"
                            style="background-color: #05A696;width: 100px;height: 35px">查询
@@ -43,6 +43,28 @@
                         :value="item.id">
                     </el-option>
                 </el-select>
+            </label>
+            <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                <el-select
+                    style="width:200px"
+                    v-model="manufactor"
+                    clearable
+                    filterable
+                    allow-create
+                    multiple
+                    collapse-tags
+                    default-first-option
+                    placeholder="选择地区">
+                    <el-option
+                        v-for="item in manufactoreOptions"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
+                    </el-option>
+                </el-select>
+            </label>
+            <label style="margin-right: 5px;margin-left: 5px" class="fr">
+                <el-input v-model="hashData" placeholder="请输入数据" style="width: 200px"></el-input>
             </label>
         </div>
         <div class="visibleTable">
@@ -128,7 +150,8 @@ export default {
     height: 400px;
 
     .visibleDivSelect {
-        height: 80px;
+        width: 100%;
+        height: 90px;
         background-color: #ffffff;
         line-height: 80px;
 
@@ -136,6 +159,7 @@ export default {
 
     .visibleTable {
         height: 320px;
+        background-color: #ffffff;
 
     }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="templateDiv">
+    <div class="templateDiv clearfix">
         <div class="templateDivT">
             <div class="templateDivTTop">
                 <div class="templateDivTTopL fl">
@@ -85,39 +85,23 @@
             </div>
         </div>
 
-        <div class="templateDivT">
+        <div class="templateDivT2 clearfix">
             <div class="templateDivTTop">
                 <div class="templateDivTTopL fl">
-                    <div class="templateDivTTopLText">区域详情</div>
+                    <div class="templateDivTTopLText">数据块详情</div>
                     <div class="templateDivTTopLImg">
                         <img src="../../../assets/img/dw/bt.png" alt="">
                     </div>
                 </div>
-                <div class="templateDivTTopR fl">
+                <div class="templateDivTTopR fl" style="padding-right: 50px">
                     更多>
                 </div>
             </div>
-            <div class="templateDivTopTBottom">
+            <div class="templateDivTopTBottom2" id="areaDetails">
                 <areaDetails></areaDetails>
             </div>
         </div>
 
-        <div class="templateDivT">
-            <div class="templateDivTTop">
-                <div class="templateDivTTopL fl">
-                    <div class="templateDivTTopLText">数据链详情</div>
-                    <div class="templateDivTTopLImg">
-                        <img src="../../../assets/img/dw/bt.png" alt="">
-                    </div>
-                </div>
-                <div class="templateDivTTopR fl"  @click="showManufactor">
-                    更多>
-                </div>
-            </div>
-            <div class="templateDivTopTBottom">
-                <sata-link-details></sata-link-details>
-            </div>
-        </div>
 
         <dataHashDialog :dataHashDialog="dataHashDialog" :rowId="rowId" @closeVisible="closeVisible"></dataHashDialog>
         <exceptionDetailsDialog :exceptionDetailsDialog="exceptionDetailsDialog" :rowId="rowId"
@@ -284,6 +268,33 @@ export default {
     overflow: auto;
     background-color: #EDF4F4;
     padding-bottom: 50px;
+    .templateDivTTop {
+        height: 50px;
+        padding-left: 20px;
+        padding-top: 10px;
+
+        .templateDivTTopL {
+            width: 50%;
+
+            .templateDivTTopLText {
+                width: 120px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .templateDivTTopLImg {
+            }
+        }
+
+        .templateDivTTopR {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+    }
 
     .templateDivT {
         float: left;
@@ -295,33 +306,7 @@ export default {
         margin-bottom: 1%;
 
 
-        .templateDivTTop {
-            height: 50px;
-            padding-left: 20px;
-            padding-top: 10px;
 
-            .templateDivTTopL {
-                width: 50%;
-
-                .templateDivTTopLText {
-                    width: 120px;
-                    font-size: 14px;
-                    font-weight: bold;
-                }
-
-                .templateDivTTopLImg {
-                }
-            }
-
-            .templateDivTTopR {
-                width: 50%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding-right: 20px;
-            }
-        }
 
         .BottomL {
             width: 50%;
@@ -376,6 +361,19 @@ export default {
                 }
             }
         }
+    }
+    .templateDivT2{
+        width: 97%;
+        height: 500px;
+        background-color: #ffffff;
+        margin-left: 1%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+
+    }
+    .templateDivTopTBottom2{
+
+        background-color: #ffffff;
     }
 
     .el-table {

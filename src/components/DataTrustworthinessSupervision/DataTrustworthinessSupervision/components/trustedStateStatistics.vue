@@ -12,10 +12,10 @@
                         {{title.drslsl}}
                     </div>
                 </div>
-                <div class="dataDivTemplateR fl">
+<!--                <div class="dataDivTemplateR fl">
                     <span>较昨日</span>
                     <span style="color: #dd6161">+{{title.jsr}}</span>
-                </div>
+                </div>-->
             </div>
             <div class="dataDivTemplate fl">
                 <div class="dataDivTemplateL fl">
@@ -28,10 +28,10 @@
                         {{title.byslsl}}
                     </div>
                 </div>
-                <div class="dataDivTemplateR fl">
+<!--                <div class="dataDivTemplateR fl">
                     <span>较上月</span>
                     <span style="color: #dd6161">+{{title.jsy}}</span>
-                </div>
+                </div>-->
             </div>
             <div class="dataDivTemplate fl">
                 <div class="dataDivTemplateL fl">
@@ -44,10 +44,10 @@
                         {{title.ycls}}
                     </div>
                 </div>
-                <div class="dataDivTemplateR fl">
+<!--                <div class="dataDivTemplateR fl">
                     <span>较上周</span>
                     <span style="color: #68D085">+{{title.jsz}}</span>
-                </div>
+                </div>-->
             </div>
         </div>
                 <div class="visibleTable">
