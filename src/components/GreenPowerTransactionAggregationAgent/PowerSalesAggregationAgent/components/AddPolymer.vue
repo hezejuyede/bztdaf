@@ -1,74 +1,44 @@
 <template>
     <div class="templateAdd">
         <el-form ref="form" :model="ruleForm" :rules="rules" label-width="150px">
-            <el-form-item label="聚合代理商：" prop="couponCodeName">
-                <el-select style="width: 250px" v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="聚合代理商">
-                    <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
-                    </el-option>
-                </el-select>
+            <el-form-item label="聚合代理商：" prop="jhdls">
+                <el-input v-model.trim="ruleForm.jhdls" style="width: 250px"
+                          maxlength="20"
+                          placeholder="聚合代理商"></el-input>
             </el-form-item>
-            <el-form-item label="装机容量：" prop="provinceCode">
-                <el-select style="width: 250px"  v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="装机容量">
-                    <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
-                    </el-option>
-                </el-select>
+            <el-form-item label="装机容量：" prop="zjrl">
+                <el-input v-model.trim="ruleForm.zjrl" style="width: 250px"
+                          maxlength="20"
+                          placeholder="装机容量"></el-input>
             </el-form-item>
-            <el-form-item label="已供应负荷：" prop="provinceCode">
-                <el-select style="width: 250px"  v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="已供应负荷">
-                    <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
-                    </el-option>
-                </el-select>
+            <el-form-item label="已供应负荷：" prop="ygyfh">
+                <el-input v-model.trim="ruleForm.ygyfh" style="width: 250px"
+                          maxlength="20"
+                          placeholder="已供应负荷"></el-input>
             </el-form-item>
-            <el-form-item label="可供应负荷：" prop="provinceCode">
-                <el-select style="width: 250px"  v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="可供应负荷">
-                    <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
-                    </el-option>
-                </el-select>
+            <el-form-item label="可供应负荷：" prop="kgyfh">
+                <el-input v-model.trim="ruleForm.kgyfh" style="width: 250px"
+                          maxlength="20"
+                          placeholder="可供应负荷"></el-input>
             </el-form-item>
-            <el-form-item label="计划供应电量：" prop="provinceCode">
-                <el-select style="width: 250px"  v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="计划供应电量">
-                    <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
-                    </el-option>
-                </el-select>
+            <el-form-item label="计划供应电量：" prop="jhgydl">
+                <el-input v-model.trim="ruleForm.jhgydl" style="width: 250px"
+                          maxlength="20"
+                          placeholder="计划供应电量"></el-input>
             </el-form-item>
-            <el-form-item label="计划供应日期：" prop="provinceCode">
+            <el-form-item label="计划供应日期：" prop="examineTime">
                 <el-date-picker style="width: 250px" v-model="ruleForm.examineTime" type="daterange"
                                 start-placeholder="开始日期" end-placeholder="结束日期" value-format="yyyy-MM-dd">
                 </el-date-picker>
             </el-form-item>
-            <el-form-item label="供应地区：" prop="provinceCode">
-                <el-select style="width: 250px"  v-model="ruleForm.provinceCode" clearable filterable
-                           allow-create default-first-option placeholder="供应地区">
+            <el-form-item label="供应地区：" prop="qy">
+                <el-select style="width: 250px" v-model="ruleForm.qy" clearable filterable
+                           allow-create default-first-option placeholder="区域">
                     <el-option
-                        v-for="item in orgNoOptions"
-                        :key="item.codeValue"
-                        :label="item.codeName"
-                        :value="item.codeValue">
+                        v-for="item in qyOptions"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                     </el-option>
                 </el-select>
             </el-form-item>
@@ -81,46 +51,59 @@
 
 <script type="text/ecmascript-6">
 import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
-
+import {regionOptions} from "../../../../utils/options";
 export default {
     name: 'modal',
     data() {
         return {
 
             ruleForm: {
-                couponCodeName: "",
-                provinceCode: "",
-                provinceName: "",
-                date1: "",
-                date2: "",
-                fileId: "",
-                describe: "",
+                jhdls: "",
+                zjrl: "",
+                ygyfh: "",
+                kgyfh: "",
+                jhgydl: "",
+                examineTime: [],
+                qy: "",
 
 
             },
             rules: {
-                couponCodeName: [
-                    {required: true, message: '请输入券码池名称(20个字以内)', trigger: 'blur'},
-                    {min: 1, max: 20, message: '券码池名称在 1 到 20 个字符'}
-                ],
-                date1: [
-                    {required: true, message: '请选择开始时间', trigger: 'change'},
+                jhdls: [
+                    {required: true, message: '请输入主聚合代理商', trigger: 'blur'},
+                    {min: 1, max: 20, message: '聚合代理商在 1 到 20 个字符'}
                 ],
 
-                date2: [
-                    {required: true, message: '请选择结束时间', trigger: 'change'},
+                zjrl: [
+                    {required: true, message: '请输入装机容量', trigger: 'blur'},
+                    {min: 1, max: 20, message: '装机容量在 1 到 20 个字符'}
                 ],
-                provinceCode: [
-                    {required: true, message: '请选择奖池网省', trigger: 'change'}
+
+                ygyfh: [
+                    {required: true, message: '请输入已供应负荷', trigger: 'blur'},
+                    {min: 1, max: 20, message: '已供应负荷在 1 到 20 个字符'}
                 ],
-                describe: [
-                    {required: true, message: '请输入券码描述', trigger: 'blur'},
-                    {min: 1, max: 200, message: '券码描述名称在 1 到 200 个字符'}
+
+                kgyfh: [
+                    {required: true, message: '请输入可供应负荷', trigger: 'blur'},
+                    {min: 1, max: 20, message: '可供应负荷在 1 到 20 个字符'}
+                ],
+
+                jhgydl: [
+                    {required: true, message: '请输入计划供应电量', trigger: 'blur'},
+                    {min: 1, max: 20, message: '计划供应电量在 1 到 20 个字符'}
+                ],
+
+                examineTime: [
+                    {required: true, message: '请选择时间', trigger: 'change'}
+                ],
+                qy: [
+                    {required: true, message: '请选择区域', trigger: 'change'}
                 ],
 
 
             },
-            orgNoOptions: [],
+            qyOptions: regionOptions,
         }
     },
     mounted() {

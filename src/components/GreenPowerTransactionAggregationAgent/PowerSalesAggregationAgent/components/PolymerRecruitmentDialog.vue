@@ -70,13 +70,13 @@ export default {
     data() {
         return {
             ruleForm: {
-                couponCodeName: "",
-                provinceCode: "",
-                provinceName: "",
-                date1: "",
-                date2: "",
-                fileId: "",
-                describe: "",
+                jhtmc: "",
+                ztdw: "",
+                jhzmsl: "",
+                ztzjrl: "",
+                jhtzjjhrl: "",
+                zmlx: "",
+                qy: "",
 
 
             },
