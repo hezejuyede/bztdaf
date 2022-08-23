@@ -1,7 +1,7 @@
 <template>
-    <div class="templateDiv">
-        <div class="templateDivL fl">
-            <div class="templateDivTTop">
+    <div class="templateDiv clearfix">
+        <div class="templateDivL fl clearfix">
+            <div class="templateDivTTop clearfix">
                 <div class="templateDivTTopL fl">
                     <div class="templateDivTTopLText">售电聚合代理</div>
                     <div class="templateDivTTopLImg">
@@ -11,7 +11,7 @@
                 <div class="templateDivTTopR fl">
                 </div>
             </div>
-            <div class="templateDivLCenter">
+            <div class="templateDivLCenter clearfix">
                 <div class="">
                     <el-button type="primary" @click="showUserRegistrationDialog"
                                style="background-color: #DCB249;width: 100px;height: 35px">用户注册
@@ -43,22 +43,21 @@
                 </div>
             </div>
             <div class="templateDivLBottom">
-                <div class="">
-                    <agent-list :agentList="agentList" @closeVisible="closeVisible"></agent-list>
-                    <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
-                                      @closeVisible="closeVisible"></AddPolymerDialog>
-                    <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
-                                            @closeVisible="closeVisible"></UserRegistrationDialog>
+                <agent-list :agentList="agentList" @closeVisible="closeVisible"></agent-list>
+                <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
+                                  @closeVisible="closeVisible"></AddPolymerDialog>
+                <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
+                                        @closeVisible="closeVisible"></UserRegistrationDialog>
 
-                    <PolymerRegistrationDialog :PolymerRegistrationDialog="PolymerRegistrationDialog"
-                                               @closeVisible="closeVisible"></PolymerRegistrationDialog>
+                <PolymerRegistrationDialog :PolymerRegistrationDialog="PolymerRegistrationDialog"
+                                           @closeVisible="closeVisible"></PolymerRegistrationDialog>
 
-                    <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
-                                              @closeVisible="closeVisible"></PolymerRecruitmentDialog>
+                <PolymerRecruitmentDialog :PolymerRecruitmentDialog="PolymerRecruitmentDialog"
+                                          @closeVisible="closeVisible"></PolymerRecruitmentDialog>
 
-                    <detailsDialog :detailsDialog="detailsDialog"
-                                   @closeVisible="closeVisible"></detailsDialog>
-                </div>
+                <detailsDialog :detailsDialog="detailsDialog"
+                               @closeVisible="closeVisible"></detailsDialog>
+
             </div>
         </div>
         <div class="templateDivR fl">
@@ -120,7 +119,7 @@ export default {
         return {
             agentList: true,
             AddPolymerDialog: false,
-            UserRegistrationDialog: false,
+            UserRegistrationDialog:  false,
             PolymerRecruitmentDialog: false,
             PolymerRegistrationDialog: false,
             detailsDialog: false
@@ -167,11 +166,25 @@ export default {
         //显示用户注册
         showUserRegistrationDialog() {
             this.UserRegistrationDialog = true;
+
+
+            this.agentList = false;
+            this.AddPolymerDialog = false;
+            this.PolymerRecruitmentDialog = false;
+            this.PolymerRegistrationDialog = false;
+            this.detailsDialog = false;
         },
 
         //显示加入聚合体
         showAddPolymerDialog() {
             this.AddPolymerDialog = true;
+
+
+            this.agentList = false;
+            this.UserRegistrationDialog = false;
+            this.PolymerRecruitmentDialog = false;
+            this.PolymerRegistrationDialog = false;
+            this.detailsDialog = false;
 
         },
 
@@ -180,11 +193,24 @@ export default {
         showPolymerRegistrationDialog() {
             this.PolymerRegistrationDialog = true;
 
+            this.agentList = false;
+            this.AddPolymerDialog = false;
+            this.UserRegistrationDialog = false;
+            this.PolymerRecruitmentDialog = false;
+            this.detailsDialog = false;
+
         },
 
         //聚合体招募
         showPolymerRecruitmentDialog() {
             this.PolymerRecruitmentDialog = true;
+
+
+            this.agentList = false;
+            this.AddPolymerDialog = false;
+            this.UserRegistrationDialog = false;
+            this.PolymerRegistrationDialog = false;
+            this.detailsDialog = false;
         },
 
 
@@ -239,13 +265,14 @@ export default {
         height: 900px;
         margin-left: 1%;
         margin-right: 1%;
+        background-color: #ffffff;
 
         .templateDivLCenter {
             height: 300px;
             background-color: #ffffff;
             display: flex;
             align-items: center;
-
+            margin-bottom: 50px;
             div {
                 height: 60%;
                 flex: 1;
@@ -283,21 +310,21 @@ export default {
         }
 
         .templateDivLBottom {
-            height: 500px;
+            height: 450px;
             background-color: #ffffff;
         }
 
     }
 
     .templateDivR {
-        width: 50%;
-        height: 900px;
+        width: 49%;
+        height: 950px;
 
     }
 
     .templateDivT1 {
         width: 100%;
-        height: 480px;
+        height: 490px;
         background-color: #ffffff;
         margin-bottom: 1%;
 
@@ -306,7 +333,7 @@ export default {
 
     .templateDivT2 {
         width: 100%;
-        height: 360px;
+        height: 400px;
         background-color: #ffffff;
         margin-bottom: 1%;
 

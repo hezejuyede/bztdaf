@@ -81,14 +81,14 @@
             </div>
             <div class="visibleTable">
                 <el-table class="tb-edit" :data="tableData"
-                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
-                          :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
+                          :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
                           :height="320"
                           id="rebateSetTable"
                           ref="moviesTable"
-                          highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="聚合体" prop="jht" align="center"></el-table-column>
+                          highlight-current-row style="width: 95%;margin: auto">
+                    <el-table-column label="聚合体" prop="jht" align="center" width="80"></el-table-column>
                     <el-table-column label="聚合体总容量" prop="jhtzrl" align="center"></el-table-column>
                     <el-table-column label="聚合体余量" prop="jhtyl" align="center"></el-table-column>
                     <el-table-column label="聚合体资产主体数量" prop="jhtzcztrl" align="center"></el-table-column>
@@ -180,10 +180,10 @@ export default {
 .visibleDiv {
     width: 100%;
     height: 400px;
-
+    background-color: #ffffff;
     .visibleDivSelect {
         height: 80px;
-        background-color: #EDF4F4;
+
         line-height: 80px;
 
     }
