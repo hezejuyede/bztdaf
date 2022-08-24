@@ -173,7 +173,8 @@ export default {
         setRegionLine() {
              const setRegionLine = async () => {
                  const result = await EquipmentLine({
-                     "id": "1"
+                     "id": this.rowId,
+                     "id2": "1"
                  })
                  let data =  result.data.data.data;
                  // 基于准备好的dom，初始化echarts实例
@@ -255,7 +256,82 @@ export default {
 
         //查看曲线
         showLine(row) {
+            const setRegionLine = async () => {
+                const result = await EquipmentLine({
+                    "id": this.rowId,
+                    "id2": row.id
+                })
+                let data = result.data.data.data;
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
+                myChart.clear();
+                myChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        position: function (point, params, dom, rect, size) {
+                            //  size为当前窗口大小
+                            if ((size.viewSize[0] / 2) >= point[0]) {
+                                //其中point为当前鼠标的位置
+                                return [point[0] + 50, '10%'];
+                            } else {
+                                //其中point为当前鼠标的位置
+                                return [point[0] - 200, '10%'];
+                            }
+                        }
+                    },
+                    grid: {
+                        top: '10%',
+                        left: '5%',
+                        right: '5%',
+                        bottom: '5%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                        axisTick: { //X轴刻度线
+                            show: false,
+                        },
+                        splitLine: {
+                            show: true
+                        },
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisTick: { //y轴刻度线
+                            show: false,
+                        },
+                        splitLine: {
+                            show: true
+                        },
+                    },
+                    lineStyle: {
+                        color: '#7AC952'
+                    },
 
+                    series: [
+                        {
+                            data: data,
+                            type: 'line',
+                            smooth: true,
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            itemStyle: {
+                                normal: {
+                                    color: '#67C23A',
+                                    label: {
+                                        show: true,
+                                        color: '#FFF',
+                                        position: 'bottom',
+                                    }
+                                }
+                            },
+                        }
+                    ]
+                });
+
+            }
+            setRegionLine();
         },
 
     },
