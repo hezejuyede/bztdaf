@@ -8,6 +8,7 @@
 
 <script>
 import json2 from "./temp2.json"
+
 export default {
     name: "Index",
     data() {
@@ -180,7 +181,7 @@ export default {
                     bottom: '5%',
                     containLabel: true
                 },
-                color: ['#53C7A0','#0468ff','#53C7A0'],
+                color: ['#53C7A0', '#0468ff', '#53C7A0'],
                 xAxis: {
                     type: 'category',
                     boundaryGap: false,
@@ -200,7 +201,7 @@ export default {
                     axisLabel: {
                         interval: 0,  // x轴间隔
                         color: '#5d5d5d',  // x轴字体颜色
-                        rotate:-50, //坐标值倾斜
+                        rotate: -50, //坐标值倾斜
                     },
 
                 },
@@ -248,10 +249,72 @@ export default {
                     data: json2[i].value,
                     areaStyle: {},
                 }
-
                 option.series.push(serie);
-
             }
+            option.series.push({
+                name: '平行于y轴的趋势线',
+                type: 'line',
+
+                markLine: {
+                    itemStyle: {      //盒须图样式。
+                    },
+                    name: 'cc',
+                    //yAxisIndex: 0,
+                    symbol: 'none',//去掉箭头
+                    label: {
+                        show: true, // 是否展示文字
+                        color: "#000000",
+                        fontSize: 16,
+                        // formatter: function () {
+                        //     return "合约开始时间"
+                        // }
+                    },
+                    lineStyle: {
+                        color: "#032d99",
+                        width: 3, // 0 的时候可以隐藏线
+                        type: "solid" // 实线，不写默认虚线
+                    },
+
+                    data: [
+                        {
+                            xAxis: '2022-07-01',
+                            label: {
+                                normal:{
+                                    formatter: function () {
+                                        return "合约开始时间"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            xAxis: '2022-07-31',
+                            label: {
+                                normal:{
+                                    formatter: function () {
+                                        return "合约结束时间"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            xAxis: '2022-07-15',
+                            label: {
+                                normal:{
+                                    formatter: function () {
+                                        return "盛河光伏履约开始时间"
+                                    }
+                                }
+                            },
+                            lineStyle: {
+                                color: "#2ef31c",
+                                width: 3, // 0 的时候可以隐藏线
+                                type: "" // 实线，不写默认虚线
+                            },
+                        }
+                    ],
+
+                }
+            });
             myChart.clear();
             myChart.setOption(option);
 
