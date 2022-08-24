@@ -353,7 +353,7 @@
             </div>
 
         </div>
-        <equipment :equipmentVisible="equipmentVisible" @closeVisible="closeVisible"></equipment>
+        <equipment :equipmentVisible="equipmentVisible" @closeVisible="closeVisible" :rowId="rowId"></equipment>
         <abnormalIndicators :abnormalIndicators="abnormalIndicators" :rowId="rowId"
                             @closeVisible="closeVisible"></abnormalIndicators>
         <terminalEquipmentManufacturer :terminalEquipmentManufacturer="terminalEquipmentManufacturer" :rowId="rowId"

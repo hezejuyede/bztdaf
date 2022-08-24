@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :visible.sync="equipmentVisible" width=60% :center="true" :close-on-click-modal="false"
+    <el-dialog :visible.sync="equipmentVisible" width=70% :center="true" :close-on-click-modal="false"
                :show-close="true" :close-on-press-escape="false" @close="closeVisible"  @open="OpenDialog">
         <div class="equipment">
             <div class="equipmentL fl">
@@ -11,12 +11,12 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="监测指标" prop="jczb" align="center"></el-table-column>
-                    <el-table-column label="数据类型" prop="type" align="center"></el-table-column>
-                    <el-table-column label="采集频度" prop="cjed" align="center"></el-table-column>
+                    <el-table-column label="监测指标" prop="monitoring_index" align="center" width="250"></el-table-column>
+                    <el-table-column label="数据类型" prop="data_type" align="center"></el-table-column>
+                    <el-table-column label="采集频度" prop="time" align="center"></el-table-column>
                     <el-table-column label="查看曲线" prop="cjed" align="center">
                         <template slot-scope="scope">
-                          <span style="color: #4b8df8;cursor: pointer">查看</span>
+                          <span style="color: #4b8df8;cursor: pointer" @click="showLine(scope.row)">查看</span>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -159,7 +159,9 @@ export default {
         getList() {
                let that = this;
                const getListData = async () => {
-                   const result = await EquipmentList({})
+                   const result = await EquipmentList({
+                       "id": this.rowId
+                   })
                    that.tableData = result.data.data.data;
                }
                getListData();
@@ -168,9 +170,11 @@ export default {
 
 
         //设置区域线形图
-        setRegionLine(startTime, endTime, region) {
+        setRegionLine() {
              const setRegionLine = async () => {
-                 const result = await EquipmentLine({})
+                 const result = await EquipmentLine({
+                     "id": "1"
+                 })
                  let data =  result.data.data.data;
                  // 基于准备好的dom，初始化echarts实例
                  var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
@@ -249,6 +253,10 @@ export default {
             this.$emit('closeVisible','equipmentVisible')
         },
 
+        //查看曲线
+        showLine(row) {
+
+        },
 
     },
     props: {
@@ -261,6 +269,10 @@ export default {
         },
         tables: {
             type: Array,
+            required: true
+        },
+        rowId: {
+            type: String,
             required: true
         },
     },
@@ -306,6 +318,16 @@ export default {
         }
     }
 
+    .el-table {
+        // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        // 深度选择器，去除默认的padding
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 0 ;
+        }
+    }
 
 
 }
