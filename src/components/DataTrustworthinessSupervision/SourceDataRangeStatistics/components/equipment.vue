@@ -24,7 +24,7 @@
             </div>
             <div class="equipmentR fl">
                 <div class="equipmentRTitle">设备数据趋势图</div>
-                <div class="equipmentRSelect">
+<!--                <div class="equipmentRSelect">
                     <label style="margin-right: 5px;margin-left: 5px" class="fl">
                         <el-select
                             style="width:80px"
@@ -101,7 +101,7 @@
                             </el-option>
                         </el-select>
                     </label>
-                </div>
+                </div>-->
                 <div class="equipmentRLine">
                     <div id="equipmentRLine" :style="{width: '100%', height: '200px' }"></div>
                 </div>
@@ -305,6 +305,8 @@ export default {
             justify-content: center;
         }
     }
+
+
 
 }
 

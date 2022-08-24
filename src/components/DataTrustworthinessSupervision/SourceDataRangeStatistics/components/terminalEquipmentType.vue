@@ -37,13 +37,13 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="终端设备类型" prop="name" align="center" ></el-table-column>
-                    <el-table-column label="最大输入电压" prop="zdsrdl" align="center"></el-table-column>
-                    <el-table-column label="最大数据电流" prop="zxsrdl" align="center"></el-table-column>
-                    <el-table-column label="额定输入电压" prop="edscgk" align="center"></el-table-column>
-                    <el-table-column label="额定输出电流" prop="zdscgl" align="center"></el-table-column>
-                    <el-table-column label="额定输出功率" prop="zdscgl" align="center"></el-table-column>
-                    <el-table-column label="最大逆变效率" prop="zdscgl" align="center"></el-table-column>
+                    <el-table-column label="终端设备类型" prop="type" align="center" width="150"></el-table-column>
+                    <el-table-column label="最大输入电压" prop="max_input_v" align="center"></el-table-column>
+                    <el-table-column label="最大输入电流" prop="max_input_i" align="center"></el-table-column>
+                    <el-table-column label="额定输入电压" prop="rated_input_v" align="center"></el-table-column>
+                    <el-table-column label="最大输出电流" prop="max_out_i" align="center"></el-table-column>
+                    <el-table-column label="额定输出功率" prop="rated_out_p" align="center"></el-table-column>
+                    <el-table-column label="最大逆变效率" prop="ratio" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>
@@ -81,7 +81,7 @@ export default {
                let that = this;
                const getListData = async () => {
                    const result = await TerminalEquipmentType({
-                       "id": "",
+                       "id": this.rowId,
                        "name":""
                    })
                    that.tableData = result.data.data.data;

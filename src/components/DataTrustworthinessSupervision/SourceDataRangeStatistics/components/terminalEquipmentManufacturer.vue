@@ -37,8 +37,8 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="终端设备厂家" prop="name" align="center" width="150"></el-table-column>
-                    <el-table-column label="资产归属" prop="ascription" align="center"></el-table-column>
+                    <el-table-column label="终端设备厂家" prop="name" align="center" width="300"></el-table-column>
+                    <el-table-column label="厂家地址" prop="address" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>
@@ -70,7 +70,7 @@ export default {
                let that = this;
                const getListData = async () => {
                    const result = await TerminalEquipmentManufacturer({
-                       "id": "",
+                       "id": this.rowId,
                        "name":""
                    })
                    that.tableData = result.data.data.data;

@@ -30,7 +30,7 @@
             </div>
             <div class="visibleTable">
                 <el-table class="tb-edit" :data="tableData"
-                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
+                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'30px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
                           :height="320"
@@ -49,7 +49,7 @@
                             </el-popover>
                         </template>
                     </el-table-column>
-                    <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                    <el-table-column label="时间" prop="time" align="center" width="180"></el-table-column>
                     <el-table-column label="可信存证状态" prop="provinceName" align="center">
                         <template slot-scope="scope">
                             <div v-if="scope.row.status==='1'"
@@ -107,7 +107,7 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await AbnormalIndicators({
-                    "id": "",
+                    "id": this.rowId,
                     "name": ""
                 })
                 that.tableData = result.data.data.data;
@@ -157,6 +157,18 @@ export default {
         height: 320px;
 
     }
+
+    .el-table {
+        // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        // 深度选择器，去除默认的padding
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 0 ;
+        }
+    }
+
 
 
 }
