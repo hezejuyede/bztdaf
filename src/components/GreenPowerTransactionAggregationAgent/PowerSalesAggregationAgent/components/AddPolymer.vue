@@ -119,14 +119,14 @@ export default {
 
         //显示新增
         showAdd() {
-            this.addVisible = true;
-            this.ruleForm.couponCodeName = "";
-            this.ruleForm.provinceCode = "";
-            this.ruleForm.provinceName = "";
-            this.ruleForm.fileId = "";
-            this.ruleForm.describe = "";
-            this.ruleForm.date1 = "";
-            this.ruleForm.date2 = "";
+           /* this.addVisible = true;*/
+            this.ruleForm.jhdls = "";
+            this.ruleForm.zjrl = "";
+            this.ruleForm.ygyfh = "";
+            this.ruleForm.kgyfh = "";
+            this.ruleForm.jhgydl = "";
+            this.ruleForm.examineTime = [];
+            this.ruleForm.qy = "";
             if (this.$refs['form'] !== undefined) {
                 this.$nextTick(this.$refs['form'].clearValidate());
             }
@@ -152,6 +152,7 @@ export default {
                       }
                       getListData();*/
                     this.$message.success("发布成功");
+                   /* this.showAdd()*/
 
                 } else {
                     return this.$message.warning("信息填写不正确");
