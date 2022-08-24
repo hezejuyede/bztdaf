@@ -14,7 +14,8 @@
             <div class="templateDivLCenter clearfix">
                 <div class="">
                     <el-button type="primary" @click="showUserRegistrationDialog"
-                               style="background-color: #DCB249;width: 100px;height: 35px">用户注册
+                               :style="{ 'background-color':(UserRegistrationDialog === true) ?'#DCB249' : ' #05A696','width':'100px','height':'35px'}">
+                        用户注册
                     </el-button>
                 </div>
                 <div class="">
@@ -23,12 +24,14 @@
                 <div class="">
                     <div class="">
                         <el-button type="primary" @click="showAddPolymerDialog"
-                                   style="background-color: #05A696;width: 100px;height: 35px">加入聚合体
+                                   :style="{ 'background-color':(AddPolymerDialog === true) ?'#DCB249' : ' #05A696','width':'100px','height':'35px'}">
+                            加入聚合体
                         </el-button>
                     </div>
                     <div class="">
                         <el-button type="primary" @click="showPolymerRegistrationDialog"
-                                   style="background-color: #05A696;width: 100px;height: 35px">聚合体注册
+                                   :style="{ 'background-color':(PolymerRegistrationDialog === true) ?'#DCB249' : ' #05A696','width':'100px','height':'35px'}">
+                            聚合体注册
                         </el-button>
                     </div>
                 </div>
@@ -38,7 +41,8 @@
                 </div>
                 <div class="">
                     <el-button type="primary" @click="showPolymerRecruitmentDialog"
-                               style="background-color: #05A696;width: 100px;height: 35px">聚合体招募
+                               :style="{ 'background-color':(PolymerRecruitmentDialog === true) ?'#DCB249' : ' #05A696','width':'100px','height':'35px'}">
+                        聚合体招募
                     </el-button>
                 </div>
             </div>
@@ -94,9 +98,6 @@
                 </div>
             </div>
         </div>
-
-        <shadinLayer></shadinLayer>
-
 
         <shadinLayer></shadinLayer>
     </div>
