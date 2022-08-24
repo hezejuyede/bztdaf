@@ -53,7 +53,7 @@
             <div
                 style="width:100%;height:60px;margin-bottom: 50px;display: flex;align-items: center;justify-content: center">
                 <el-button @click="doAdd" type="primary" style="width: 100px;height: 35px;background-color: #05A696">
-                    注册
+                    招募
                 </el-button>
             </div>
         </div>
@@ -153,7 +153,7 @@ export default {
         doAdd() {
             this.$refs.form.validate((valid) => {
                 if (valid) {
-                    let that = this;
+                   /* let that = this;
                     const getListData = async () => {
                         const result = await greenCardHistory({
                             "region": that.region,
@@ -162,7 +162,13 @@ export default {
                         })
                         that.tableData = result.data.data.data;
                     }
-                    getListData();
+                    getListData();*/
+
+                    this.$message.success("聚合体注册成功，马上准备进行招募");
+                    setTimeout(()=>{
+                        this.$emit('closeVisible', 'PolymerRecruitmentDialog')
+
+                    },1000)
 
 
                 } else {

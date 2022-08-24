@@ -156,7 +156,7 @@ export default {
         doAdd() {
             this.$refs.form.validate((valid) => {
                 if (valid) {
-                    let that = this;
+                 /*   let that = this;
                     const getListData = async () => {
                         const result = await greenCardHistory({
                             "region": that.region,
@@ -165,7 +165,12 @@ export default {
                         })
                         that.tableData = result.data.data.data;
                     }
-                    getListData();
+                    getListData();*/
+                    this.$message.success("招募完成");
+                    setTimeout(()=>{
+                        this.$emit('closeVisible', 'detailsDialog')
+
+                    },1000)
 
 
                 } else {

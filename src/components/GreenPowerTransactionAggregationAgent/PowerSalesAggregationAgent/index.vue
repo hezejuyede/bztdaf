@@ -151,14 +151,40 @@ export default {
         //关闭弹出框
         closeVisible(type) {
             if (type === 'AddPolymerDialog') {
-                this.AddPolymerDialog = false;
+                this.AddPolymerDialog = true;
+
+
+                this.agentList = false;
+                this.UserRegistrationDialog = false;
+                this.PolymerRecruitmentDialog = false;
+                this.PolymerRegistrationDialog = false;
+                this.detailsDialog = false;
             } else if (type === 'UserRegistrationDialog') {
                 this.UserRegistrationDialog = false;
             } else if (type === 'PolymerRegistrationDialog') {
-                this.PolymerRegistrationDialog = false;
-            } else if (type === 'PolymerRecruitmentDialog') {
+                this.PolymerRegistrationDialog = true;
+
+                this.agentList = false;
+                this.AddPolymerDialog = false;
+                this.UserRegistrationDialog = false;
                 this.PolymerRecruitmentDialog = false;
+                this.detailsDialog = false;
+            } else if (type === 'PolymerRecruitmentDialog') {
+                this.PolymerRegistrationDialog = true;
+
+                this.agentList = false;
+                this.AddPolymerDialog = false;
+                this.UserRegistrationDialog = false;
+                this.PolymerRecruitmentDialog = false;
+                this.detailsDialog = false;
             } else if (type === 'detailsDialog') {
+                this.detailsDialog = true;
+
+                this.PolymerRegistrationDialog = false;
+                this.agentList = false;
+                this.AddPolymerDialog = false;
+                this.UserRegistrationDialog = false;
+                this.PolymerRecruitmentDialog = false;
                 this.detailsDialog = false;
             }
         },
@@ -209,6 +235,19 @@ export default {
             this.agentList = false;
             this.AddPolymerDialog = false;
             this.UserRegistrationDialog = false;
+            this.PolymerRegistrationDialog = false;
+            this.detailsDialog = false;
+        },
+
+
+        // 加入聚合体
+        addPolymer(){
+            this.AddPolymerDialog = true;
+
+
+            this.agentList = false;
+            this.UserRegistrationDialog = false;
+            this.PolymerRecruitmentDialog = false;
             this.PolymerRegistrationDialog = false;
             this.detailsDialog = false;
         },

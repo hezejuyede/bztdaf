@@ -204,7 +204,7 @@ export default {
             this.$refs.form.validate((valid) => {
                 if (valid) {
                     let that = this;
-                    const getListData = async () => {
+                  /*  const getListData = async () => {
                         const result = await greenCardHistory({
                             "region": that.region,
                             "startTime": that.examineTime[0],
@@ -212,7 +212,12 @@ export default {
                         })
                         that.tableData = result.data.data.data;
                     }
-                    getListData();
+                    getListData();*/
+                    this.$message.success("注册成功，马上准备加入聚合体");
+                    setTimeout(()=>{
+                        that.$emit('closeVisible', 'AddPolymerDialog')
+
+                    },1000)
 
 
                 } else {
@@ -231,7 +236,30 @@ export default {
 
         //
         doJHT(){
+            this.$refs.form.validate((valid) => {
+                if (valid) {
+                    let that = this;
+                    /*  const getListData = async () => {
+                          const result = await greenCardHistory({
+                              "region": that.region,
+                              "startTime": that.examineTime[0],
+                              "endTime": that.examineTime[1]
+                          })
+                          that.tableData = result.data.data.data;
+                      }
+                      getListData();*/
+                    this.$message.success("注册成功，马上准备进行聚合体注册");
+                    setTimeout(()=>{
+                        that.$emit('closeVisible', 'PolymerRegistrationDialog')
 
+                    },1000)
+
+
+                } else {
+                    return this.$message.warning("信息填写不正确");
+
+                }
+            });
         }
 
 
