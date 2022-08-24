@@ -80,10 +80,13 @@
                         </div>
                     </div>
                     <div class="regionContent">
-                        <div class="templateDivTopTTopLImgText">
-                            {{ selectData.percentage }}%
+                        <div class="regionContentDiv">
+                            <div class="templateDivTopTTopLImgText">
+                                {{ selectData.percentage }}%
+                            </div>
+                            <img src="../../../assets/img/dw/tj-yuan.png" alt="">
                         </div>
-                        <img src="../../../assets/img/dw/tj-yuan.png" alt="">
+
                     </div>
                     <div class="regionNumber">
                         <div class="regionNumberText">
@@ -184,11 +187,15 @@
 
                     </div>
                     <div class="templateDivTopTCommunity3">
-                        <div class="Community3Div">
-                            <div class="">终端设备数量</div>
-                            <div class="">{{ selectData.number }}</div>
+                        <div class="templateDivTopTCommunity31">
+                            <div class="Community3Div">
+                                <div class="">终端设备数量</div>
+                                <div class="">{{ selectData.number }}</div>
+                            </div>
+                            <img src="../../../assets/img/dw/di.png" alt="" class="">
                         </div>
-                        <img src="../../../assets/img/dw/di.png" alt="" class="">
+
+
                     </div>
                 </div>
             </div>
@@ -784,16 +791,36 @@ export default {
             align-items: center;
             justify-content: center;
             height: 300px;
-            position: relative;
 
-            .templateDivTopTTopLImgText {
-                position: absolute;
-                top: 80px;
-                left: 150px;
-                font-size: 42px;
-                color: #35C4AE;
-                z-index: 9;
+            .regionContentDiv{
+                width: 70%;
+                height: 80%;
+                position: relative;
+                .templateDivTopTTopLImgText {
+                    position: absolute;
+                    top: -20px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    font-size: 42px;
+                    color: #35C4AE;
+                    height: 80px;
+                    width: 100%;
+                    z-index: 9;
+                    display: flex;
+                    padding-left: 15px;
+                    align-items: flex-start;
+                    justify-content: center;
+                }
+                img{
+                    width: 100%;
+                }
+
+
             }
+
+
         }
 
         .regionNumber {
@@ -842,15 +869,24 @@ export default {
             align-items: center;
             justify-content: center;
             height: 200px;
-            border-color: #0000ff;
-            position: relative;
+            .templateDivTopTCommunity31{
+                width:80%;
+                height: 100%;
+                position: relative;
+                img{
+                    width: 100%;
+                }
+            }
 
             .Community3Div {
                 width: 150px;
                 height: 100px;
                 position: absolute;
-                top: 23%;
-                left: 30%;
+                top: 0;
+                left:0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -1016,6 +1052,19 @@ export default {
             }
         }
 
+    }
+
+    .ListTLIcon{
+        width: 35%;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: flex-end;
+    }
+    .ListTLText{
+        width:65%;
+        height: 100%;
+        overflow: hidden;
     }
 
 
