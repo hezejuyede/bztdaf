@@ -142,16 +142,16 @@ export default {
             this.$refs.form.validate((valid) => {
                 if (valid) {
                     let that = this;
-                    const getListData = async () => {
-                        const result = await greenCardHistory({
-                            "region": that.region,
-                            "startTime": that.examineTime[0],
-                            "endTime": that.examineTime[1]
-                        })
-                        that.tableData = result.data.data.data;
-                    }
-                    getListData();
-
+                    /*  const getListData = async () => {
+                          const result = await greenCardHistory({
+                              "region": that.region,
+                              "startTime": that.examineTime[0],
+                              "endTime": that.examineTime[1]
+                          })
+                          that.tableData = result.data.data.data;
+                      }
+                      getListData();*/
+                    this.$message.success("发布成功");
 
                 } else {
                     return this.$message.warning("信息填写不正确");

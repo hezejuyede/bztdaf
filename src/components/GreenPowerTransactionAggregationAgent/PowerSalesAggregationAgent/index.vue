@@ -159,9 +159,11 @@ export default {
                 this.PolymerRecruitmentDialog = false;
                 this.PolymerRegistrationDialog = false;
                 this.detailsDialog = false;
-            } else if (type === 'UserRegistrationDialog') {
+            }
+            else if (type === 'UserRegistrationDialog') {
                 this.UserRegistrationDialog = false;
-            } else if (type === 'PolymerRegistrationDialog') {
+            }
+            else if (type === 'PolymerRegistrationDialog') {
                 this.PolymerRegistrationDialog = true;
 
                 this.agentList = false;
@@ -170,14 +172,15 @@ export default {
                 this.PolymerRecruitmentDialog = false;
                 this.detailsDialog = false;
             } else if (type === 'PolymerRecruitmentDialog') {
-                this.PolymerRegistrationDialog = true;
+                this.PolymerRecruitmentDialog = true;
 
                 this.agentList = false;
                 this.AddPolymerDialog = false;
                 this.UserRegistrationDialog = false;
-                this.PolymerRecruitmentDialog = false;
+                this.PolymerRegistrationDialog = false;
                 this.detailsDialog = false;
-            } else if (type === 'detailsDialog') {
+            }
+            else if (type === 'detailsDialog') {
                 this.detailsDialog = true;
 
                 this.PolymerRegistrationDialog = false;
@@ -185,14 +188,21 @@ export default {
                 this.AddPolymerDialog = false;
                 this.UserRegistrationDialog = false;
                 this.PolymerRecruitmentDialog = false;
+            }
+            else if (type === 'agentList') {
+                this.agentList = true;
+
                 this.detailsDialog = false;
+                this.PolymerRegistrationDialog = false;
+                this.AddPolymerDialog = false;
+                this.UserRegistrationDialog = false;
+                this.PolymerRecruitmentDialog = false;
             }
         },
 
         //显示用户注册
         showUserRegistrationDialog() {
             this.UserRegistrationDialog = true;
-
 
             this.agentList = false;
             this.AddPolymerDialog = false;

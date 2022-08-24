@@ -153,8 +153,8 @@ export default {
         doAdd() {
             this.$refs.form.validate((valid) => {
                 if (valid) {
-                   /* let that = this;
-                    const getListData = async () => {
+                    let that = this;
+                   /* const getListData = async () => {
                         const result = await greenCardHistory({
                             "region": that.region,
                             "startTime": that.examineTime[0],
@@ -166,7 +166,7 @@ export default {
 
                     this.$message.success("聚合体注册成功，马上准备进行招募");
                     setTimeout(()=>{
-                        this.$emit('closeVisible', 'PolymerRecruitmentDialog')
+                        that.$emit('closeVisible', 'PolymerRecruitmentDialog')
 
                     },1000)
 

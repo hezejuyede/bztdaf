@@ -154,7 +154,11 @@ export default {
 
         //申请加入
         applyJoin() {
+            this.$message.success("申请加入成功");
+            setTimeout(()=>{
+                this.$emit('closeVisible', 'agentList')
 
+            },1000)
         }
 
 
