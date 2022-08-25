@@ -11,13 +11,11 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="输入功率" prop="srgl" align="center" ></el-table-column>
-                    <el-table-column label="当天峰值功率" prop="dtfzgl" align="center"></el-table-column>
-                    <el-table-column label="有功功率" prop="yggl" align="center"></el-table-column>
-                    <el-table-column label="无功功率" prop="wggl" align="center"></el-table-column>
-                    <el-table-column label="功率" prop="xl" align="center"></el-table-column>
-                    <el-table-column label="发电量" prop="fdl" align="center"></el-table-column>
-                    <el-table-column label="当天累计电量" prop="dtljdl" align="center"></el-table-column>
+                    <el-table-column label="电压" prop="电压" align="center"></el-table-column>
+                    <el-table-column label="电流" prop="电流" align="center" ></el-table-column>
+                    <el-table-column label="发电量" prop="发电量" align="center"></el-table-column>
+                    <el-table-column label="有功功率" prop="有功功率" align="center"></el-table-column>
+                    <el-table-column label="累计发电量" prop="累计发电量" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>

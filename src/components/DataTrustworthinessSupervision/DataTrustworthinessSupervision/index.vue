@@ -20,7 +20,7 @@
                         </div>
                         <div class="BottomTitleR">
                             <div class="BottomTitleRT"  >
-                                当日上链数量（个）
+                                当日上链块数（个）
                             </div>
                             <div class="BottomTitleRB" @click="showHash">
                                 {{count }}

@@ -176,11 +176,8 @@ export default {
                      "id": this.rowId,
                      "id2": "1"
                  })
-                 console.log(result.data.data)
                  let data1 =  result.data.data.data.time;
                  let data2 =  result.data.data.data.value;
-                 console.log(data1)
-                 console.log(data2)
                  // 基于准备好的dom，初始化echarts实例
                  var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
                  myChart.clear();
@@ -268,9 +265,6 @@ export default {
 
                 let data1 =  result.data.data.data.time;
                 let data2 =  result.data.data.data.value;
-                console.log(result.data.data)
-                console.log(data1)
-                console.log(data2)
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
                 myChart.clear();

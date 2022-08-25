@@ -4,7 +4,7 @@
             <div class="dataDivTemplate fl">
                 <div class="dataDivTemplateL fl">
                     <div class="dataDivTemplateLT">
-                        <div class="dataDivTemplateLTText">当日上链数量</div>
+                        <div class="dataDivTemplateLTText">当日上链块数</div>
                         <div class="dataDivTemplateLTImg"><img
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
@@ -20,7 +20,7 @@
             <div class="dataDivTemplate fl">
                 <div class="dataDivTemplateL fl">
                     <div class="dataDivTemplateLT">
-                        <div class="dataDivTemplateLTText">本月上链数量</div>
+                        <div class="dataDivTemplateLTText">本月上链块数</div>
                         <div class="dataDivTemplateLTImg"><img
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
@@ -36,7 +36,7 @@
             <div class="dataDivTemplate fl">
                 <div class="dataDivTemplateL fl">
                     <div class="dataDivTemplateLT">
-                        <div class="dataDivTemplateLTText">异常连输</div>
+                        <div class="dataDivTemplateLTText">异常块数</div>
                         <div class="dataDivTemplateLTImg"><img
                             src="../../../../assets/img/dw/DataTrustworthinessSupervision/jg-index_06.png" alt="" style="height: 5px;width: 100px"></div>
                     </div>
