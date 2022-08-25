@@ -4,7 +4,7 @@ const URL = {
     SalesSideInquiry: '/PowerSalesAggregationAgent/SalesSideInquiry',     //售电侧查询
     PolymerList: '/PowerSalesAggregationAgent/PolymerList',               //聚合体实时发电量
     PolymerDetailsList: '/PowerSalesAggregationAgent/PolymerDetailsList', //详情列表
-    AddPolymer: '/PowerSalesAggregationAgent/AddPolymer',                 //加入聚合体
+    AddPolymerS: '/PowerSalesAggregationAgent/AddPolymer',                //加入聚合体
 };
 
 
@@ -33,9 +33,9 @@ export const PolymerList = data => {
 /**
  * 聚合体实时发电量
  */
-export const DetailsList = data => {
+export const PolymerDetailsList = data => {
     return request({
-        url: URL.PowerGeneration,
+        url: URL.PolymerDetailsList,
         method: 'POST',
         data
     })
@@ -45,9 +45,9 @@ export const DetailsList = data => {
 /**
  * 聚合体实时发电量
  */
-export const AddPolymer = data => {
+export const AddPolymerS = data => {
     return request({
-        url: URL.PowerGeneration,
+        url: URL.AddPolymerS,
         method: 'POST',
         data
     })

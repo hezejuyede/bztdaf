@@ -80,7 +80,7 @@
                 </label>
             </div>
             <div class="visibleTable">
-                <el-table class="tb-edit" :data="tableData"
+                <el-table class="tb-edit" :data="AddPolymerData"
                           :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
@@ -106,14 +106,16 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {AddPolymer} from "../../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
+
 
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData: [],
+
+            type:"",
+            typeOptions:[]
         }
     },
     mounted() {
@@ -122,20 +124,11 @@ export default {
 
     },
     created() {
-        this.getList();
+
     },
     methods: {
 
-        //查询
-        getList() {
-            let that = this;
-            const getListData = async () => {
-                const result = await AddPolymer({})
-                 that.tableData = result.data.data.data;
-            }
-            getListData();
 
-        },
 
 
         //关闭对话框
@@ -160,6 +153,11 @@ export default {
          */
         AddPolymerDialog: {
             type: Boolean,
+            required: true
+        },
+
+        AddPolymerData: {
+            type: Array,
             required: true
         },
         rowId: {

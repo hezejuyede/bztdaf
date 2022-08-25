@@ -77,7 +77,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {dataHash} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {PolymerDetailsList} from "../../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
 
 
 export default {
@@ -95,22 +95,18 @@ export default {
 
     },
     created() {
-
+        this.getList();
     },
     methods: {
 
-        //查詢
-        doSearch() {
-
-            this.getList();
-        },
 
         //查询
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataHash({})
-                /* that.tableData = result.data.data.data;*/
+                const result = await PolymerDetailsList({})
+                 that.tableData = result.data.data.data;
+                 that.details =result.data.data.json;
             }
             getListData();
 

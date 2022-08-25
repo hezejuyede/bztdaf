@@ -49,6 +49,7 @@
             <div class="templateDivLBottom">
                 <agent-list :agentList="agentList" @closeVisible="closeVisible"></agent-list>
                 <AddPolymerDialog :AddPolymerDialog="AddPolymerDialog"
+                                  :AddPolymerData="AddPolymerData"
                                   @closeVisible="closeVisible"></AddPolymerDialog>
                 <UserRegistrationDialog :UserRegistrationDialog="UserRegistrationDialog"
                                         @closeVisible="closeVisible"></UserRegistrationDialog>
@@ -114,6 +115,8 @@ import PolymerRegistrationDialog from './components/PolymerRegistrationDialog'
 import PolymerRecruitmentDialog from './components/PolymerRecruitmentDialog'
 import detailsDialog from './components/detailsDialog'
 
+import {AddPolymerS} from "../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
+
 export default {
     name: "index",
     data() {
@@ -123,7 +126,9 @@ export default {
             UserRegistrationDialog:  true,
             PolymerRecruitmentDialog: false,
             PolymerRegistrationDialog: false,
-            detailsDialog: false
+            detailsDialog: false,
+
+            AddPolymerData:[]
         }
     },
 
@@ -144,6 +149,7 @@ export default {
 
     },
     created() {
+        this.getListAddPolymerData()
 
 
     },
@@ -263,6 +269,19 @@ export default {
             this.detailsDialog = false;
         },
 
+
+
+
+        //查询
+        getListAddPolymerData() {
+            let that = this;
+            const getListData = async () => {
+                const result = await AddPolymerS({})
+                that.AddPolymerData = result.data.data.data;
+            }
+            getListData();
+
+        },
 
     }
 
