@@ -1,5 +1,5 @@
 <template>
-    <div class="templateDiv clearfix">
+    <div class="templateDivOne clearfix">
         <div class="templateDivT">
             <div class="templateDivTTop">
                 <div class="templateDivTTopL fl">
@@ -275,12 +275,13 @@ export default {
 <style scoped lang="less" rel="stylesheet/less">
 @import "../../../assets/less/base";
 
-.templateDiv {
+.templateDivOne {
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: #EDF4F4;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     .templateDivTTop {
         height: 50px;
         padding-left: 20px;
@@ -385,7 +386,7 @@ export default {
 
     }
     .templateDivTopTBottom2{
-
+        height: 400px;
         background-color: #ffffff;
     }
 

@@ -133,6 +133,7 @@ export default {
             timer:null,
             tableData: [],
             region: "",
+            regionS:"",
             regionOptions: regionOptions,
             street: "",
             streetOptions: streetOptions,

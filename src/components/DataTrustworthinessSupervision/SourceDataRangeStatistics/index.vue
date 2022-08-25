@@ -199,8 +199,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="templateDivBottom clearfix">
             <div class="crumbs">
