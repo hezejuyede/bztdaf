@@ -55,11 +55,20 @@
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
                 <el-table-column label="聚合体名称" prop="htbh" align="center"></el-table-column>
-                <el-table-column label="区域分布" prop=dgt" align="center"></el-table-column>
-                <el-table-column label="单光伏电站数量" prop="htzb" align="center"></el-table-column>
+                <el-table-column label="单元体名称" prop="htzb" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="单元体名称" width="350" trigger="hover"
+                                    :content="scope.row.htzb">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.htzb }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
                 <el-table-column label="装机总容量" prop="htxyd" align="center"></el-table-column>
-                <el-table-column label="单圆体最小装机容量" prop="jhfpzb" align="center" ></el-table-column>
-                <el-table-column label="单圆体最大装机容量" prop="sjzb" align="center"></el-table-column>
+                <el-table-column label="可供电量" prop="jhfpzb" align="center" ></el-table-column>
+                <el-table-column label="已供电量" prop="sjzb" align="center"></el-table-column>
             </el-table>
         </div>
     </div>
