@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/dataHashDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTrustworthinessSupervision/DataTrustworthinessSupervision/components/dataHashDialog.vue" afterDir="false" />
-    </list>
+    <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,14 +67,7 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-      <workItem from="1661235773182" duration="43823000" />
-    </task>
-    <task id="LOCAL-00052" summary="14点52分">
-      <created>1660891965110</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1660891965110</updated>
+      <workItem from="1661235773182" duration="44133000" />
     </task>
     <task id="LOCAL-00053" summary="15点53分">
       <created>1660895595464</created>
@@ -415,14 +405,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661407421836</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="14dian52">
+      <created>1661410352560</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1661410352560</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="9dian40fen" />
     <MESSAGE value="10dian28fen" />
     <MESSAGE value="11点04分" />
     <MESSAGE value="11点23分" />
@@ -447,6 +443,7 @@
     <MESSAGE value="10dian10fen" />
     <MESSAGE value="11点15分" />
     <MESSAGE value="12dian44" />
-    <option name="LAST_COMMIT_MESSAGE" value="12dian44" />
+    <MESSAGE value="14dian52" />
+    <option name="LAST_COMMIT_MESSAGE" value="14dian52" />
   </component>
 </project>
