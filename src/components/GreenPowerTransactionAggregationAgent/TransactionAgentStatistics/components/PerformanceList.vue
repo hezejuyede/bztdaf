@@ -29,17 +29,27 @@
                       :height="250"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="单元体" prop="dyt" align="center"></el-table-column>
+                <el-table-column label="单元体" prop="dyt" align="center">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="单元" width="350" trigger="hover"
+                                    :content="scope.row.dyt">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.dyt }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
                 <el-table-column label="履约合同数量" prop="lyhtsl" align="center"></el-table-column>
                 <el-table-column label="履约发电量" prop="lyfdl" align="center"></el-table-column>
                 <el-table-column label="履约完成率" prop="lywcl" align="center"></el-table-column>
                 <el-table-column label="环比增量" prop="hbzl" align="center"></el-table-column>
                 <el-table-column label="同比增量" prop="tbzl" align="center"></el-table-column>
-                <el-table-column label="详情" align="center">
+<!--                <el-table-column label="详情" align="center">
                     <template slot-scope="scope">
                         <span style="color:#409EFF;cursor: pointer">详情</span>
                     </template>
-                </el-table-column>
+                </el-table-column>-->
             </el-table>
         </div>
     </div>
