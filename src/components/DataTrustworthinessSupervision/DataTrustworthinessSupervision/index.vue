@@ -97,12 +97,12 @@
                 </div>
             </div>
             <div class="templateDivTopTBottom2" id="areaDetails">
-                <areaDetails  @showHash="showHashDialog"></areaDetails>
+                <areaDetails  @showHash="showHashDialog"  @showIndex="showIndex"></areaDetails>
             </div>
         </div>
 
 
-        <dataHashDialog :dataHashDialog="dataHashDialog" :rowId="rowId" @closeVisible="closeVisible"></dataHashDialog>
+        <dataHashDialog :dataHashDialog="dataHashDialog" :rowId="rowId" @closeVisible="closeVisible" ></dataHashDialog>
         <exceptionDetailsDialog :exceptionDetailsDialog="exceptionDetailsDialog" :rowId="rowId"
                                 @closeVisible="closeVisible"></exceptionDetailsDialog>
         <manufactorDialog :manufactorDialog="manufactorDialog" :rowId="rowId"
@@ -259,6 +259,12 @@ export default {
 
         showManufactor() {
             this.manufactorDialog = true;
+        },
+
+        //显示
+        showIndex(index) {
+            this.rowId = index;
+            console.log(this.rowId)
         }
 
     }

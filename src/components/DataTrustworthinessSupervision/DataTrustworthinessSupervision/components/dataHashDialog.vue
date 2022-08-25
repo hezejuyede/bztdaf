@@ -53,7 +53,7 @@ export default {
             let that = this;
             const getListData = async () => {
                 const result = await dataHash({
-                    "rowId":that.rowId
+                    "id":that.rowId
                 })
                 that.tableData = result.data.data.data;
             }

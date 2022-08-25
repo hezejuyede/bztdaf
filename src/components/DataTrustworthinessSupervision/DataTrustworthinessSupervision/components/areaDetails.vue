@@ -95,7 +95,7 @@
                         <el-popover placement="top-start" title="hash" width="350" trigger="hover"
                                     :content="scope.row.hash">
                             <div slot="reference"
-                                 @click="showHash"
+                                 @click="showHash(scope.row.id)"
                                  style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
                                 {{scope.row.hash}}
                             </div>
@@ -217,11 +217,11 @@ export default {
             this.tableData = tableList;
         },
 
-        
-        //显示哈希值
-        showHash(){
-            this.$emit('showHash','showHash')
 
+        //显示哈希值
+        showHash(index){
+            this.$emit('showHash','showHash')
+            this.$emit('showIndex',index)
         },
     },
     props: {
