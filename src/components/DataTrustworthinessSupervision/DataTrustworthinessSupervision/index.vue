@@ -1,5 +1,5 @@
 <template>
-    <div class="templateDivOne clearfix">
+    <div class="templateDivOne">
         <div class="templateDivT">
             <div class="templateDivTTop">
                 <div class="templateDivTTopL fl">

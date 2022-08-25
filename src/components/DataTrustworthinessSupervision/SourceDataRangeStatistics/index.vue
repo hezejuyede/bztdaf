@@ -330,7 +330,7 @@
                             <el-table-column label="监测指标" prop="jkzb" align="center">
                                 <template slot-scope="scope">
                                     <span style="color: #409EFF;cursor: pointer"
-                                          @click="showJC(scope.row)">{{ scope.row.yczb }}</span>
+                                          @click="showJC(scope.row)">{{ scope.row.jkzb }}</span>
                                 </template>
                             </el-table-column>
                             <el-table-column label="异常指标" prop="yczb" align="center">
