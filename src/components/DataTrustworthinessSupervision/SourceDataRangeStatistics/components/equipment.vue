@@ -176,7 +176,11 @@ export default {
                      "id": this.rowId,
                      "id2": "1"
                  })
-                 let data =  result.data.data.data;
+                 console.log(result.data.data)
+                 let data1 =  result.data.data.data.time;
+                 let data2 =  result.data.data.data.value;
+                 console.log(data1)
+                 console.log(data2)
                  // 基于准备好的dom，初始化echarts实例
                  var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
                  myChart.clear();
@@ -203,7 +207,7 @@ export default {
                      },
                      xAxis: {
                          type: 'category',
-                         data: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                         data:  data1,
                          axisTick: { //X轴刻度线
                              show: false,
                          },
@@ -226,7 +230,7 @@ export default {
 
                      series: [
                          {
-                             data:  data,
+                             data: data2,
                              type: 'line',
                              smooth: true,
                              symbol: 'circle',
@@ -261,7 +265,12 @@ export default {
                     "id": this.rowId,
                     "id2": row.id
                 })
-                let data = result.data.data.data;
+
+                let data1 =  result.data.data.data.time;
+                let data2 =  result.data.data.data.value;
+                console.log(result.data.data)
+                console.log(data1)
+                console.log(data2)
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(document.getElementById('equipmentRLine'));
                 myChart.clear();
@@ -288,7 +297,7 @@ export default {
                     },
                     xAxis: {
                         type: 'category',
-                        data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                        data:  data1,
                         axisTick: { //X轴刻度线
                             show: false,
                         },
@@ -311,7 +320,7 @@ export default {
 
                     series: [
                         {
-                            data: data,
+                            data: data2,
                             type: 'line',
                             smooth: true,
                             symbol: 'circle',
