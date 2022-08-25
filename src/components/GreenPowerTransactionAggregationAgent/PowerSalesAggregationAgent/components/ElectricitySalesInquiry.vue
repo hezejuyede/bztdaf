@@ -15,13 +15,23 @@
         <div class="visibleTable">
             <el-table class="tb-edit" :data="tableData"
                       :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'40px',borderColor:'#CAE5E4',fontSize:'12px',fontWeight: 'bold'}"
-                      :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
+                      :cell-style="{fontSize:'12px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                       border
                       :height="200"
                       id="rebateSetTable"
                       ref="moviesTable"
                       highlight-current-row style="width: 95%;margin: auto">
-                <el-table-column label="名称" prop="name" align="center" width="80"></el-table-column>
+                <el-table-column label="名称" prop="name" align="center" width="80">
+                    <template slot-scope="scope">
+                        <el-popover placement="top-start" title="名称" width="350" trigger="hover"
+                                    :content="scope.row.name">
+                            <div slot="reference"
+                                 style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                {{ scope.row.name }}
+                            </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
                 <el-table-column label="装机容量" prop="zjrl" align="center" width="80"></el-table-column>
                 <el-table-column label="实发容量" prop="sfrl" align="center" width="80"></el-table-column>
                 <el-table-column label="已售电量" prop="ysdl" align="center" width="80"></el-table-column>

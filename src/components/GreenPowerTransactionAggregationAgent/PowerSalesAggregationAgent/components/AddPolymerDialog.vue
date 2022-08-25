@@ -88,7 +88,17 @@
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 95%;margin: auto">
-                    <el-table-column label="聚合体" prop="jht" align="center" width="80"></el-table-column>
+                    <el-table-column label="聚合体" prop="jht" align="center" width="80">
+                        <template slot-scope="scope">
+                            <el-popover placement="top-start" title="名称" width="350" trigger="hover"
+                                        :content="scope.row.jht">
+                                <div slot="reference"
+                                     style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;cursor: pointer">
+                                    {{ scope.row.jht }}
+                                </div>
+                            </el-popover>
+                        </template>
+                    </el-table-column>
                     <el-table-column label="聚合体总容量" prop="jhtzrl" align="center"></el-table-column>
                     <el-table-column label="聚合体余量" prop="jhtyl" align="center"></el-table-column>
                     <el-table-column label="聚合体资产主体数量" prop="jhtzcztrl" align="center"></el-table-column>
