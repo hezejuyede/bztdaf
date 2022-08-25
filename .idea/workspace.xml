@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformanceList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/AggregateDisplay/components/PerformanceList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/components/PerformanceList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/components/PerformanceList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/components/areaSelection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/TransactionContractFeedback/components/areaSelection.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,14 +71,7 @@
       <workItem from="1660285661571" duration="4631000" />
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
-      <workItem from="1661235773182" duration="50220000" />
-    </task>
-    <task id="LOCAL-00057" summary="15点30">
-      <created>1660980667504</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1660980667505</updated>
+      <workItem from="1661235773182" duration="51748000" />
     </task>
     <task id="LOCAL-00058" summary="15点47分">
       <created>1660981638978</created>
@@ -415,14 +409,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661416261494</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="16点41">
+      <created>1661416924281</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1661416924281</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="14点30分" />
     <MESSAGE value="15点18分" />
     <MESSAGE value="15点27分" />
     <MESSAGE value="15点45分" />
@@ -447,6 +447,7 @@
     <MESSAGE value="16点00分" />
     <MESSAGE value="16点24分" />
     <MESSAGE value="16点30分" />
-    <option name="LAST_COMMIT_MESSAGE" value="16点30分" />
+    <MESSAGE value="16点41" />
+    <option name="LAST_COMMIT_MESSAGE" value="16点41" />
   </component>
 </project>
