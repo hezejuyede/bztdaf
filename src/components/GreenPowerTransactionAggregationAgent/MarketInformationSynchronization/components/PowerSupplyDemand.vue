@@ -94,7 +94,10 @@ export default {
                             }
                         },
                         series: [{type: 'line', itemStyle: {normal: {color: '#0EA3F7'}}},
-                            {type: 'line', itemStyle: {normal: {color: '#78D44B'}}}]
+                            {type: 'line', smooth: true, itemStyle: {normal: {color: '#78D44B', areaStyle: {
+                                            type: 'default',
+                                            opacity: 0.1
+                                        }}}}]
                     }, true);
             }
             getListData();

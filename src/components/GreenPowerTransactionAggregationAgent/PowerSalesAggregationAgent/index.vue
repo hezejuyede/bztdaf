@@ -84,7 +84,7 @@
             <div class="templateDivT2">
                 <div class="templateDivTTop">
                     <div class="templateDivTTopL fl">
-                        <div class="templateDivTTopLText">受电侧查询</div>
+                        <div class="templateDivTTopLText">售电侧查询</div>
                         <div class="templateDivTTopLImg">
                             <img src="../../../assets/img/dw/bt.png" alt="">
                         </div>
@@ -118,9 +118,9 @@ export default {
     name: "index",
     data() {
         return {
-            agentList: true,
+            agentList:  false,
             AddPolymerDialog: false,
-            UserRegistrationDialog:  false,
+            UserRegistrationDialog:  true,
             PolymerRecruitmentDialog: false,
             PolymerRegistrationDialog: false,
             detailsDialog: false

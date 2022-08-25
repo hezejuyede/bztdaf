@@ -70,7 +70,7 @@ export default {
                             },
                         },
                         yAxis: {
-                            name: "(单位:元/个)",
+                            name: "(kW·h)",
                             axisLine: {
                                 show: false,
                             },

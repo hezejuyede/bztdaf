@@ -55,19 +55,13 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
+import {PolymerList} from "../../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData: [
-                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏", "jhdls": "2", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏", "jhdls": "2", "zmqk": "1", "dqzrl": "170MW", "qkrl": "3MW"},
-                {"gfzt": "郭集李家社区光伏", "jhdls": "1", "zmqk": "2", "dqzrl": "170MW", "qkrl": "3MW"},
-            ],
+            tableData: [],
             examineTime: []
         }
     },
@@ -86,12 +80,11 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await greenCardHistory({
-                    "region": that.region,
+                const result = await PolymerList({
                     "startTime": that.examineTime[0],
                     "endTime": that.examineTime[1]
                 })
-                /* that.tableData = result.data.data.data;*/
+                 that.tableData = result.data.data.data;
             }
             getListData();
         },

@@ -34,18 +34,12 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {greenCardHistory} from "../../../../api/GreenPowerConsumptionCertification/GreenPowerConsumptionCertification";
+import {SalesSideInquiry} from "../../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
 export default {
     name: 'modal',
     data() {
         return {
-            tableData:[
-                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
-                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
-                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
-                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
-                {"name": "聚合1","zjrl": "3", "sfrl": "18", "ysdl": "170MW", "ksdl": "3MW", "jhksrq": "2022-07-02", "jhjsrq": "2022-08-02"},
-            ],
+            tableData:[],
             examineTime:[]
         }
     },
@@ -64,12 +58,11 @@ export default {
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await greenCardHistory({
-                    "region": that.region,
+                const result = await SalesSideInquiry({
                     "startTime":that.examineTime[0],
                     "endTime":that.examineTime[1]
                 })
-               /* that.tableData = result.data.data.data;*/
+                that.tableData = result.data.data.data;
             }
             getListData();
         },

@@ -84,18 +84,9 @@ export default {
     name: 'modal',
     data() {
         return {
-            details: {
-                "gfzt": "滨州市",
-                "jhtmc": "山东电力交易中心",
-                "zjzjrl": "180MW",
-                "jhtzjrl": "169MW",
-                "dytgs": "3",
-                "kzmdytgs": "2",
-            },
+            details: {},
             tableData: [
-                {"dytmc": "山东省滨州市沾化县郭集李家社区", "dytzjrl": "1", "hyqk": "1", "mqfdl": "170MW", "ksdl": "3MW"},
-                {"dytmc": "山东省滨州市沾化县郭集李家社区", "dytzjrl": "1", "hyqk": "1", "mqfdl": "170MW", "ksdl": "3MW"},
-                {"dytmc": "山东省滨州市沾化县郭集李家社区", "dytzjrl": "1", "hyqk": "1", "mqfdl": "170MW", "ksdl": "3MW"},
+
             ],
         }
     },

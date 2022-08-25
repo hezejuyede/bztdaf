@@ -56,17 +56,17 @@
                       highlight-current-row style="width: 95%;margin: auto">
                 <el-table-column label="聚合体名称" prop="htbh" align="center"></el-table-column>
                 <el-table-column label="区域分布" prop=dgt" align="center"></el-table-column>
-                <el-table-column label="单光伏核电站数量" prop="htzb" align="center"></el-table-column>
+                <el-table-column label="单光伏电站数量" prop="htzb" align="center"></el-table-column>
                 <el-table-column label="装机总容量" prop="htxyd" align="center"></el-table-column>
-                <el-table-column label="单电站最小装机容量" prop="jhfpzb" align="center" ></el-table-column>
-                <el-table-column label="单电站最大装机容量" prop="sjzb" align="center"></el-table-column>
+                <el-table-column label="单圆体最小装机容量" prop="jhfpzb" align="center" ></el-table-column>
+                <el-table-column label="单圆体最大装机容量" prop="sjzb" align="center"></el-table-column>
             </el-table>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import {  PolymerDisplay} from "../../../../api/GreenPowerTransactionAggregationAgent/AggregateDisplay";
+import {PolymerDisplay} from "../../../../api/GreenPowerTransactionAggregationAgent/AggregateDisplay";
 import {regionOptions} from "../../../../utils/options";
 
 export default {

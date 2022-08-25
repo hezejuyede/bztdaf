@@ -94,12 +94,12 @@ export default {
                         },
                         series: [{
                             type: 'line', smooth: true, itemStyle: {
-                                normal: {
+                               /* normal: {
                                     color: '#FFC657', areaStyle: {
                                         type: 'default',
                                         opacity: 0.1
                                     }
-                                }
+                                }*/
                             }
                         },
                             {

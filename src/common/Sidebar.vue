@@ -98,13 +98,14 @@
                                 title: '绿电市场信息同步'
                             },
                             {
+                                index: 'PowerSalesAggregationAgent',
+                                title: '聚合代理'
+                            },
+                            {
                                 index: 'AggregateDisplay',
                                 title: '售电聚合体展示'
                             },
-                            {
-                                index: 'PowerSalesAggregationAgent',
-                                title: '聚合代理-售电'
-                            },
+
                           /*  {
                                 index: 'AggregationAgentPowerPurchase',
                                 title: '聚合代理-购电'

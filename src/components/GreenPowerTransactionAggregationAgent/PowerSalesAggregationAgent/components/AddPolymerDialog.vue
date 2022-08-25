@@ -106,41 +106,32 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {dataHash} from "../../../../api/DataTrustworthinessSupervision/DataTrustworthinessSupervision";
+import {AddPolymer} from "../../../../api/GreenPowerTransactionAggregationAgent/PowerSalesAggregationAgent";
 
 
 export default {
     name: 'modal',
     data() {
         return {
-            tableData: [
-                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
-                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"},
-                {"jht": "聚合体1", "jhtzrl": "170MW", "jhtyl": "3MW", "jhtzcztrl": "17"}
-            ],
+            tableData: [],
         }
     },
     mounted() {
 
 
+
     },
     created() {
-
+        this.getList();
     },
     methods: {
-
-        //查詢
-        doSearch() {
-
-            this.getList();
-        },
 
         //查询
         getList() {
             let that = this;
             const getListData = async () => {
-                const result = await dataHash({})
-                /* that.tableData = result.data.data.data;*/
+                const result = await AddPolymer({})
+                 that.tableData = result.data.data.data;
             }
             getListData();
 
