@@ -4,18 +4,19 @@
         <div class="visibleDiv">
             <div class="visibleTable">
                 <el-table class="tb-edit" :data="tableData"
-                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'60px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
+                          :header-cell-style="{background:'#EDF4F4',color:'#474F4F',height:'30px',borderColor:'#CAE5E4',fontSize:'14px',fontWeight: 'bold'}"
                           :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#444B4B',background:'#FFFFFF',borderColor:'#CAE5E4'}"
                           border
                           :height="320"
                           id="rebateSetTable"
                           ref="moviesTable"
                           highlight-current-row style="width: 100%;margin: auto">
-                    <el-table-column label="电压" prop="电压" align="center"></el-table-column>
-                    <el-table-column label="电流" prop="电流" align="center" ></el-table-column>
-                    <el-table-column label="发电量" prop="发电量" align="center"></el-table-column>
-                    <el-table-column label="有功功率" prop="有功功率" align="center"></el-table-column>
-                    <el-table-column label="累计发电量" prop="累计发电量" align="center"></el-table-column>
+                    <el-table-column label="时间" prop="time" align="center"></el-table-column>
+                    <el-table-column label="电压" prop="dy" align="center"></el-table-column>
+                    <el-table-column label="电流" prop="dl" align="center" ></el-table-column>
+                    <el-table-column label="发电量" prop="fdl" align="center"></el-table-column>
+                    <el-table-column label="有功功率" prop="yggl" align="center"></el-table-column>
+                    <el-table-column label="累计发电量" prop="ljfdl" align="center"></el-table-column>
                 </el-table>
             </div>
         </div>
@@ -101,6 +102,17 @@ export default {
     .visibleTable {
         height: 320px;
 
+    }
+
+    .el-table {
+        // 看这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        // 深度选择器，去除默认的padding
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 1px;
+        }
     }
 
 
