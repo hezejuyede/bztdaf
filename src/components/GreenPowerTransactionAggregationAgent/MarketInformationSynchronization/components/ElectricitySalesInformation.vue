@@ -6,7 +6,7 @@
                   ref="moviesTable"
                   :height="320"
                   highlight-current-row style="width: 95%;margin: auto">
-            <el-table-column label="实时卖电信息" prop="ssgdxx" align="center">
+            <el-table-column label="实时售电信息" prop="ssgdxx" align="center">
                 <template slot-scope="scope">
                     <el-popover placement="top-start" title="实时购电信息" width="350" trigger="hover"
                                 :content="scope.row.ssgdxx">
@@ -18,9 +18,9 @@
                     </el-popover>
                 </template>
             </el-table-column>
-            <el-table-column label="单价" prop="dj" align="center" width="60"></el-table-column>
-            <el-table-column label="补贴" prop="bt" align="center" width="80"></el-table-column>
-            <el-table-column label="绿电" prop="ld" align="center" width="90"></el-table-column>
+            <el-table-column label="单价(元)" prop="dj" align="center" width="60"></el-table-column>
+            <el-table-column label="补贴(元)" prop="bt" align="center" width="80"></el-table-column>
+            <el-table-column label="电量" prop="ld" align="center" width="90"></el-table-column>
         </el-table>
     </div>
 </template>
