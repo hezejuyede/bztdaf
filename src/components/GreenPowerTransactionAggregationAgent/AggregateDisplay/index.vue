@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="templateDivBR fl">
-                <img src="../../../assets/img/dw/jh-zs_03.png" alt="" style="height:  300px">
+                <img src="../../../assets/img/dw/jh-zs_03.jpg" alt="" style="height:  300px">
             </div>
         </div>
         <div class="templateDivT">
