@@ -1,7 +1,9 @@
 <template>
     <div class="greenPower-parent">
-        <div style="height:100%;width: 100%;">
+        <div style="height:100%;width: 100%;position: relative">
             <div id="chart_1" style="height: 100%;width: 100%;"></div>
+            <div class="fountStyle" style="top: 12%;left: 1%;">山东沾化奥仕化学有限公司</div>
+            <div class="fountStyle" style="top: 82%;left: 1%;">东立绿电聚合代理商</div>
         </div>
     </div>
 </template>
@@ -183,7 +185,6 @@ export default {
                 },
                 color: ['#53C7A0', '#0468ff', '#53C7A0'],
                 xAxis: {
-
                     type: 'category',
                     boundaryGap: false,
                     data: dateList,
@@ -328,4 +329,16 @@ export default {
 </script>
 
 <style scoped>
+.greenPower-parent {
+    height: 100%;
+    width: 100%;
+    padding: 10px !important;
+    background-color: #edf4f4;
+    position: relative;
+}
+.fountStyle{
+    position: absolute;
+    font-size: 16px;
+    font-weight: 600;
+}
 </style>
