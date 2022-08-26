@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c7f0bf-7b8a-4169-88df-7bd6c302f4e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/ElectricitySalesInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/ElectricitySalesInformation.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerPurchaseInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GreenPowerTransactionAggregationAgent/MarketInformationSynchronization/components/PowerPurchaseInformation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TransactionContractAnalysis/components/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TransactionContractAnalysis/components/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +72,7 @@
       <workItem from="1660290844589" duration="51388000" />
       <workItem from="1660531347548" duration="78529000" />
       <workItem from="1661235773182" duration="53990000" />
-      <workItem from="1661481758686" duration="692000" />
-    </task>
-    <task id="LOCAL-00060" summary="11点39分">
-      <created>1661053109870</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1661053109870</updated>
+      <workItem from="1661481758686" duration="1059000" />
     </task>
     <task id="LOCAL-00061" summary="15dian07">
       <created>1661065661091</created>
@@ -417,14 +410,20 @@
       <option name="project" value="LOCAL" />
       <updated>1661388378710</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="10点55分">
+      <created>1661482569281</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1661482569281</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15点45分" />
     <MESSAGE value="16点22" />
     <MESSAGE value="17点05分" />
     <MESSAGE value="17点36分" />
@@ -449,6 +448,7 @@
     <MESSAGE value="16点41" />
     <MESSAGE value="17点10分" />
     <MESSAGE value="8点46分" />
-    <option name="LAST_COMMIT_MESSAGE" value="8点46分" />
+    <MESSAGE value="10点55分" />
+    <option name="LAST_COMMIT_MESSAGE" value="10点55分" />
   </component>
 </project>

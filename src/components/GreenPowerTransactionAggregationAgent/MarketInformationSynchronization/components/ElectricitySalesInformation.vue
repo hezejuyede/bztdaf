@@ -18,7 +18,7 @@
                     </el-popover>
                 </template>
             </el-table-column>
-            <el-table-column label="单价(元)" prop="dj" align="center" width="60"></el-table-column>
+            <el-table-column label="单价(元)" prop="dj" align="center" width="80"></el-table-column>
             <el-table-column label="补贴(元)" prop="bt" align="center" width="80"></el-table-column>
             <el-table-column label="电量" prop="ld" align="center" width="90"></el-table-column>
         </el-table>

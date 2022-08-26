@@ -183,6 +183,7 @@ export default {
                 },
                 color: ['#53C7A0', '#0468ff', '#53C7A0'],
                 xAxis: {
+
                     type: 'category',
                     boundaryGap: false,
                     data: dateList,
