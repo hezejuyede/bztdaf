@@ -2,8 +2,8 @@
     <div class="greenPower-parent">
         <div style="height:100%;width: 100%;position: relative">
             <div id="chart_1" style="height: 100%;width: 100%;"></div>
-            <div class="fountStyle" style="top: 12%;left: 1%;">山东沾化奥仕化学有限公司</div>
-            <div class="fountStyle" style="top: 82%;left: 1%;">东立绿电聚合代理商</div>
+            <div class="fountStyle" style="top: 8%;left: 1%;">山东沾化奥仕化学有限公司</div>
+            <div class="fountStyle" style="top: 97%;left: 1%;">东立绿电聚合代理商</div>
         </div>
     </div>
 </template>
